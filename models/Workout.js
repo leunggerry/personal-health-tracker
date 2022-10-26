@@ -6,6 +6,10 @@ const WorkoutSchema = new Schema(
         type: String,
         required: true
       },
+      workoutDescription: {
+        type: String,
+        required: true
+      },
       setsCount : {
         type: Number,
         required: false
