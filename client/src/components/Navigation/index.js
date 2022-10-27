@@ -1,12 +1,9 @@
 import React from 'react';
 import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import { default as NavBoostrap } from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/Button';
+import { Navbar, Button, Nav } from 'react-bootstrap';
 
-function Nav() {
+function Navigation() {
 	function showNavigation() {
 		if (Auth.loggedIn()) {
 			return (
@@ -30,22 +27,22 @@ function Nav() {
 			);
 		} else {
 			return (
-				<NavBoostrap className="justify-content-end" as="ul">
-					<NavBoostrap.Item as="li">
+				<Nav className="justify-content-end" as="ul">
+					<Nav.Item as="li">
 						<Button variant="secondary">
 							<Link to="/signup">Signup</Link>
 						</Button>{' '}
 						<Button variant="secondary">
 							<Link to="/login">Login</Link>
 						</Button>{' '}
-					</NavBoostrap.Item>
-				</NavBoostrap>
+					</Nav.Item>
+				</Nav>
 			);
 		}
 	}
 	return (
-		<Navbar bg="dark" variant="dark" sticky="top">
-			<Container>
+		<header>
+			<Navbar variant="dark" sticky="top">
 				<Link to="/">
 					<Navbar.Brand>
 						<img
@@ -58,11 +55,10 @@ function Nav() {
 						Capstone
 					</Navbar.Brand>
 				</Link>
-
-				{showNavigation()}
-			</Container>
-		</Navbar>
+			</Navbar>
+			{showNavigation()}
+		</header>
 	);
 }
 
-export default Nav;
+export default Navigation;
