@@ -1,6 +1,10 @@
 import React from 'react';
 import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import { default as NavBoostrap } from 'react-bootstrap/Nav';
+import Button from 'react-bootstrap/Button';
 
 function Nav() {
 	function showNavigation() {
@@ -26,31 +30,38 @@ function Nav() {
 			);
 		} else {
 			return (
-				<ul className="flex-row">
-					<li className="mx-1">
-						<Link to="/signup">Signup</Link>
-					</li>
-					<li className="mx-1">
-						<Link to="/login">Login</Link>
-					</li>
-				</ul>
+				<NavBoostrap className="justify-content-end" as="ul">
+					<NavBoostrap.Item as="li">
+						<Button variant="secondary">
+							<Link to="/signup">Signup</Link>
+						</Button>{' '}
+						<Button variant="secondary">
+							<Link to="/login">Login</Link>
+						</Button>{' '}
+					</NavBoostrap.Item>
+				</NavBoostrap>
 			);
 		}
 	}
-
 	return (
-		<header className="flex-row px-1">
-			<h1>
+		<Navbar bg="dark" variant="dark" sticky="top">
+			<Container>
 				<Link to="/">
-					<span role="img" aria-label="shopping bag">
-						🛍️
-					</span>
-					Capstone
+					<Navbar.Brand>
+						<img
+							alt=""
+							src="/Capstone-logo60.png"
+							width="30"
+							height="30"
+							className="d-inline-block align-top"
+						/>{' '}
+						Capstone
+					</Navbar.Brand>
 				</Link>
-			</h1>
 
-			<nav>{showNavigation()}</nav>
-		</header>
+				{showNavigation()}
+			</Container>
+		</Navbar>
 	);
 }
 

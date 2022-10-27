@@ -1,4 +1,11 @@
-:root {
+/* Bootstrap overrides */
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+/* ---------------SHOP SHOP CSS------------------------ */
+/* :root {
 	--primary: #232f3e;
 	--secondary: #f3a847;
 	--tertiary: #b12704;
@@ -207,4 +214,4 @@ input:focus {
 	.card {
 		width: 100%;
 	}
-}
+} */
