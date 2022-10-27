@@ -19,10 +19,46 @@ const UserSchema = new Schema(
           ref: 'Workout'
         }
       ],
-      weeklyWorkouts: [
+      mondayWorkouts: [
         {
-            type: Schema.Types.ObjectId,
-            ref: 'Day'
+          type: Schema.Types.ObjectId,
+          ref: 'Workout'
+        }
+      ],
+      tuesdayWorkouts: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Workout'
+        }
+      ],
+      wednesdayWorkouts: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Workout'
+        }
+      ],
+      thursdayWorkouts: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Workout'
+        }
+      ],
+      fridayWorkouts: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Workout'
+        }
+      ],
+      saturdayWorkouts: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Workout'
+        }
+      ],
+      sundayWorkouts: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Workout'
         }
       ]
     },
@@ -35,15 +71,15 @@ const UserSchema = new Schema(
     }
 );
 
-// get list of favourited workouts
-UserSchema.virtual('listFavWorkouts').get(function() {
-    return this.fav_workouts;
-})
+// // get list of favourited workouts
+// UserSchema.virtual('listFavWorkouts').get(function() {
+//     return this.fav_workouts;
+// })
 
-// get list of workouts added to calendar
-UserSchema.virtual('listWeeklyWorkouts').get(function() {
-    return this.weeklyWorkouts;
-})
+// // get list of workouts added to calendar
+// UserSchema.virtual('listWeeklyWorkouts').get(function() {
+//     return this.weeklyWorkouts;
+// })
 
 // create the User model using the UserSchema
 const User = model('User', UserSchema);
