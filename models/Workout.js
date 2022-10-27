@@ -23,14 +23,13 @@ const WorkoutSchema = new Schema(
       toJSON: {
         virtuals: true,
         getters: true
-      },
-      id: false
+      }
     }
 );
 
-WorkoutSchema.virtual('workoutCount').get(function() {
-    return this.workouts.length;
-});
+// WorkoutSchema.virtual('workoutCount').get(function() {
+//     return this.workouts.length;
+// });
 
 const Workout = model('Workout', WorkoutSchema);
 
