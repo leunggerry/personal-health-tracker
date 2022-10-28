@@ -1,27 +1,6 @@
 {
-	"name": "personal-health-tracker",
-	"version": "1.0.0",
-	"description": "",
-	"main": "server/server.js",
-	"scripts": {
-		"start": "node server/server.js",
-		"develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
-		"install": "cd server && npm i && cd ../client && npm i",
-		"seed": "cd server && npm run seed",
-		"build": "cd client && npm run build",
-		"format": "prettier . --write",
-		"prepare": "husky install"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"concurrently": "^5.1.0",
-		"husky": "^8.0.1",
-		"lint-staged": "^13.0.3",
-		"prettier": "2.7.1"
-	},
-	"lint-staged": {
-		"*.{js,css,md,html,json}": "npm run format"
-	}
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.7.0"
+  }
 }
