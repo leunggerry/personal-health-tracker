@@ -64,6 +64,17 @@ section {
 	border-radius: 15px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+.section-title {
+	text-align: center;
+	margin: 0 auto 35px auto;
+}
+
+.Carousel-container .Carousel-item img {
+	object-fit: cover;
+	object-position: center;
+	height: 50vh;
+	overflow: hidden;
+}
 
 /* ---------------SHOP SHOP CSS------------------------ */
 /* :root {
