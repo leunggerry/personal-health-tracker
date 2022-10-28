@@ -1,8 +1,9 @@
 import React from 'react';
 import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
+import { Navbar, Button, Nav } from 'react-bootstrap';
 
-function Nav() {
+function Navigation() {
 	function showNavigation() {
 		if (Auth.loggedIn()) {
 			return (
@@ -26,32 +27,38 @@ function Nav() {
 			);
 		} else {
 			return (
-				<ul className="flex-row">
-					<li className="mx-1">
-						<Link to="/signup">Signup</Link>
-					</li>
-					<li className="mx-1">
-						<Link to="/login">Login</Link>
-					</li>
-				</ul>
+				<Nav className="justify-content-end" as="ul">
+					<Nav.Item as="li">
+						<Button variant="secondary">
+							<Link to="/signup">Signup</Link>
+						</Button>{' '}
+						<Button variant="secondary">
+							<Link to="/login">Login</Link>
+						</Button>{' '}
+					</Nav.Item>
+				</Nav>
 			);
 		}
 	}
-
 	return (
-		<header className="flex-row px-1">
-			<h1>
+		<header>
+			<Navbar variant="dark" sticky="top">
 				<Link to="/">
-					<span role="img" aria-label="shopping bag">
-						🛍️
-					</span>
-					Capstone
+					<Navbar.Brand>
+						<img
+							alt=""
+							src="/Capstone-logo60.png"
+							width="30"
+							height="30"
+							className="d-inline-block align-top"
+						/>{' '}
+						Capstone
+					</Navbar.Brand>
 				</Link>
-			</h1>
-
-			<nav>{showNavigation()}</nav>
+			</Navbar>
+			{showNavigation()}
 		</header>
 	);
 }
 
-export default Nav;
+export default Navigation;

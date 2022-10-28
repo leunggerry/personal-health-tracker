@@ -1,4 +1,39 @@
+/* Color Palate */
 :root {
+	--rich-black-fogra-39: #090908ff;
+	--jet: #2f3231ff;
+	--umber: #796456ff;
+	--smoky-black: #16100bff;
+	--umber-2: #64554aff;
+}
+
+/* Bootstrap overrides */
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+/* apply styles to <header> */
+header {
+	padding: 20px 35px;
+	/* background-color: #39a6b2; */
+	background-image: url('./assets/images/kelly-sikkema-bE6k8SQT2FQ-unsplash.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-position: 80%;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	/* Make the Header "Sticky" */
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 9999;
+}
+
+/* ---------------SHOP SHOP CSS------------------------ */
+/* :root {
 	--primary: #232f3e;
 	--secondary: #f3a847;
 	--tertiary: #b12704;
@@ -207,4 +242,4 @@ input:focus {
 	.card {
 		width: 100%;
 	}
-}
+} */
