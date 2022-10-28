@@ -1,10 +1,10 @@
 /* Color Palate */
 :root {
-	--rich-black-fogra-39: #090908ff;
-	--jet: #2f3231ff;
-	--umber: #796456ff;
-	--smoky-black: #16100bff;
-	--umber-2: #64554aff;
+	--rich-black-fogra-29: #111116ff;
+	--white: #fefefeff;
+	--russet: #754022ff;
+	--gainsboro: #dedbd9ff;
+	--cultured: #f6f5f5ff;
 }
 
 /* Bootstrap overrides */
@@ -16,8 +16,7 @@ a {
 /* apply styles to <header> */
 header {
 	padding: 20px 35px;
-	/* background-color: #39a6b2; */
-	background-image: url('./assets/images/kelly-sikkema-bE6k8SQT2FQ-unsplash.jpg');
+	background-color: var(--rich-black-fogra-29);
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
@@ -30,6 +29,51 @@ header {
 	position: sticky;
 	top: 0;
 	z-index: 9999;
+}
+
+section {
+	padding: 60px;
+}
+
+/* HERO STYLE START */
+.hero {
+	background-color: var(--rich-black-fogra-29);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-position: 80%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
+/* Hero-form Style */
+.hero-cta {
+	width: 35%;
+	margin: 3.5%;
+	color: #fff;
+	font-size: 18px;
+	line-height: 1.2;
+}
+/* Hero-form Style Start */
+.hero-form {
+	padding: 20px;
+	width: 500px;
+	color: #fff;
+	margin: 3.5%;
+	border-radius: 15px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.section-title {
+	text-align: center;
+	margin: 0 auto 35px auto;
+}
+
+.Carousel-container .Carousel-item img {
+	object-fit: cover;
+	object-position: center;
+	height: 50vh;
+	overflow: hidden;
 }
 
 /* ---------------SHOP SHOP CSS------------------------ */
