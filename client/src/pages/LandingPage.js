@@ -1,14 +1,18 @@
 import React from 'react';
+import HeroBanner from '../components/HeroBanner';
 
-const Home = () => {
+const LandingPage = () => {
 	return (
-		<div className="container">
-			<p>Add Landing page content here</p>
-			{/* <CategoryMenu /> */}
-			{/* <ProductList /> */}
-			{/* <Cart /> */}
-		</div>
+		<>
+			<HeroBanner />
+			<div className="container">
+				<p>Add Landing page content here</p>
+				{/* <CategoryMenu /> */}
+				{/* <ProductList /> */}
+				{/* <Cart /> */}
+			</div>
+		</>
 	);
 };
 
-export default Home;
+export default LandingPage;
