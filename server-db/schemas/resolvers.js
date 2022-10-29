@@ -43,7 +43,11 @@ const resolvers = {
 			//console.log(workoutName);
 			const params = id ? { id } : {};
 			console.log(params);
-			return Workout.findById(id);
+			return Workout.findById(id).select('-__v');
+		},
+		getWorkoutByName: async (parent, { workoutName }) => {
+			//console.log(workoutName);
+			return Workout.findOne({ workoutName }).select('-__v');
 		},
 	},
 };
