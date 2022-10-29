@@ -23,6 +23,11 @@ function Navigation() {
 							Profile
 						</Link>
 					</Nav.Item>
+					<Nav.Item>
+						<Nav.Link href="/" onClick={() => Auth.logout()}>
+							Logout
+						</Nav.Link>
+					</Nav.Item>
 				</Nav>
 			);
 		} else {
