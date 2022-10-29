@@ -14,6 +14,10 @@ body {
 	height: 100%;
 }
 
+.nav-link {
+	padding: 8px 16px;
+}
+
 /* page content should take up the full height */
 #root,
 .App-component {
