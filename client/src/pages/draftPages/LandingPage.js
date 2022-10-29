@@ -1,4 +1,0 @@
-/**
- * Components to add
- *  - Nav
- */
