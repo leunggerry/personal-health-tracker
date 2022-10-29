@@ -28,6 +28,7 @@ const typeDefs = gql`
 		user(id: String): User
 		workouts: [Workout]
 		getWorkoutById(id: String): Workout
+		getWorkoutByName(workoutName: String): Workout
 	}
 `;
 
