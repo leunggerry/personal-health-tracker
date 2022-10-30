@@ -3,53 +3,60 @@
  *  - Favories (favorited workouts)
  *  - Calendar
  */
-import * as React from 'react';
+import React from 'react';
 import Paper from '@mui/material/Paper';
-import { ViewState } from '@devexpress/dx-react-scheduler';
 import {
 	Scheduler,
-	MonthView,
+	WeekView,
 	Appointments,
+	AppointmentTooltip,
+	AppointmentForm,
 } from '@devexpress/dx-react-scheduler-material-ui';
 import moment from 'moment';
 
-// import { appointments } from '../../../demo-data/month-appointments';
+import ProductItem from '../components/ProductItem';
 
-// import FavoriteWorkouts from '../components/FavoriteWorkouts';
+// import appointments from '../../../demo-data/today-appointments';
 
-const Dashboard = () => {
-	const currentDate = moment();
-	// const currentDate = '2018-07-17';
+const currentDate = moment();
+// This is a placeholder
+const appointments = [
+	{ title: 'Mail New Leads for Follow Up', startDate: currentDate },
+	// {
+	// 	title: 'Product Meeting',
+	// 	startDate: '2019-06-23T10:30',
+	// 	endDate: '2019-06-23T11:30',
+	// },
+	// { title: 'Send Territory Sales Breakdown', startDate: '2019-06-23T12:35' },
+];
 
-	// This is a placeholder
-	const schedulerData = [
-		{
-			startDate: currentDate,
-			endDate: '2022-11-01T11:00',
-			title: 'Meeting',
-		},
-		{
-			startDate: currentDate,
-			endDate: '2022-11-01T13:30',
-			title: 'Go to a gym',
-		},
-	];
+export default class Dashboard extends React.PureComponent {
+	constructor(props) {
+		super(props);
+		this.state = {
+			data: appointments,
+		};
+	}
 
-	return (
-		<div className="container">
-			<h2>Dashboard page</h2>
-			<div className="container my-1">
-				{/* <FavoriteWorkouts /> */}
-				<Paper>
-					<Scheduler data={schedulerData}>
-						<ViewState currentDate={currentDate} />
-						<MonthView />
-						<Appointments />
-					</Scheduler>
-				</Paper>
+	render() {
+		const { data } = this.state;
+
+		return (
+			<div className="container">
+				<h2>Dashboard page</h2>
+				<div className="container my-1">
+					{/* <FavoriteWorkouts /> */}
+					<Paper>
+						<Scheduler data={data} height={660}>
+							<WeekView startDayHour={9} endDayHour={19} />
+
+							<Appointments />
+							<AppointmentTooltip showCloseButton showOpenButton />
+							<AppointmentForm readOnly />
+						</Scheduler>
+					</Paper>
+				</div>
 			</div>
-		</div>
-	);
-};
-
-export default Dashboard;
+		);
+	}
+}
