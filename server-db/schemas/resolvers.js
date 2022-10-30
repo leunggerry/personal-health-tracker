@@ -111,18 +111,136 @@ const resolvers = {
 					{ new: true }
 				);
 
-				console.log(updatedUser);
+				//console.log(updatedUser);
 
 				// return the updated user
 				return updatedUser;
 			}
 
 			//no user has logged in
-			throw new AuthenticationError('you need ot logged in!');
+			throw new AuthenticationError('You need to logged in!');
+		},
+
+		// delete favourite workout
+		deleteFavWorkout: async (parent, args, context) => {
+			// check if the user is logged in
+			if (context.user) {
+				const updatedUser = await User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{ $pull: { favWorkouts: args.favWorkoutId } },
+					{ new: true }
+				);
+
+				//console.log(updatedUser);
+
+				// return the updated user
+				return updatedUser;
+			}
+
+			//no user has logged in
+			throw new AuthenticationError('You need to be logged in!');
+		},
+
+		// add workout to schedule
+		scheduleWorkout: async (parent, args, context) => {
+			// check if the user is logged in
+			if (context.user) {
+				const updatedUser = await User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{ $push: { [args.workoutDay]: args.favWorkoutId } },
+					{ new: true }
+				);
+
+				//console.log(updatedUser);
+
+				// return the updated user
+				return updatedUser;
+			}
+
+			//no user has logged in
+			throw new AuthenticationError('You need to be logged in!');
+		},
+		// remove workout from schedule
+		removeScheduleWorkout: async (parent, args, context) => {
+			// check if the user is logged in
+			if (context.user) {
+				const updatedUser = await User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{ $pull: { [args.workoutDay]: args.favWorkoutId } },
+					{ new: true }
+				);
+
+				console.log(updatedUser);
+
+				//return the updated user
+				return updatedUser;
+			}
+			//no user has logged in
+			throw new AuthenticationError('You need to be logged in!');
 		},
 		/******************************************************
 		 * !!! Workout Mutations
 		 ******************************************************/
+		createWorkout: async (parent, args, context) => {
+			// check if the user is logged in to create workout
+			if (context.user) {
+				const workout = await Workout.create(args);
+
+				return workout;
+			}
+			//no user has logged in
+			throw new AuthenticationError(
+				'You need to be logged in to add a workout!'
+			);
+		},
+
+		//update the workout exercise
+		updateWorkout: async (parent, args, context) => {
+			if (context.user) {
+				// const update = {
+				// 	workoutName: args.workoutName,
+				// 	workoutDescription: args.workoutDescription,
+				// 	setsCount: args.setsCount,
+				// 	repsCount: args.repsCount,
+				//};
+				// console.log(args._id);
+				// console.log(update);
+
+				const workout = await Workout.findOneAndUpdate(
+					{ _id: args._id },
+					{
+						workoutName: args.workoutName,
+						workoutDescription: args.workoutDescription,
+						setsCount: args.setsCount,
+						repsCount: args.repsCount,
+					},
+					{ new: true }
+				);
+
+				// console.log(workout);
+				return workout;
+			}
+
+			throw new AuthenticationError(
+				'You need to be logged in to update a workout!'
+			);
+		},
+
+		// Delete Workout based on ID
+		deleteWorkout: async (parent, args, context) => {
+			//user logged in can only delete
+			if (context.user) {
+				const deletedWorkout = await Workout.findOneAndDelete({
+					_id: args._id,
+				});
+
+				return deletedWorkout;
+			}
+
+			throw new AuthenticationError(
+				'You need to be logged in to delete a workout!'
+			);
+		},
 	},
 };
 
