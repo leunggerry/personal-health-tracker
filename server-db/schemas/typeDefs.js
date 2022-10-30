@@ -41,6 +41,23 @@ const typeDefs = gql`
 		login(username: String!, password: String!): Auth
 		addUser(username: String!, password: String!): Auth
 		addFavWorkout(favWorkoutId: String!): User
+		deleteFavWorkout(favWorkoutId: String!): User
+		scheduleWorkout(workoutDay: String!, favWorkoutId: String!): User
+		removeScheduleWorkout(workoutDay: String!, favWorkoutId: String!): User
+		createWorkout(
+			workoutName: String!
+			workoutDescription: String!
+			setsCount: Int
+			repsCount: Int
+		): Workout
+		updateWorkout(
+			_id: ID!
+			workoutName: String
+			workoutDescription: String
+			setsCount: Int
+			repsCount: Int
+		): Workout
+		deleteWorkout(_id: ID!): Workout
 	}
 `;
 
