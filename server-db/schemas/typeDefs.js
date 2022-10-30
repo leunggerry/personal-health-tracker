@@ -23,12 +23,23 @@ const typeDefs = gql`
 		repsCount: Int
 	}
 
+	type Auth {
+		token: ID!
+		user: User
+	}
+
 	type Query {
+		me: User
 		users: [User]
 		user(id: String): User
 		workouts: [Workout]
 		getWorkoutById(id: String): Workout
 		getWorkoutByName(workoutName: String): Workout
+	}
+
+	type Mutation {
+		login(username: String!, password: String!): Auth
+		addUser(username: String!, password: String!): Auth
 	}
 `;
 

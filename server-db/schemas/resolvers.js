@@ -1,4 +1,9 @@
 const { User, Workout } = require('../models');
+// Add Authentication Error handling
+const { AuthenticationError } = require('apollo-server-express');
+// Import the token info for session info
+const { signToken } = require('../utils/auth');
+const { use } = require('../routes/api/user-routes');
 
 const resolvers = {
 	Query: {
@@ -23,12 +28,22 @@ const resolvers = {
 		user: async (parent, { id }) => {
 			// setup params to include ID outhers return all users
 			return User.findById(id)
-				.populate({
-					path: 'favWorkouts',
-					select: '-__v',
-				})
+				.populate('favWorkouts')
 				.select('-__v')
 				.sort({ _id: -1 });
+		},
+
+		// get user session of dashboard that logged in
+		me: async (parent, args, context) => {
+			if (context.user) {
+				const userData = User.findOne({})
+					.select('-__v')
+					.populate('favWorkouts');
+
+				return userData;
+			}
+
+			throw new AuthenticationError('Not Logged In');
 		},
 
 		/******************************************************
@@ -49,6 +64,40 @@ const resolvers = {
 			//console.log(workoutName);
 			return Workout.findOne({ workoutName }).select('-__v');
 		},
+	},
+	Mutation: {
+		/******************************************************
+		 * !!! User Mutations
+		 ******************************************************/
+		addUser: async (parent, args) => {
+			// create user entry in db
+			const user = await User.create(args);
+			// create session token
+			const token = signToken(user);
+
+			return { token, user };
+		},
+		login: async (parent, { username, password }) => {
+			const user = await User.findOne({ username });
+
+			// no user in the DB
+			if (!user) {
+				throw new AuthenticationError('Incorrect Credentials');
+			}
+
+			const correctPassword = await user.isCorrectPassword(password);
+			if (!correctPassword) {
+				throw new AuthenticationError('Incorrect Credentials');
+			}
+
+			// create user session token with JWT
+			const token = signToken(user);
+			return { token, user };
+		},
+
+		/******************************************************
+		 * !!! Workout Mutations
+		 ******************************************************/
 	},
 };
 
