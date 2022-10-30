@@ -36,10 +36,16 @@ const resolvers = {
 		// get user session of dashboard that logged in
 		me: async (parent, args, context) => {
 			if (context.user) {
-				const userData = User.findOne({})
+				const userData = User.findOne({ _id: context.user._id })
 					.select('-__v')
-					.populate('favWorkouts');
-
+					.populate('favWorkouts')
+					.populate('mondayWorkouts')
+					.populate('tuesdayWorkouts')
+					.populate('wednesdayWorkouts')
+					.populate('thursdayWorkouts')
+					.populate('fridayWorkouts')
+					.populate('saturdayWorkouts')
+					.populate('sundayWorkouts');
 				return userData;
 			}
 
@@ -87,7 +93,7 @@ const resolvers = {
 
 			const correctPassword = await user.isCorrectPassword(password);
 			if (!correctPassword) {
-				throw new AuthenticationError('Incorrect Credentials');
+				throw new AuthenticationError('Incorrect passowrd');
 			}
 
 			// create user session token with JWT
@@ -95,6 +101,25 @@ const resolvers = {
 			return { token, user };
 		},
 
+		// add favourite workout
+		addFavWorkout: async (parent, args, context) => {
+			// check if the user is logged in
+			if (context.user) {
+				const updatedUser = await User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{ $push: { favWorkouts: args.favWorkoutId } },
+					{ new: true }
+				);
+
+				console.log(updatedUser);
+
+				// return the updated user
+				return updatedUser;
+			}
+
+			//no user has logged in
+			throw new AuthenticationError('you need ot logged in!');
+		},
 		/******************************************************
 		 * !!! Workout Mutations
 		 ******************************************************/
