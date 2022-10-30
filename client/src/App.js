@@ -44,26 +44,24 @@ function App() {
 	return (
 		<ApolloProvider client={client}>
 			<Router>
-				<div>
-					<StoreProvider>
-						<Navigation />
-						<Routes>
-							<Route path="/" element={<LandingPage />} />
-							<Route path="/login" element={<Login />} />
-							<Route path="/signup" element={<Signup />} />
-							<Route path="/success" element={<Success />} />
-							<Route path="/orderHistory" element={<OrderHistory />} />
-							{/* Adding profile route */}
-							<Route path="/profile" element={<Profile />} />
-							{/* Adding workouts route */}
-							<Route path="/workouts" element={<Workouts />} />
-							{/* Adding dashboard route */}
-							<Route path="/dashboard" element={<Dashboard />} />
-							<Route path="/products/:id" element={<Detail />} />
-							<Route path="*" element={<NoMatch />} />
-						</Routes>
-					</StoreProvider>
-				</div>
+				<StoreProvider>
+					<Navigation />
+					<Routes>
+						<Route path="/" element={<LandingPage />} />
+						<Route path="/login" element={<Login />} />
+						<Route path="/signup" element={<Signup />} />
+						<Route path="/success" element={<Success />} />
+						<Route path="/orderHistory" element={<OrderHistory />} />
+						{/* Adding profile route */}
+						<Route path="/profile" element={<Profile />} />
+						{/* Adding workouts route */}
+						<Route path="/workouts" element={<Workouts />} />
+						{/* Adding dashboard route */}
+						<Route path="/dashboard" element={<Dashboard />} />
+						<Route path="/products/:id" element={<Detail />} />
+						<Route path="*" element={<NoMatch />} />
+					</Routes>
+				</StoreProvider>
 			</Router>
 		</ApolloProvider>
 	);

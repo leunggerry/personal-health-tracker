@@ -7,23 +7,28 @@ function Navigation() {
 	function showNavigation() {
 		if (Auth.loggedIn()) {
 			return (
-				<ul className="flex-row">
-					<li className="mx-1">
-						<Link to="/dashboard">Dashboard</Link>
-					</li>
-					<li className="mx-1">
-						<Link to="/workouts">Workouts</Link>
-					</li>
-					<li className="mx-1">
-						<Link to="/profile">Profile</Link>
-					</li>
-					<li className="mx-1">
-						{/* this is not using the Link component to logout or user and then refresh the application to the start */}
-						<a href="/" onClick={() => Auth.logout()}>
+				<Nav className="justify-content-space-between">
+					<Nav.Item>
+						<Link to="/dashboard" className="nav-link">
+							Dashboard
+						</Link>
+					</Nav.Item>
+					<Nav.Item>
+						<Link to="/workouts" className="nav-link">
+							Workouts
+						</Link>
+					</Nav.Item>
+					<Nav.Item>
+						<Link to="/profile" className="nav-link">
+							Profile
+						</Link>
+					</Nav.Item>
+					<Nav.Item>
+						<Nav.Link href="/" onClick={() => Auth.logout()}>
 							Logout
-						</a>
-					</li>
-				</ul>
+						</Nav.Link>
+					</Nav.Item>
+				</Nav>
 			);
 		} else {
 			return (
