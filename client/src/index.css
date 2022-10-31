@@ -18,12 +18,6 @@ body {
 	padding: 8px 16px;
 }
 
-/* page content should take up the full height */
-#root,
-.App-component {
-	min-height: 100%;
-}
-
 a {
 	color: inherit;
 	text-decoration: none;
@@ -58,7 +52,7 @@ section {
 }
 .main {
 	position: relative;
-	min-height: 100vh;
+	min-height: 64vh;
 }
 /* HERO STYLE START */
 .hero {

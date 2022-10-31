@@ -31,7 +31,7 @@ function Login(props) {
 	};
 
 	return (
-		<Container fluid="md">
+		<Container fluid="md" className="main">
 			<Row className="justify-content-md-center">
 				<Col>
 					<div className="login-card">
