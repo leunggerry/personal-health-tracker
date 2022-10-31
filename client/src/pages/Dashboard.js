@@ -17,6 +17,7 @@ import {
 } from '@chakra-ui/react';
 import FavoriteWorkouts from '../components/FavoriteWorkouts';
 import WorkoutTable from '../components/WorkoutTable';
+import WorkoutStats from '../components/WorkoutStats';
 
 const Dashboard = () => {
 	return (
@@ -30,7 +31,7 @@ const Dashboard = () => {
 				<FavoriteWorkouts />
 			</GridItem>
 			<GridItem colSpan={2} bg="papayawhip">
-				BODY STATS
+				<WorkoutStats />
 			</GridItem>
 
 			{/* Workout Summary */}
