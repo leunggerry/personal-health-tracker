@@ -22,19 +22,23 @@ import WorkoutStats from '../components/WorkoutStats';
 const Dashboard = () => {
 	return (
 		<Grid
+			className="Dashboard"
 			h="200px"
 			templateRows="repeat(2, 1fr)"
 			templateColumns="repeat(5, 1fr)"
 			gap={4}
 		>
+			{/* TODO: remove bg="tomato" */}
 			<GridItem rowSpan={2} colSpan={1} bg="tomato">
 				<FavoriteWorkouts />
 			</GridItem>
+			{/* TODO: remove bg="papayawhip" */}
 			<GridItem colSpan={2} bg="papayawhip">
 				<WorkoutStats />
 			</GridItem>
 
 			{/* Workout Summary */}
+			{/* TODO: remove bg="papayawhip" */}
 			<GridItem colSpan={2} bg="papayawhip">
 				<Heading as="h4" size="md">
 					Session Summary
@@ -47,7 +51,7 @@ const Dashboard = () => {
 				<Wrap justify="center">
 					{/* Session Length */}
 					<WrapItem>
-						<Center w={[55, 180, 200]} h="80px" bg="red.200">
+						<Center w={[55, 180, 200]} h="80px">
 							<img alt="" src="/images/icons/stopwatch.png" />
 							<VStack spacing={1} align="stretch">
 								<div>Session Length</div>
@@ -60,7 +64,7 @@ const Dashboard = () => {
 
 					{/*  Actual Workout */}
 					<WrapItem>
-						<Center w={[55, 180, 200]} h="80px" bg="green.200">
+						<Center w={[55, 180, 200]} h="80px">
 							<VStack spacing={1} align="stretch">
 								<div>Actual Workout</div>
 								<div>
@@ -72,7 +76,7 @@ const Dashboard = () => {
 
 					{/*  Rest Timer */}
 					<WrapItem>
-						<Center w={[55, 180, 200]} h="80px" bg="tomato">
+						<Center w={[55, 180, 200]} h="80px">
 							<VStack spacing={1} align="stretch">
 								<div>Rest Timer</div>
 								<div>
@@ -82,7 +86,7 @@ const Dashboard = () => {
 						</Center>
 					</WrapItem>
 					<WrapItem>
-						<Center w={[55, 180, 200]} h="80px" bg="blue.200">
+						<Center w={[55, 180, 200]} h="80px">
 							<img alt="" src="/images/icons/weight.png" />
 							<VStack spacing={1} align="stretch">
 								<div>Weight Lifted</div>

@@ -157,7 +157,14 @@ section {
 }
 
 /* Dashboard styling */
-.workout-logs-container {
+.Dashboard {
+	position: relative;
+	min-height: 100vh;
+}
+
+/* TODO: remove this styling */
+/* Dashboard styling NOT USED*/
+/* .workout-logs-container {
 	margin-top: 20px;
 	margin-bottom: 50px;
 }
@@ -181,7 +188,7 @@ section {
 .E-log-header {
 	width: 30%;
 }
-/* Dashboard Workout Logs */
+Dashboard Workout Logs
 .fixedLogBar {
 	display: block;
 	padding: 6px 0px 5px 0px;
@@ -201,10 +208,10 @@ section {
 	width: 15%;
 }
 
-/* Dashboard Workout Logs Bootstrap overrides */
+Dashboard Workout Logs Bootstrap overrides
 .table-striped-columns {
 	--bs-table-accent-bg: none;
-}
+} */
 /* ---------------SHOP SHOP CSS------------------------ */
 /* :root {
 	--primary: #232f3e;
