@@ -22,7 +22,7 @@ import WorkoutStats from '../components/WorkoutStats';
 const Dashboard = () => {
 	return (
 		<Grid
-			className="Dashboard"
+			className="main"
 			h="200px"
 			templateRows="repeat(2, 1fr)"
 			templateColumns="repeat(5, 1fr)"
@@ -46,57 +46,58 @@ const Dashboard = () => {
 				<Heading as="h5" size="sm">
 					Monday
 				</Heading>
-				<div className="workout-session">Sesson 1</div>
+				<div className="workout-session">
+					<span>Session 1</span>
+					<Wrap justify="center">
+						{/* Session Length */}
+						<WrapItem>
+							<Center w={[55, 180, 200]} h="80px">
+								<img alt="" src="/images/icons/stopwatch.png" />
+								<VStack spacing={1} align="stretch">
+									<div>Session Length</div>
+									<div>
+										<span>00:03:35</span>
+									</div>
+								</VStack>
+							</Center>
+						</WrapItem>
 
-				<Wrap justify="center">
-					{/* Session Length */}
-					<WrapItem>
-						<Center w={[55, 180, 200]} h="80px">
-							<img alt="" src="/images/icons/stopwatch.png" />
-							<VStack spacing={1} align="stretch">
-								<div>Session Length</div>
-								<div>
-									<span>00:03:35</span>
-								</div>
-							</VStack>
-						</Center>
-					</WrapItem>
+						{/*  Actual Workout */}
+						<WrapItem>
+							<Center w={[55, 180, 200]} h="80px">
+								<VStack spacing={1} align="stretch">
+									<div>Actual Workout</div>
+									<div>
+										<span>00:03:35</span>
+									</div>
+								</VStack>
+							</Center>
+						</WrapItem>
 
-					{/*  Actual Workout */}
-					<WrapItem>
-						<Center w={[55, 180, 200]} h="80px">
-							<VStack spacing={1} align="stretch">
-								<div>Actual Workout</div>
-								<div>
-									<span>00:03:35</span>
-								</div>
-							</VStack>
-						</Center>
-					</WrapItem>
-
-					{/*  Rest Timer */}
-					<WrapItem>
-						<Center w={[55, 180, 200]} h="80px">
-							<VStack spacing={1} align="stretch">
-								<div>Rest Timer</div>
-								<div>
-									<span>00:03:00</span>
-								</div>
-							</VStack>
-						</Center>
-					</WrapItem>
-					<WrapItem>
-						<Center w={[55, 180, 200]} h="80px">
-							<img alt="" src="/images/icons/weight.png" />
-							<VStack spacing={1} align="stretch">
-								<div>Weight Lifted</div>
-								<div>
-									<span>0 Ibs</span>
-								</div>
-							</VStack>
-						</Center>
-					</WrapItem>
-				</Wrap>
+						{/*  Rest Timer */}
+						<WrapItem>
+							<Center w={[55, 180, 200]} h="80px">
+								<VStack spacing={1} align="stretch">
+									<div>Rest Timer</div>
+									<div>
+										<span>00:03:00</span>
+									</div>
+								</VStack>
+							</Center>
+						</WrapItem>
+						<WrapItem>
+							<Center w={[55, 180, 200]} h="80px">
+								<img alt="" src="/images/icons/weight.png" />
+								<VStack spacing={1} align="stretch">
+									<div>Weight Lifted</div>
+									<div>
+										<span>0 Ibs</span>
+									</div>
+								</VStack>
+							</Center>
+						</WrapItem>
+					</Wrap>
+				</div>
 			</GridItem>
 
 			{/* Workout Logs */}

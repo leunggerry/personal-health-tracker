@@ -56,7 +56,10 @@ header {
 section {
 	padding: 60px;
 }
-
+.main {
+	position: relative;
+	min-height: 100vh;
+}
 /* HERO STYLE START */
 .hero {
 	background-color: var(--rich-black-fogra-29);
@@ -154,12 +157,6 @@ section {
 
 .error-text {
 	color: var(--error);
-}
-
-/* Dashboard styling */
-.Dashboard {
-	position: relative;
-	min-height: 100vh;
 }
 
 /* TODO: remove this styling */
