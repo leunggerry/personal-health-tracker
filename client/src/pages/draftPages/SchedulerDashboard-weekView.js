@@ -7,6 +7,7 @@ import {
 	AppointmentTooltip,
 	AppointmentForm,
 } from '@devexpress/dx-react-scheduler-material-ui';
+
 import moment from 'moment';
 
 // import { appointments } from '../../../demo-data/month-appointments';

@@ -5,12 +5,16 @@
  */
 import React from 'react';
 import Paper from '@mui/material/Paper';
+import { ViewState } from '@devexpress/dx-react-scheduler';
 import {
 	Scheduler,
+	DayView,
 	WeekView,
 	Appointments,
 	AppointmentTooltip,
 	AppointmentForm,
+	Toolbar,
+	ViewSwitcher,
 } from '@devexpress/dx-react-scheduler-material-ui';
 import moment from 'moment';
 
@@ -48,10 +52,16 @@ export default class Dashboard extends React.PureComponent {
 					{/* <FavoriteWorkouts /> */}
 					<Paper>
 						<Scheduler data={data} height={660}>
-							<WeekView startDayHour={9} endDayHour={19} />
-
+							<ViewState
+								defaultCurrentDate={currentDate}
+								defaultCurrentViewName="Week"
+							/>
+							<DayView startDayHour={9} endDayHour={23} />
+							<WeekView startDayHour={9} endDayHour={23} />
+							<Toolbar />
+							<ViewSwitcher />
 							<Appointments />
-							<AppointmentTooltip showCloseButton showOpenButton />
+							{/* <AppointmentTooltip showCloseButton showOpenButton /> */}
 							<AppointmentForm readOnly />
 						</Scheduler>
 					</Paper>
