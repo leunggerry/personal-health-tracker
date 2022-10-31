@@ -4,11 +4,25 @@
  * -Favorited workouts
  */
 import React from 'react';
+import { Heading, List, ListItem, Checkbox } from '@chakra-ui/react';
 
 const FavoriteWorkouts = () => {
 	return (
 		<div className="container">
-			<p>My Workouts</p>
+			<Heading as="h4" size="md">
+				Favorite Workouts
+			</Heading>
+			<List spacing={3}>
+				<ListItem>
+					<Checkbox defaultChecked>Push ups</Checkbox>
+				</ListItem>
+				<ListItem>
+					<Checkbox defaultChecked>Ab Roll</Checkbox>
+				</ListItem>
+				<ListItem>
+					<Checkbox defaultChecked>Band Back Fly</Checkbox>
+				</ListItem>
+			</List>
 		</div>
 	);
 };

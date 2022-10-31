@@ -7,6 +7,7 @@ import {
 	createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { Box } from '@chakra-ui/react';
 
 import LandingPage from './pages/LandingPage';
 import Detail from './pages/Detail';
@@ -14,6 +15,7 @@ import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
@@ -46,6 +48,7 @@ function App() {
 			<Router>
 				<StoreProvider>
 					<Navigation />
+					{/* <Box maxW="lm" borderWidth="1px" borderRadius="lg" overflow="hidden"> */}
 					<Routes>
 						<Route path="/" element={<LandingPage />} />
 						<Route path="/login" element={<Login />} />
@@ -61,6 +64,10 @@ function App() {
 						<Route path="/products/:id" element={<Detail />} />
 						<Route path="*" element={<NoMatch />} />
 					</Routes>
+					{/* </Box> */}
+					<Box maxW="lm" overflow="hidden">
+						<Footer />
+					</Box>
 				</StoreProvider>
 			</Router>
 		</ApolloProvider>
