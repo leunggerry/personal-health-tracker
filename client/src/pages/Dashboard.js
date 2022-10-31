@@ -18,8 +18,6 @@ import {
 } from '@devexpress/dx-react-scheduler-material-ui';
 import moment from 'moment';
 
-import ProductItem from '../components/ProductItem';
-
 // import appointments from '../../../demo-data/today-appointments';
 
 const currentDate = moment();
@@ -61,8 +59,9 @@ export default class Dashboard extends React.PureComponent {
 							<Toolbar />
 							<ViewSwitcher />
 							<Appointments />
-							{/* <AppointmentTooltip showCloseButton showOpenButton /> */}
-							<AppointmentForm readOnly />
+							{/* <AppointmentTooltip showCloseButton showOpenButton />
+
+							<AppointmentForm /> */}
 						</Scheduler>
 					</Paper>
 				</div>
