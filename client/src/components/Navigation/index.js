@@ -51,7 +51,7 @@ function Navigation() {
 				<Link to="/">
 					<Navbar.Brand>
 						<img
-							alt=""
+							alt="Capstone logo"
 							src="/Capstone-logo60.png"
 							width="30"
 							height="30"

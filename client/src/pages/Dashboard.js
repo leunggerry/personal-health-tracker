@@ -4,151 +4,104 @@
  *  - Calendar
  */
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import {
+	Heading,
+	Grid,
+	GridItem,
+	Container,
+	Wrap,
+	WrapItem,
+	Center,
+	VStack,
+	Box,
+} from '@chakra-ui/react';
 import FavoriteWorkouts from '../components/FavoriteWorkouts';
 import WorkoutTable from '../components/WorkoutTable';
 
 const Dashboard = () => {
 	return (
-		// <div className="container">
-		// 	<h2>Dashboard page</h2>
-		// 	<div className="container my-1">
-		// 		<FavoriteWorkouts />
-		// 	</div>
-		// </div>
+		<Grid
+			h="200px"
+			templateRows="repeat(2, 1fr)"
+			templateColumns="repeat(5, 1fr)"
+			gap={4}
+		>
+			<GridItem rowSpan={2} colSpan={1} bg="tomato">
+				<FavoriteWorkouts />
+			</GridItem>
+			<GridItem colSpan={2} bg="papayawhip">
+				BODY STATS
+			</GridItem>
 
-		<Container fluid className="workout-summary">
-			<Row>
-				{/* Workout Summary */}
-				<Col xs={12} md={8}>
-					<h3>Session Summary</h3>
-				</Col>
-				<Col xs={12} md={8}>
-					<strong>Monday</strong>
-				</Col>
-				{/* Workout Logs */}
-				<Col xs={12} md={8}>
-					<div className="workout-session">Sesson 1</div>
-					<Row>
-						<Col xs={6} md={4}>
-							<Row>
-								<Col xs={4}>
-									<div>ICON</div>
-								</Col>
-								<Col xs={8}>
-									<div>Session Length</div>
-									<div>
-										<span>00:03:35</span>
-									</div>
-								</Col>
-							</Row>
-						</Col>
+			{/* Workout Summary */}
+			<GridItem colSpan={2} bg="papayawhip">
+				<Heading as="h4" size="md">
+					Session Summary
+				</Heading>
+				<Heading as="h5" size="sm">
+					Monday
+				</Heading>
+				<div className="workout-session">Sesson 1</div>
 
-						<Col xs={6} md={4}>
-							<Row>
-								<Col xs={4}>
-									<div>ICON</div>
-								</Col>
-								<Col xs={8}>
-									<div>Actual Workout</div>
-									<div>
-										<span>00:03:35</span>
-									</div>
-								</Col>
-							</Row>
-						</Col>
-
-						<Col xs={6} md={4}>
-							<Row>
-								<Col xs={4}>
-									<div>ICON</div>
-								</Col>
-								<Col xs={8}>
-									<div>Wasted Time</div>
-									<div>
-										<span>00:00:00</span>
-									</div>
-								</Col>
-							</Row>
-						</Col>
-
-						<Col xs={6} md={4}>
-							<Row>
-								<Col xs={4}>
-									<div>ICON</div>
-								</Col>
-								<Col xs={8}>
-									<div>Rest Timer</div>
-									<div>
-										<span>00:03:00</span>
-									</div>
-								</Col>
-							</Row>
-						</Col>
-
-						<Col xs={6} md={4}>
-							<Row>
-								<Col xs={4}>
-									<div>ICON</div>
-								</Col>
-								<Col xs={8}>
-									<div>Exercises Done</div>
-									<div>
-										<span>2</span>
-									</div>
-								</Col>
-							</Row>
-						</Col>
-
-						<Col xs={6} md={4}>
-							<Row>
-								<Col xs={4}>
-									<div>ICON</div>
-								</Col>
-								<Col xs={8}>
-									<div>Weight Lifted</div>
-									<div>
-										<span>0 Ibs</span>
-									</div>
-								</Col>
-							</Row>
-						</Col>
-
-						<Col className="workout-logs-container">
-							<div className="workout-logs-header">
-								<strong>Workouts Logs</strong>
-							</div>
-
-							{/* Headings */}
-							<div className="exercise-name-headers">
-								<div className="E-name-header">Exercise Name</div>
-								<div className="E-log-header">Lifting Logs</div>
-							</div>
-
-							{/* Exercises */}
-							<div className="exercise-container">
-								<div className="exercise-block">
-									<div className="fixedLogBar">
-										<div className="fixedLogBarBlock align-top E-name-content">
-											Push ups
-										</div>
-										<div className="fixedLogBarBlock align-top E-log-content">
-											Push ups
-										</div>
-									</div>
+				<Wrap justify="center">
+					{/* Session Length */}
+					<WrapItem>
+						<Center w={[55, 180, 200]} h="80px" bg="red.200">
+							<img alt="" src="/images/icons/stopwatch.png" />
+							<VStack spacing={1} align="stretch">
+								<div>Session Length</div>
+								<div>
+									<span>00:03:35</span>
 								</div>
-							</div>
-						</Col>
-					</Row>
-				</Col>
-			</Row>
-			<Row>
-				<Col>
-					<Button variant="primary">+ Add Workout</Button>
-				</Col>
-			</Row>
-			<WorkoutTable />
-		</Container>
+							</VStack>
+						</Center>
+					</WrapItem>
+
+					{/*  Actual Workout */}
+					<WrapItem>
+						<Center w={[55, 180, 200]} h="80px" bg="green.200">
+							<VStack spacing={1} align="stretch">
+								<div>Actual Workout</div>
+								<div>
+									<span>00:03:35</span>
+								</div>
+							</VStack>
+						</Center>
+					</WrapItem>
+
+					{/*  Rest Timer */}
+					<WrapItem>
+						<Center w={[55, 180, 200]} h="80px" bg="tomato">
+							<VStack spacing={1} align="stretch">
+								<div>Rest Timer</div>
+								<div>
+									<span>00:03:00</span>
+								</div>
+							</VStack>
+						</Center>
+					</WrapItem>
+					<WrapItem>
+						<Center w={[55, 180, 200]} h="80px" bg="blue.200">
+							<img alt="" src="/images/icons/weight.png" />
+							<VStack spacing={1} align="stretch">
+								<div>Weight Lifted</div>
+								<div>
+									<span>0 Ibs</span>
+								</div>
+							</VStack>
+						</Center>
+					</WrapItem>
+				</Wrap>
+			</GridItem>
+
+			{/* Workout Logs */}
+			<GridItem colSpan={4}>
+				<div className="workout-logs-header">
+					<strong>Workouts Logs</strong>
+				</div>
+				<WorkoutTable />
+			</GridItem>
+		</Grid>
 	);
 };
 
