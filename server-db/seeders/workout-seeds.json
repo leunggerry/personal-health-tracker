@@ -1,0 +1,20 @@
+[
+	{
+		"workoutName": "Push Ups",
+		"workoutDescription": "Push up",
+		"setsCount": 5,
+		"repsCount": 20
+	},
+	{
+		"workoutName": "Sit Ups",
+		"workoutDescription": "Sit up",
+		"setsCount": 5,
+		"repsCount": 20
+	},
+	{
+		"workoutName": "Bench Press",
+		"workoutDescription": "Bench Press",
+		"setsCount": 5,
+		"repsCount": 20
+	}
+]
