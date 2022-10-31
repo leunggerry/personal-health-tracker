@@ -8,14 +8,13 @@ import {
 	Heading,
 	Grid,
 	GridItem,
-	Container,
 	Wrap,
 	WrapItem,
 	Center,
 	VStack,
-	Box,
 } from '@chakra-ui/react';
 import FavoriteWorkouts from '../components/FavoriteWorkouts';
+// import FavoritesDrawer from '../components/Drawer';
 import WorkoutTable from '../components/WorkoutTable';
 import WorkoutStats from '../components/WorkoutStats';
 
@@ -28,18 +27,23 @@ const Dashboard = () => {
 			templateColumns="repeat(5, 1fr)"
 			gap={4}
 		>
-			{/* TODO: remove bg="tomato" */}
-			<GridItem rowSpan={2} colSpan={1} bg="tomato">
+			<GridItem
+				rowSpan={2}
+				colSpan={1}
+				boxShadow="dark-lg"
+				p="6"
+				rounded="md"
+				bg="white"
+			>
 				<FavoriteWorkouts />
+				{/* <FavoritesDrawer /> */}
 			</GridItem>
-			{/* TODO: remove bg="papayawhip" */}
-			<GridItem colSpan={2} bg="papayawhip">
+			<GridItem colSpan={2} boxShadow="dark-lg" p="6" rounded="md" bg="white">
 				<WorkoutStats />
 			</GridItem>
 
 			{/* Workout Summary */}
-			{/* TODO: remove bg="papayawhip" */}
-			<GridItem colSpan={2} bg="papayawhip">
+			<GridItem colSpan={2} boxShadow="dark-lg" p="6" rounded="md" bg="white">
 				<Heading as="h4" size="md">
 					Session Summary
 				</Heading>
@@ -50,7 +54,7 @@ const Dashboard = () => {
 					<span>Session 1</span>
 					<Wrap justify="center">
 						{/* Session Length */}
-						<WrapItem>
+						<WrapItem boxShadow="xl" p="6" rounded="md" bg="#f6f5f5ff">
 							<Center w={[55, 180, 200]} h="80px">
 								<img alt="" src="/images/icons/stopwatch.png" />
 								<VStack spacing={1} align="stretch">
@@ -63,7 +67,7 @@ const Dashboard = () => {
 						</WrapItem>
 
 						{/*  Actual Workout */}
-						<WrapItem>
+						<WrapItem boxShadow="xl" p="6" rounded="md" bg="#f6f5f5ff">
 							<Center w={[55, 180, 200]} h="80px">
 								<VStack spacing={1} align="stretch">
 									<div>Actual Workout</div>
@@ -75,7 +79,7 @@ const Dashboard = () => {
 						</WrapItem>
 
 						{/*  Rest Timer */}
-						<WrapItem>
+						<WrapItem boxShadow="xl" p="6" rounded="md" bg="#f6f5f5ff">
 							<Center w={[55, 180, 200]} h="80px">
 								<VStack spacing={1} align="stretch">
 									<div>Rest Timer</div>
@@ -85,7 +89,7 @@ const Dashboard = () => {
 								</VStack>
 							</Center>
 						</WrapItem>
-						<WrapItem>
+						<WrapItem boxShadow="xl" p="6" rounded="md" bg="#f6f5f5ff">
 							<Center w={[55, 180, 200]} h="80px">
 								<img alt="" src="/images/icons/weight.png" />
 								<VStack spacing={1} align="stretch">
@@ -101,7 +105,7 @@ const Dashboard = () => {
 			</GridItem>
 
 			{/* Workout Logs */}
-			<GridItem colSpan={4}>
+			<GridItem colSpan={4} boxShadow="dark-lg" p="6" rounded="md" bg="white">
 				<div className="workout-logs-header">
 					<strong>Workouts Logs</strong>
 				</div>
