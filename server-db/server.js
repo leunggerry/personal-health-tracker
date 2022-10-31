@@ -1,9 +1,10 @@
 const express = require('express');
 //import Apollo-Server
 const { ApolloServer } = require('apollo-server-express');
+const path = require('path');
+
 //import middleware authentication
 const { authMiddleware } = require('./utils/auth');
-
 //import the GQL typeDefs and Reovlers
 const { typeDefs, resolvers } = require('./schemas');
 // import the db
@@ -22,10 +23,14 @@ const server = new ApolloServer({
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// app.use(express.static('public'));
 
-// app.use(require('./routes'));
-
+// Check if in dev environemnt and provide applications from build directory
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static(path.join(__dirname, '../client/build')));
+}
+app.get('/', (req, res) => {
+	res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 // Create a new instance of the ApolloSerer with the GraphQL Schema
 const startApolloServer = async (typeDefs, resolvers) => {
 	await server.start();
