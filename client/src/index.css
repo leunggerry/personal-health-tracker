@@ -156,6 +156,7 @@ section {
 	color: var(--error);
 }
 
+/* Dashboard styling */
 .workout-logs-container {
 	margin-top: 20px;
 	margin-bottom: 50px;
@@ -174,11 +175,35 @@ section {
 	font-weight: bold;
 	background-color: #f5f5f5;
 }
-.E-name {
+.E-name-header {
 	width: 35%;
 }
-.E-log {
+.E-log-header {
 	width: 30%;
+}
+/* Dashboard Workout Logs */
+.fixedLogBar {
+	display: block;
+	padding: 6px 0px 5px 0px;
+	margin: 5px 0px;
+	border-bottom: solid 1px #eeeeee;
+}
+.fixedLogBarBlock {
+	display: inline-block;
+}
+.align-top {
+	vertical-align: top !important;
+}
+.E-name-content {
+	width: 20%;
+}
+.E-log-content {
+	width: 15%;
+}
+
+/* Dashboard Workout Logs Bootstrap overrides */
+.table-striped-columns {
+	--bs-table-accent-bg: none;
 }
 /* ---------------SHOP SHOP CSS------------------------ */
 /* :root {

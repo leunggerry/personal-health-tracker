@@ -6,6 +6,7 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import FavoriteWorkouts from '../components/FavoriteWorkouts';
+import WorkoutTable from '../components/WorkoutTable';
 
 const Dashboard = () => {
 	return (
@@ -120,29 +121,33 @@ const Dashboard = () => {
 
 							{/* Headings */}
 							<div className="exercise-name-headers">
-								<div className="E-name">Exercise Name</div>
-								<div className="E-log">Lifting Logs</div>
+								<div className="E-name-header">Exercise Name</div>
+								<div className="E-log-header">Lifting Logs</div>
 							</div>
 
 							{/* Exercises */}
 							<div className="exercise-container">
-								<div className="exercise-block"></div>
+								<div className="exercise-block">
+									<div className="fixedLogBar">
+										<div className="fixedLogBarBlock align-top E-name-content">
+											Push ups
+										</div>
+										<div className="fixedLogBarBlock align-top E-log-content">
+											Push ups
+										</div>
+									</div>
+								</div>
 							</div>
 						</Col>
 					</Row>
 				</Col>
 			</Row>
-
-			{/* <Row>
-				<Col>
-					<h4>Workouts Logs</h4>
-				</Col>
-			</Row> */}
 			<Row>
 				<Col>
 					<Button variant="primary">+ Add Workout</Button>
 				</Col>
 			</Row>
+			<WorkoutTable />
 		</Container>
 	);
 };
