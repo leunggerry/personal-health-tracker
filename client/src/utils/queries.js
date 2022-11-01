@@ -24,6 +24,13 @@ export const QUERY_ME = gql`
 				setsCount
 				repsCount
 			}
+			tuesdayWorkouts {
+				_id
+				workoutName
+				workoutDescription
+				setsCount
+				repsCount
+			}
 			wednesdayWorkouts {
 				_id
 				workoutName
@@ -176,18 +183,17 @@ export const QUERY_WORKOUT_BY_NAME = gql`
 /**
  * @description Get Workout by ID
  */
- export const QUERY_WORKOUT_BY_ID = gql`
- query getWorkoutByID($workoutId: String!) {
-	 getWorkoutByName(workoutName: $workoutName) {
-		 _id
-		 workoutName
-		 workoutDescription
-		 setsCount
-		 repsCount
-	 }
- }
+export const QUERY_WORKOUT_BY_ID = gql`
+	query getWorkoutByID($workoutId: String!) {
+		getWorkoutByName(workoutName: $workoutName) {
+			_id
+			workoutName
+			workoutDescription
+			setsCount
+			repsCount
+		}
+	}
 `;
-
 
 /*********************************************************/
 export const QUERY_PRODUCTS = gql`
