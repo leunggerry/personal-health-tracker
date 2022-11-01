@@ -6,7 +6,7 @@
 import React from 'react';
 import { Heading, List, ListItem, Checkbox } from '@chakra-ui/react';
 
-import ProductItem from '../ProductItem';
+import WorkoutCard from '../WorkoutCard';
 
 const FavoriteWorkouts = () => {
 	return (
@@ -14,7 +14,7 @@ const FavoriteWorkouts = () => {
 			<Heading as="h4" size="md">
 				Favorite Workouts
 			</Heading>
-			<ProductItem />
+			<WorkoutCard />
 			{/* <List spacing={3}>
 				<ListItem>
 					<Checkbox defaultChecked>Push ups</Checkbox>
