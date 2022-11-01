@@ -20,10 +20,13 @@ db.once('open', async () => {
 
 	for (let i = 0; i < 50; i += 1) {
 		const username = faker.internet.userName();
-		//const email = faker.internet.email(username);
+		const email = faker.internet.email(username);
+
+		const firstName = faker.name.firstName();
+		const lastName = faker.name.lastName();
 		const password = faker.internet.password();
 
-		userData.push({ username, password });
+		userData.push({ username, email, firstName, lastName, password });
 	}
 
 	//Add testing user

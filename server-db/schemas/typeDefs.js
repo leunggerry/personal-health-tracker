@@ -6,8 +6,12 @@ const typeDefs = gql`
 	type User {
 		_id: ID
 		username: String
+        email: String
+        firstName: String
+        lastName: String
 		favWorkouts: [Workout]
 		mondayWorkouts: [Workout]
+		tuesdayWorkouts: [Workout]
 		wednesdayWorkouts: [Workout]
 		thursdayWorkouts: [Workout]
 		fridayWorkouts: [Workout]
