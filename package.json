@@ -23,6 +23,5 @@
 		"concurrently": "^7.5.0"
 	},
 	"dependencies": {
-		"react-icons": "^4.6.0"
 	}
 }
