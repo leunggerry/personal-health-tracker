@@ -11,6 +11,8 @@ import {
 	Button,
 } from '@chakra-ui/react';
 
+import WorkoutList from '../WorkoutList';
+
 function SizeExample() {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const [size, setSize] = React.useState('xl');
@@ -34,7 +36,7 @@ function SizeExample() {
 					<ModalHeader>Modal Title</ModalHeader>
 					<ModalCloseButton />
 					<ModalBody>
-						<strong>WORKOUTS</strong>
+						<WorkoutList />
 					</ModalBody>
 					<ModalFooter>
 						<Button onClick={onClose}>Close</Button>
