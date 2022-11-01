@@ -114,6 +114,13 @@ export const QUERY_USER = gql`
 				setsCount
 				repsCount
 			}
+			tuesdayWorkouts {
+				_id
+				workoutName
+				workoutDescription
+				setsCount
+				repsCount
+			}
 			wednesdayWorkouts {
 				_id
 				workoutName

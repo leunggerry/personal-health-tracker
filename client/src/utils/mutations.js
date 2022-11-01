@@ -1,10 +1,10 @@
 import { gql } from '@apollo/client';
 
-/**
- * @description Login Mutations
- */
+// /**
+//  * @description Login Mutations
+//  */
 export const LOGIN = gql`
-	mutation Login($username: String!, $password: String!) {
+	mutation login($username: String!, $password: String!) {
 		login(username: $username, password: $password) {
 			token
 			user {
@@ -18,11 +18,11 @@ export const LOGIN = gql`
 	}
 `;
 
-/**
- * @description Add a new User
- */
+// /**
+//  * @description Add a new User
+//  */
 export const ADD_USER = gql`
-	mutation AddUser(
+	mutation addUser(
 		$username: String!
 		$email: String!
 		$firstName: String!
@@ -48,13 +48,13 @@ export const ADD_USER = gql`
 	}
 `;
 
-/**************************************************************/
-// Workout Mutations
-/**
- * @description Add a workout from favourites
- */
+// /**************************************************************/
+// // Workout Mutations
+// /**
+//  * @description Add a workout from favourites
+//  */
 export const ADD_FAV_WORKOUT = gql`
-	mutation AddFavWorkout($favWorkoutId: String!) {
+	mutation addFavWorkout($favWorkoutId: String!) {
 		addFavWorkout(favWorkoutId: $favWorkoutId) {
 			_id
 			username
@@ -69,11 +69,11 @@ export const ADD_FAV_WORKOUT = gql`
 	}
 `;
 
-/**
- * @description Delete a workout from favourites
- */
+// /**
+//  * @description Delete a workout from favourites
+//  */
 export const DELETE_FAV_WORKOUT = gql`
-	mutation DeleteFavWorkout($favWorkoutId: String!) {
+	mutation deleteFavWorkout($favWorkoutId: String!) {
 		deleteFavWorkout(favWorkoutId: $favWorkoutId) {
 			_id
 			username
@@ -87,127 +87,127 @@ export const DELETE_FAV_WORKOUT = gql`
 	}
 `;
 
-/**
- * @description Schedule a workout on a day
- */
-export const SCHEDULE_WORKOUT = gql`
-	mutation ScheduleWorkout($workoutDay: String!, $favWorkoutId: $String!) {
-		scheduleWorkout(workoutDay: $workoutDay, favWorkoutId: $favWorkoutId) {
-			_id
-			username
-			mondayWorkouts {
-				_id
-				workoutName
-				workoutDescription
-				setsCount
-				repsCount
-			}
-			tuesdayWorkouts {
-				_id
-				workoutName
-				workoutDescription
-				setsCount
-				repsCount
-			}
-			wednesdayWorkouts {
-				_id
-				workoutName
-				workoutDescription
-				setsCount
-				repsCount
-			}
-			thursdayWorkouts {
-				_id
-				workoutName
-				workoutDescription
-				setsCount
-				repsCount
-			}
-			fridayWorkouts {
-				_id
-				workoutName
-				workoutDescription
-				setsCount
-				repsCount
-			}
-			saturdayWorkouts {
-				_id
-				workoutName
-				workoutDescription
-				setsCount
-				repsCount
-			}
-			sundayWorkouts {
-				_id
-				workoutName
-				workoutDescription
-				setsCount
-				repsCount
-			}
-		}
-	}
-`;
+// /**
+//  * @description Schedule a workout on a day
+//  */
+// export const SCHEDULE_WORKOUT = gql`
+// 	mutation scheduleWorkout($workoutDay: String!, $favWorkoutId: $String!) {
+// 		scheduleWorkout(workoutDay: $workoutDay, favWorkoutId: $favWorkoutId) {
+// 			_id
+// 			username
+// 			mondayWorkouts {
+// 				_id
+// 				workoutName
+// 				workoutDescription
+// 				setsCount
+// 				repsCount
+// 			}
+// 			tuesdayWorkouts {
+// 				_id
+// 				workoutName
+// 				workoutDescription
+// 				setsCount
+// 				repsCount
+// 			}
+// 			wednesdayWorkouts {
+// 				_id
+// 				workoutName
+// 				workoutDescription
+// 				setsCount
+// 				repsCount
+// 			}
+// 			thursdayWorkouts {
+// 				_id
+// 				workoutName
+// 				workoutDescription
+// 				setsCount
+// 				repsCount
+// 			}
+// 			fridayWorkouts {
+// 				_id
+// 				workoutName
+// 				workoutDescription
+// 				setsCount
+// 				repsCount
+// 			}
+// 			saturdayWorkouts {
+// 				_id
+// 				workoutName
+// 				workoutDescription
+// 				setsCount
+// 				repsCount
+// 			}
+// 			sundayWorkouts {
+// 				_id
+// 				workoutName
+// 				workoutDescription
+// 				setsCount
+// 				repsCount
+// 			}
+// 		}
+// 	}
+// `;
 
-/**
- * @description Schedule a workout on a day
- */
-export const REMOVE_SCHEDULE_WORKOUT = gql`
-	mutation RemoveScheduleWorkout($workoutDay: String!, $favWorkoutId: $String!) {
-		removeScheduleWorkout(workoutDay: $workoutDay, favWorkoutId: $favWorkoutId) {
-			_id
-			username
-			mondayWorkouts {
-				_id
-				workoutName
-				workoutDescription
-				setsCount
-				repsCount
-			}
-			tuesdayWorkouts {
-				_id
-				workoutName
-				workoutDescription
-				setsCount
-				repsCount
-			}
-			wednesdayWorkouts {
-				_id
-				workoutName
-				workoutDescription
-				setsCount
-				repsCount
-			}
-			thursdayWorkouts {
-				_id
-				workoutName
-				workoutDescription
-				setsCount
-				repsCount
-			}
-			fridayWorkouts {
-				_id
-				workoutName
-				workoutDescription
-				setsCount
-				repsCount
-			}
-			saturdayWorkouts {
-				_id
-				workoutName
-				workoutDescription
-				setsCount
-				repsCount
-			}
-			sundayWorkouts {
-				_id
-				workoutName
-				workoutDescription
-				setsCount
-				repsCount
-			}
-		}
- 	}
-`;
+// /**
+//  * @description Schedule a workout on a day
+//  */
+// export const REMOVE_SCHEDULE_WORKOUT = gql`
+// 	mutation removeScheduleWorkout($workoutDay: String!, $favWorkoutId: $String!) {
+// 		removeScheduleWorkout(workoutDay: $workoutDay, favWorkoutId: $favWorkoutId) {
+// 			_id
+// 			username
+// 			mondayWorkouts {
+// 				_id
+// 				workoutName
+// 				workoutDescription
+// 				setsCount
+// 				repsCount
+// 			}
+// 			tuesdayWorkouts {
+// 				_id
+// 				workoutName
+// 				workoutDescription
+// 				setsCount
+// 				repsCount
+// 			}
+// 			wednesdayWorkouts {
+// 				_id
+// 				workoutName
+// 				workoutDescription
+// 				setsCount
+// 				repsCount
+// 			}
+// 			thursdayWorkouts {
+// 				_id
+// 				workoutName
+// 				workoutDescription
+// 				setsCount
+// 				repsCount
+// 			}
+// 			fridayWorkouts {
+// 				_id
+// 				workoutName
+// 				workoutDescription
+// 				setsCount
+// 				repsCount
+// 			}
+// 			saturdayWorkouts {
+// 				_id
+// 				workoutName
+// 				workoutDescription
+// 				setsCount
+// 				repsCount
+// 			}
+// 			sundayWorkouts {
+// 				_id
+// 				workoutName
+// 				workoutDescription
+// 				setsCount
+// 				repsCount
+// 			}
+// 		}
+//  	}
+// `;
 
 ///Deprecated mutations
 // @todo remove
