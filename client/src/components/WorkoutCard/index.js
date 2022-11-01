@@ -9,31 +9,34 @@ import { useStoreContext } from '../../utils/GlobalState';
 import { ADD_TO_WORKOUT, UPDATE_WORKOUT_LOGS } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
 
-function WorkoutCard(item) {
+function WorkoutCard(workout) {
 	const [state, dispatch] = useStoreContext();
 
-	const { image, name, _id, price, quantity } = item;
+	const { _id, workoutName, workoutDescription, setsCount, repsCount } =
+		workout;
 
-	const { cart } = state;
+	const { workoutLog } = state;
 
-	const addToCart = () => {
-		const itemInCart = cart.find((cartItem) => cartItem._id === _id);
-		if (itemInCart) {
+	const addToWorkoutLog = () => {
+		const workoutInCart = workoutLog.find(
+			(workoutItem) => workoutItem._id === _id
+		);
+		if (workoutInCart) {
 			dispatch({
 				type: UPDATE_WORKOUT_LOGS,
 				_id: _id,
-				purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+				setsCount: parseInt(workoutInCart.setsCount) + 1,
 			});
 			idbPromise('cart', 'put', {
-				...itemInCart,
-				purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+				...workoutInCart,
+				setsCount: parseInt(workoutInCart.setsCount) + 1,
 			});
 		} else {
 			dispatch({
 				type: ADD_TO_WORKOUT,
-				product: { ...item, purchaseQuantity: 1 },
+				workoutLogs: { ...workout, setsCount: 1 },
 			});
-			idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
+			idbPromise('workout', 'put', { ...workout, setsCount: 1 });
 		}
 	};
 
@@ -41,7 +44,7 @@ function WorkoutCard(item) {
 		<div className="card px-1 py-1">
 			<div>
 				{/* <img alt={name} src={`/images/${image}`} /> */}
-				<p>{name}</p>
+				<p>{workoutName}</p>
 			</div>
 			<div>
 				{/* <div>
@@ -49,7 +52,7 @@ function WorkoutCard(item) {
 				</div> */}
 				{/* <span>${price}</span> */}
 			</div>
-			<button onClick={addToCart}>Add to cart</button>
+			<button onClick={addToWorkoutLog}>Add to cart</button>
 		</div>
 	);
 }

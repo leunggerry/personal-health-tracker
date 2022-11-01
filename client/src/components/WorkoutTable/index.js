@@ -12,13 +12,13 @@ import {
 import Button from 'react-bootstrap/Button';
 
 import Modal from '../Modal';
+import WorkoutCard from '../WorkoutCard';
 
 function StripedColumnsExample() {
 	return (
 		<TableContainer>
 			<Table variant="simple">
 				<TableCaption>
-					{/* <Button variant="primary">+ Add Workout</Button> */}
 					<Modal />
 				</TableCaption>
 				<Thead>

@@ -42,7 +42,7 @@ function WorkoutList() {
 			return state.products;
 		}
 
-		return state.products.filter(
+		return state.workoutLogs.filter(
 			(product) => product.category._id === currentCategory
 		);
 	}
@@ -50,7 +50,7 @@ function WorkoutList() {
 	return (
 		<div className="my-2">
 			<h2>Exercises</h2>
-			{state.products.length ? (
+			{state.workoutLogs.length ? (
 				<div className="flex-row">
 					{filterProducts().map((product) => (
 						<WorkoutCard
