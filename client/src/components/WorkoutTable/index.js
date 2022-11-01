@@ -11,12 +11,15 @@ import {
 } from '@chakra-ui/react';
 import Button from 'react-bootstrap/Button';
 
+import Modal from '../Modal';
+
 function StripedColumnsExample() {
 	return (
 		<TableContainer>
 			<Table variant="simple">
 				<TableCaption>
-					<Button variant="primary">+ Add Workout</Button>
+					{/* <Button variant="primary">+ Add Workout</Button> */}
+					<Modal />
 				</TableCaption>
 				<Thead>
 					<Tr>
