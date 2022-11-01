@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import { Container, Row, Col } from 'react-bootstrap';
-import { Container, Grid, SimpleGrid } from '@chakra-ui/react'
+import { Container, Grid, SimpleGrid } from '@chakra-ui/react';
 
 import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
@@ -8,14 +8,17 @@ import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 function Login(props) {
-	const [formState, setFormState] = useState({ email: '', password: '' });
+	const [formState, setFormState] = useState({ username: '', password: '' });
 	const [login, { error }] = useMutation(LOGIN);
 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
 		try {
 			const mutationResponse = await login({
-				variables: { email: formState.email, password: formState.password },
+				variables: {
+					username: formState.username,
+					password: formState.password,
+				},
 			});
 			const token = mutationResponse.data.login.token;
 			Auth.login(token);
@@ -35,18 +38,19 @@ function Login(props) {
 	return (
 		<Container fluid="md" className="main" centerContent>
 			<Grid>
-				<Link to="/signup" style={{padding: '40px'}}>← Go to Signup</Link>
-				<SimpleGrid w={[300, 400, 500]} minChildWidth='120px'>
+				<Link to="/signup" style={{ padding: '40px' }}>
+					← Go to Signup
+				</Link>
+				<SimpleGrid w={[300, 400, 500]} minChildWidth="120px">
 					<div className="login-card">
-
 						<h2>Login</h2>
 						<h3>Enter you credentials</h3>
 						<form className="login-form" onSubmit={handleFormSubmit}>
 							<input
-								placeholder="youremail@test.com"
-								name="email"
-								type="email"
-								id="email"
+								placeholder="Username"
+								name="username"
+								type="username"
+								id="username"
 								onChange={handleChange}
 							/>
 							<input
