@@ -1,7 +1,10 @@
 import { useReducer } from 'react';
 import {
-	UPDATE_WORKOUTS,
+	UPDATE_FAVOIRITE_WORKOUTS,
 	ADD_TO_WORKOUT,
+	UPDATE_WORKOUT_QUANTITY,
+	UPDATE_SET_QUANTITY,
+	// =====================
 	UPDATE_PRODUCTS,
 	ADD_TO_CART,
 	UPDATE_CART_QUANTITY,
@@ -15,7 +18,7 @@ import {
 
 export const reducer = (state, action) => {
 	switch (action.type) {
-		case UPDATE_WORKOUTS:
+		case UPDATE_FAVOIRITE_WORKOUTS:
 			return {
 				...state,
 				favoriteWorkouts: [...action.favoriteWorkouts],
@@ -27,22 +30,32 @@ export const reducer = (state, action) => {
 				workouts: [...state.workouts, action.workouts],
 			};
 
+		case UPDATE_SET_QUANTITY:
+			return {
+				...state,
+				workouts: state.workouts.map((workout) => {
+					if (action._id === workout._id) {
+						workout.setsCount = action.setsCount;
+					}
+					return workout;
+				}),
+			};
+
+		case UPDATE_WORKOUT_QUANTITY:
+			return {
+				...state,
+				workouts: state.workouts.map((workout) => {
+					if (action._id === workout._id) {
+						workout.setsCount = action.setsCount;
+					}
+					return workout;
+				}),
+			};
+		// =====================
 		case ADD_MULTIPLE_TO_CART:
 			return {
 				...state,
 				cart: [...state.cart, ...action.products],
-			};
-
-		case UPDATE_CART_QUANTITY:
-			return {
-				...state,
-				cartOpen: true,
-				cart: state.cart.map((product) => {
-					if (action._id === product._id) {
-						product.purchaseQuantity = action.purchaseQuantity;
-					}
-					return product;
-				}),
 			};
 
 		case REMOVE_FROM_CART:

@@ -16,6 +16,7 @@ const FavoriteWorkouts = () => {
 				Favorite Workouts
 			</Heading>
 			<WorkoutList />
+			<WorkoutCard />
 			{/* <List spacing={3}>
 				<ListItem>
 					<Checkbox defaultChecked>Push ups</Checkbox>

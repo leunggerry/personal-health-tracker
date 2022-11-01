@@ -1,9 +1,10 @@
 import { reducer } from '../utils/reducers';
 import {
-	UPDATE_WORKOUTS,
+	UPDATE_FAVOIRITE_WORKOUTS,
 	ADD_TO_WORKOUT,
 	REMOVE_FROM_FAVORITES,
 	CLEAR_FAVORITES,
+	UPDATE_WORKOUT_QUANTITY,
 	UPDATE_SET_QUANTITY,
 	UPDATE_REP_QUANTITY,
 } from '../utils/actions';
@@ -19,14 +20,14 @@ const initialState = {
 			repsCount: 20,
 		},
 		{
-			_id: '1',
+			_id: '2',
 			workoutName: 'Sit Ups',
 			workoutDescription: 'Sit up',
 			setsCount: 5,
 			repsCount: 20,
 		},
 		{
-			_id: '1',
+			_id: '3',
 			workoutName: 'Bench Press',
 			workoutDescription: 'Bench Press',
 			setsCount: 5,
@@ -35,9 +36,9 @@ const initialState = {
 	],
 };
 
-test('UPDATE_WORKOUTS', () => {
+test('UPDATE_FAVOIRITE_WORKOUTS', () => {
 	let newState = reducer(initialState, {
-		type: UPDATE_WORKOUTS,
+		type: UPDATE_FAVOIRITE_WORKOUTS,
 		favoriteWorkouts: [{}, {}],
 	});
 
@@ -55,6 +56,32 @@ test('ADD_TO_WORKOUT', () => {
 	expect(initialState.workouts.length).toBe(3);
 });
 
+test('UPDATE_WORKOUT_QUANTITY', () => {
+	let newState = reducer(initialState, {
+		type: UPDATE_WORKOUT_QUANTITY,
+		_id: '1',
+		setsCount: 7,
+		repsCount: 40,
+	});
+
+	expect(newState.workouts[0].setsCount).toBe(7);
+	expect(newState.workouts[0].repsCount).toBe(40);
+
+	expect(newState.workouts[1].setsCount).toBe(5);
+	expect(newState.workouts[1].repsCount).toBe(20);
+});
+
+// test('UPDATE_SET_QUANTITY', () => {
+// 	let newState = reducer(initialState, {
+// 		type: UPDATE_SET_QUANTITY,
+// 		_id: '1',
+// 		setsCount: 7,
+// 	});
+
+// 	expect(newState.workouts[0].setsCount).toBe(7);
+// 	expect(newState.workouts[1].setsCount).toBe(5);
+// });
+
 // test('ADD_TO_CART', () => {
 // 	let newState = reducer(initialState, {
 // 		type: ADD_TO_CART,
@@ -63,19 +90,6 @@ test('ADD_TO_WORKOUT', () => {
 
 // 	expect(newState.cart.length).toBe(3);
 // 	expect(initialState.cart.length).toBe(2);
-// });
-
-// test('UPDATE_CART_QUANTITY', () => {
-// 	let newState = reducer(initialState, {
-// 		type: UPDATE_CART_QUANTITY,
-// 		_id: '1',
-// 		purchaseQuantity: 3,
-// 	});
-
-// 	expect(newState.cartOpen).toBe(true);
-// 	expect(newState.cart[0].purchaseQuantity).toBe(3);
-// 	expect(newState.cart[1].purchaseQuantity).toBe(2);
-// 	expect(initialState.cartOpen).toBe(false);
 // });
 
 // test('REMOVE_FROM_CART', () => {

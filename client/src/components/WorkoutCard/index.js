@@ -5,7 +5,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { pluralize } from '../../utils/helpers';
 import { useStoreContext } from '../../utils/GlobalState';
-import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
+import {
+	ADD_TO_WORKOUT,
+	// =====================
+	ADD_TO_CART,
+	UPDATE_CART_QUANTITY,
+} from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
 
 function WorkoutCard(item) {
@@ -13,19 +18,19 @@ function WorkoutCard(item) {
 
 	const { workoutName, workoutDescription, _id, setsCount, repsCount } = item;
 
-	const { cart } = state;
+	const { favoriteWorkouts } = state;
 
 	const addToCart = () => {
-		const itemInCart = cart.find((cartItem) => cartItem._id === _id);
-		if (itemInCart) {
+		const itemInDB = favoriteWorkouts.find((workout) => workout._id === _id);
+		if (itemInDB) {
 			dispatch({
-				type: UPDATE_CART_QUANTITY,
+				type: ADD_TO_WORKOUT,
 				_id: _id,
-				purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+				quantity: parseInt(itemInDB.quantity) + 1,
 			});
-			idbPromise('cart', 'put', {
-				...itemInCart,
-				purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+			idbPromise('workouts', 'put', {
+				...itemInDB,
+				purchaseQuantity: parseInt(itemInDB.purchaseQuantity) + 1,
 			});
 		} else {
 			dispatch({
@@ -39,15 +44,15 @@ function WorkoutCard(item) {
 	return (
 		<div className="card px-1 py-1">
 			<Link to={`/products/${_id}`}>
-				<p>Push Ups</p>
-				<p>Push up</p>
+				<p>{workoutName}</p>
+				<p>{workoutDescription}</p>
 			</Link>
 			<div>
 				<div>
-					{'5'} {pluralize('set', '5')}
+					{setsCount} {pluralize('set', setsCount)}
 				</div>
 				<span>
-					{'20'} {pluralize('rep', '20')}
+					{repsCount} {pluralize('rep', repsCount)}
 				</span>
 			</div>
 			<button onClick={addToCart}>Add Workout</button>

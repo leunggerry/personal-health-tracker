@@ -4,7 +4,7 @@
 import React, { useEffect } from 'react';
 import WorkoutCard from '../WorkoutCard';
 import { useStoreContext } from '../../utils/GlobalState';
-import { UPDATE_WORKOUTS } from '../../utils/actions';
+import { UPDATE_FAVOIRITE_WORKOUTS } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
 import { QUERY_ALL_WORKOUTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
@@ -25,7 +25,7 @@ function WorkoutList() {
 			// store it in the global state object
 			dispatch(
 				{
-					type: UPDATE_WORKOUTS,
+					type: UPDATE_FAVOIRITE_WORKOUTS,
 					favoriteWorkouts: data.workouts,
 				},
 				console.log('UPDATED favoriteWorkouts: ', data)
@@ -36,7 +36,7 @@ function WorkoutList() {
 		} else if (!loading) {
 			idbPromise('workouts', 'get').then((workouts) => {
 				dispatch({
-					type: UPDATE_WORKOUTS,
+					type: UPDATE_FAVOIRITE_WORKOUTS,
 					workouts: workouts,
 				});
 			});
