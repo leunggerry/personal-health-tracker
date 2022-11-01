@@ -26,6 +26,15 @@ const Dashboard = () => {
 			templateRows="repeat(2, 1fr)"
 			templateColumns="repeat(5, 1fr)"
 			gap={4}
+			display='flex'
+			flexDirection='column'
+			justifyContent='center'
+			// width={[
+			// 	'100%', // 0-30em iPhone 12
+			// 	'80%', // 30em-48em
+			// 	'100%', // 48em-62em
+			// 	'100%', // 62em+
+			//   ]}
 		>
 			<GridItem
 				rowSpan={2}
@@ -34,11 +43,12 @@ const Dashboard = () => {
 				p="6"
 				rounded="md"
 				bg="white"
+				
 			>
 				<FavoriteWorkouts />
 				{/* <FavoritesDrawer /> */}
 			</GridItem>
-			<GridItem colSpan={2} boxShadow="dark-lg" p="6" rounded="md" bg="white">
+			<GridItem colSpan={2} boxShadow="dark-lg" p="6" rounded="md" bg="white" style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
 				<WorkoutStats />
 			</GridItem>
 

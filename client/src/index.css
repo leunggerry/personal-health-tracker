@@ -48,14 +48,13 @@ header {
 section {
 	padding: 60px;
 }
-.main {
+.main {	
 	position: relative;
 	/* min-height: 64vh; */
-		display: flex;
-		min-height: 150vh;
-		flex-direction: column;
-		justify-content: space-between;
-	
+	display: flex;
+	min-height: 160vh;
+	flex-direction: column;
+	justify-content: space-between;
 }
 /* HERO STYLE START */
 .hero {
