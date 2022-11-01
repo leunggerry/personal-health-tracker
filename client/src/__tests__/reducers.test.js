@@ -1,7 +1,7 @@
 import { reducer } from '../utils/reducers';
 import {
-	LOAD_WORKOUTS,
-	ADD_TO_FAVORITES,
+	UPDATE_WORKOUTS,
+	ADD_TO_WORKOUT,
 	REMOVE_FROM_FAVORITES,
 	CLEAR_FAVORITES,
 	UPDATE_SET_QUANTITY,
@@ -10,7 +10,7 @@ import {
 
 const initialState = {
 	favoriteWorkouts: [],
-	Workout: [
+	workouts: [
 		{
 			_id: '1',
 			workoutName: 'Push Ups',
@@ -35,14 +35,24 @@ const initialState = {
 	],
 };
 
-test('LOAD_WORKOUTS', () => {
+test('UPDATE_WORKOUTS', () => {
 	let newState = reducer(initialState, {
-		type: LOAD_WORKOUTS,
+		type: UPDATE_WORKOUTS,
 		favoriteWorkouts: [{}, {}],
 	});
 
 	expect(newState.favoriteWorkouts.length).toBe(2);
 	expect(initialState.favoriteWorkouts.length).toBe(0);
+});
+
+test('ADD_TO_WORKOUT', () => {
+	let newState = reducer(initialState, {
+		type: ADD_TO_WORKOUT,
+		workouts: { quantity: 1 },
+	});
+
+	expect(newState.workouts.length).toBe(4);
+	expect(initialState.workouts.length).toBe(3);
 });
 
 // test('ADD_TO_CART', () => {

@@ -1,6 +1,7 @@
 import { useReducer } from 'react';
 import {
-	LOAD_WORKOUTS,
+	UPDATE_WORKOUTS,
+	ADD_TO_WORKOUT,
 	UPDATE_PRODUCTS,
 	ADD_TO_CART,
 	UPDATE_CART_QUANTITY,
@@ -14,17 +15,16 @@ import {
 
 export const reducer = (state, action) => {
 	switch (action.type) {
-		case LOAD_WORKOUTS:
+		case UPDATE_WORKOUTS:
 			return {
 				...state,
 				favoriteWorkouts: [...action.favoriteWorkouts],
 			};
 
-		case ADD_TO_CART:
+		case ADD_TO_WORKOUT:
 			return {
 				...state,
-				cartOpen: true,
-				cart: [...state.cart, action.product],
+				workouts: [...state.workouts, action.workouts],
 			};
 
 		case ADD_MULTIPLE_TO_CART:

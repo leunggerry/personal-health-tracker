@@ -7,9 +7,11 @@ const { Provider } = StoreContext;
 const StoreProvider = ({ value = [], ...props }) => {
 	const [state, dispatch] = useProductReducer({
 		favoriteWorkouts: [],
-		Workout: [],
-		WorkoutLogs: [],
+		workouts: [],
+		currentFavorites: '',
 	});
+
+	console.log('GLOBAL-STATE: ', state);
 
 	return <Provider value={[state, dispatch]} {...props} />;
 };
