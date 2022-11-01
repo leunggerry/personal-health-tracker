@@ -87,127 +87,155 @@ export const DELETE_FAV_WORKOUT = gql`
 	}
 `;
 
-// /**
-//  * @description Schedule a workout on a day
-//  */
-// export const SCHEDULE_WORKOUT = gql`
-// 	mutation scheduleWorkout($workoutDay: String!, $favWorkoutId: $String!) {
-// 		scheduleWorkout(workoutDay: $workoutDay, favWorkoutId: $favWorkoutId) {
-// 			_id
-// 			username
-// 			mondayWorkouts {
-// 				_id
-// 				workoutName
-// 				workoutDescription
-// 				setsCount
-// 				repsCount
-// 			}
-// 			tuesdayWorkouts {
-// 				_id
-// 				workoutName
-// 				workoutDescription
-// 				setsCount
-// 				repsCount
-// 			}
-// 			wednesdayWorkouts {
-// 				_id
-// 				workoutName
-// 				workoutDescription
-// 				setsCount
-// 				repsCount
-// 			}
-// 			thursdayWorkouts {
-// 				_id
-// 				workoutName
-// 				workoutDescription
-// 				setsCount
-// 				repsCount
-// 			}
-// 			fridayWorkouts {
-// 				_id
-// 				workoutName
-// 				workoutDescription
-// 				setsCount
-// 				repsCount
-// 			}
-// 			saturdayWorkouts {
-// 				_id
-// 				workoutName
-// 				workoutDescription
-// 				setsCount
-// 				repsCount
-// 			}
-// 			sundayWorkouts {
-// 				_id
-// 				workoutName
-// 				workoutDescription
-// 				setsCount
-// 				repsCount
-// 			}
-// 		}
-// 	}
-// `;
+/**
+ * @description Create a workout
+ */
+export const CREATE_WORKOUT = gql`
+	mutation createWorkout(
+		$workoutName: String!
+		$workoutDescription: String!
+		$setsCount: Int
+		$repsCount: Int
+	) {
+		createWorkout(
+			workoutName: $workoutName
+			workoutDescription: $workoutDescription
+			setsCount: $setsCount
+			repsCount: $repsCount
+		) {
+			_id
+			workoutName
+			workoutDescription
+			setsCount
+			repsCount
+		}
+	}
+`;
 
-// /**
-//  * @description Schedule a workout on a day
-//  */
-// export const REMOVE_SCHEDULE_WORKOUT = gql`
-// 	mutation removeScheduleWorkout($workoutDay: String!, $favWorkoutId: $String!) {
-// 		removeScheduleWorkout(workoutDay: $workoutDay, favWorkoutId: $favWorkoutId) {
-// 			_id
-// 			username
-// 			mondayWorkouts {
-// 				_id
-// 				workoutName
-// 				workoutDescription
-// 				setsCount
-// 				repsCount
-// 			}
-// 			tuesdayWorkouts {
-// 				_id
-// 				workoutName
-// 				workoutDescription
-// 				setsCount
-// 				repsCount
-// 			}
-// 			wednesdayWorkouts {
-// 				_id
-// 				workoutName
-// 				workoutDescription
-// 				setsCount
-// 				repsCount
-// 			}
-// 			thursdayWorkouts {
-// 				_id
-// 				workoutName
-// 				workoutDescription
-// 				setsCount
-// 				repsCount
-// 			}
-// 			fridayWorkouts {
-// 				_id
-// 				workoutName
-// 				workoutDescription
-// 				setsCount
-// 				repsCount
-// 			}
-// 			saturdayWorkouts {
-// 				_id
-// 				workoutName
-// 				workoutDescription
-// 				setsCount
-// 				repsCount
-// 			}
-// 			sundayWorkouts {
-// 				_id
-// 				workoutName
-// 				workoutDescription
-// 				setsCount
-// 				repsCount
-// 			}
-// 		}
-//  	}
-// `;
+/**
+ * @description Schedule a workout on a day
+ */
+export const SCHEDULE_WORKOUT = gql`
+	mutation scheduleWorkout($workoutDay: String!, $favWorkoutId: String!) {
+		scheduleWorkout(workoutDay: $workoutDay, favWorkoutId: $favWorkoutId) {
+			_id
+			username
+			mondayWorkouts {
+				_id
+				workoutName
+				workoutDescription
+				setsCount
+				repsCount
+			}
+			tuesdayWorkouts {
+				_id
+				workoutName
+				workoutDescription
+				setsCount
+				repsCount
+			}
+			wednesdayWorkouts {
+				_id
+				workoutName
+				workoutDescription
+				setsCount
+				repsCount
+			}
+			thursdayWorkouts {
+				_id
+				workoutName
+				workoutDescription
+				setsCount
+				repsCount
+			}
+			fridayWorkouts {
+				_id
+				workoutName
+				workoutDescription
+				setsCount
+				repsCount
+			}
+			saturdayWorkouts {
+				_id
+				workoutName
+				workoutDescription
+				setsCount
+				repsCount
+			}
+			sundayWorkouts {
+				_id
+				workoutName
+				workoutDescription
+				setsCount
+				repsCount
+			}
+		}
+	}
+`;
+
+/**
+ * @description Schedule a workout on a day
+ */
+export const REMOVE_SCHEDULE_WORKOUT = gql`
+	mutation removeScheduleWorkout($workoutDay: String!, $favWorkoutId: String!) {
+		removeScheduleWorkout(
+			workoutDay: $workoutDay
+			favWorkoutId: $favWorkoutId
+		) {
+			_id
+			username
+			mondayWorkouts {
+				_id
+				workoutName
+				workoutDescription
+				setsCount
+				repsCount
+			}
+			tuesdayWorkouts {
+				_id
+				workoutName
+				workoutDescription
+				setsCount
+				repsCount
+			}
+			wednesdayWorkouts {
+				_id
+				workoutName
+				workoutDescription
+				setsCount
+				repsCount
+			}
+			thursdayWorkouts {
+				_id
+				workoutName
+				workoutDescription
+				setsCount
+				repsCount
+			}
+			fridayWorkouts {
+				_id
+				workoutName
+				workoutDescription
+				setsCount
+				repsCount
+			}
+			saturdayWorkouts {
+				_id
+				workoutName
+				workoutDescription
+				setsCount
+				repsCount
+			}
+			sundayWorkouts {
+				_id
+				workoutName
+				workoutDescription
+				setsCount
+				repsCount
+			}
+		}
+	}
+`;
 
 ///Deprecated mutations
 // @todo remove
