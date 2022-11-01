@@ -4,11 +4,8 @@
 	"description": "",
 	"main": "server-db/server.js",
 	"scripts": {
-		"start": "node server-db/server.js",
-		"install": "cd server-db && npm i && cd ../client && npm i",
-		"build": "cd client && npm run build",
+		"start": "node server.js",
 		"format": "prettier . --write",
-		"prepare": "husky install",
 		"watch": "nodemon server.js",
 		"seed": "node seeders/seeds.js"
 	},
