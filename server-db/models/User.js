@@ -9,10 +9,26 @@ const UserSchema = new Schema(
 			required: true,
 			trim: true,
 		},
+		email: {
+			type: String,
+			unique: true,
+			required: true,
+			match: [/.+@.+\..+/, 'Must match an email address!'],
+		},
 		password: {
 			type: String,
 			required: true,
 			minlength: 5,
+		},
+		firstName: {
+			type: String,
+			required: true,
+			trim: true,
+		},
+		lastName: {
+			type: String,
+			required: true,
+			trim: true,
 		},
 		favWorkouts: [
 			{
