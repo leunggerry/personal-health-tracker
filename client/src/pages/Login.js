@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+// import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Grid, SimpleGrid } from '@chakra-ui/react'
+
 import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
@@ -31,11 +33,11 @@ function Login(props) {
 	};
 
 	return (
-		<Container fluid="md" className="main">
-			<Row className="justify-content-md-center">
-				<Col>
+		<Container fluid="md" className="main" centerContent>
+			<Grid>
+				<Link to="/signup" style={{padding: '40px'}}>← Go to Signup</Link>
+				<SimpleGrid w={[300, 400, 500]} minChildWidth='120px'>
 					<div className="login-card">
-						<Link to="/signup">← Go to Signup</Link>
 
 						<h2>Login</h2>
 						<h3>Enter you credentials</h3>
@@ -66,8 +68,8 @@ function Login(props) {
 							<button type="submit">LOGIN</button>
 						</form>
 					</div>
-				</Col>
-			</Row>
+				</SimpleGrid>
+			</Grid>
 		</Container>
 	);
 }
