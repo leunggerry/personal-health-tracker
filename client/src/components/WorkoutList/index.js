@@ -7,44 +7,45 @@ import WorkoutCard from '../WorkoutCard';
 import { useStoreContext } from '../../utils/GlobalState';
 import { UPDATE_WORKOUTS } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
-import { QUERY_PRODUCTS } from '../../utils/queries';
+import { QUERY_ALL_WORKOUTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
 function WorkoutList() {
 	const [state, dispatch] = useStoreContext();
 
-	const { currentCategory } = state;
+	const { workouts } = state;
 
-	const { loading, data } = useQuery(QUERY_PRODUCTS);
+	const { loading, data } = useQuery(QUERY_ALL_WORKOUTS);
+	console.log('DATA: ', data);
 
 	useEffect(() => {
 		if (data) {
 			dispatch({
 				type: UPDATE_WORKOUTS,
-				products: data.products,
+				workouts: data.workouts,
 			});
-			data.products.forEach((product) => {
-				idbPromise('products', 'put', product);
+			data.workouts.forEach((workout) => {
+				idbPromise('workouts', 'put', workout);
 			});
 		} else if (!loading) {
-			idbPromise('products', 'get').then((products) => {
+			idbPromise('workouts', 'get').then((workouts) => {
 				dispatch({
 					type: UPDATE_WORKOUTS,
-					products: products,
+					workouts: workouts,
 				});
 			});
 		}
 	}, [data, loading, dispatch]);
 
 	function filterProducts() {
-		if (!currentCategory) {
-			return state.products;
+		if (!workouts) {
+			console.log('NO CURRENT LOGS!');
+			return state.currentLogs;
 		}
 
-		return state.workoutLogs.filter(
-			(product) => product.category._id === currentCategory
-		);
+		console.log('STATE.WORKOUTS: ', state.workouts);
+		return state.workouts.filter((workoutItem) => workoutItem._id === workouts);
 	}
 
 	return (

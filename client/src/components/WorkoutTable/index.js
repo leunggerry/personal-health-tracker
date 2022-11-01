@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import {
 	Table,
 	Thead,
@@ -12,7 +13,11 @@ import {
 import Button from 'react-bootstrap/Button';
 
 import Modal from '../Modal';
-import WorkoutCard from '../WorkoutCard';
+import WorkoutList from '../WorkoutList';
+import { useStoreContext } from '../../utils/GlobalState';
+import { UPDATE_WORKOUTS } from '../../utils/actions';
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../../utils/queries';
 
 function StripedColumnsExample() {
 	return (
@@ -29,6 +34,9 @@ function StripedColumnsExample() {
 				</Thead>
 				<Tbody>
 					<Tr>
+						{/* <Td>
+							<WorkoutList />
+						</Td> */}
 						<Td>Push ups</Td>
 						<Td>
 							<div>Set 1 : 4 Lap/Rep</div>
