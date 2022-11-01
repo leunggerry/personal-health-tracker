@@ -28,10 +28,10 @@ function SizeExample() {
 				colorScheme="blue"
 			>{`+ Add Workout`}</Button>
 
-			<Modal onClose={onClose} size={size} isOpen={isOpen}>
+			<Modal onClose={onClose} size={size} isOpen={isOpen} isCentered>
 				<ModalOverlay />
 				<ModalContent>
-					<ModalHeader>Modal Title</ModalHeader>
+					<ModalHeader style={{backgroundColor:'grey'}}>Modal Title</ModalHeader>
 					<ModalCloseButton />
 					<ModalBody>
 						<strong>WORKOUTS</strong>

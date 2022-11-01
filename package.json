@@ -21,5 +21,8 @@
 	"homepage": "https://github.com/leunggerry/personal-health-tracker#readme",
 	"devDependencies": {
 		"concurrently": "^7.5.0"
+	},
+	"dependencies": {
+		"react-icons": "^4.6.0"
 	}
 }

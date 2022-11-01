@@ -50,7 +50,12 @@ section {
 }
 .main {
 	position: relative;
-	min-height: 64vh;
+	/* min-height: 64vh; */
+		display: flex;
+		min-height: 150vh;
+		flex-direction: column;
+		justify-content: space-between;
+	
 }
 /* HERO STYLE START */
 .hero {
