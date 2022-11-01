@@ -10,7 +10,6 @@ import { setContext } from '@apollo/client/link/context';
 import { Box } from '@chakra-ui/react';
 
 import LandingPage from './pages/LandingPage';
-import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -61,7 +60,6 @@ function App() {
 						<Route path="/workouts" element={<Workouts />} />
 						{/* Adding dashboard route */}
 						<Route path="/dashboard" element={<Dashboard />} />
-						<Route path="/products/:id" element={<Detail />} />
 						<Route path="*" element={<NoMatch />} />
 					</Routes>
 					{/* </Box> */}

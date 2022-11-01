@@ -6,7 +6,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { pluralize } from '../../utils/helpers';
 import { useStoreContext } from '../../utils/GlobalState';
-import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
+import { ADD_TO_WORKOUT, UPDATE_WORKOUT_LOGS } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
 
 function WorkoutCard(item) {
@@ -20,7 +20,7 @@ function WorkoutCard(item) {
 		const itemInCart = cart.find((cartItem) => cartItem._id === _id);
 		if (itemInCart) {
 			dispatch({
-				type: UPDATE_CART_QUANTITY,
+				type: UPDATE_WORKOUT_LOGS,
 				_id: _id,
 				purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
 			});
@@ -30,7 +30,7 @@ function WorkoutCard(item) {
 			});
 		} else {
 			dispatch({
-				type: ADD_TO_CART,
+				type: ADD_TO_WORKOUT,
 				product: { ...item, purchaseQuantity: 1 },
 			});
 			idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });

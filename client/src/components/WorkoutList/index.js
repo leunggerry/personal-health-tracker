@@ -5,7 +5,7 @@
 import React, { useEffect } from 'react';
 import WorkoutCard from '../WorkoutCard';
 import { useStoreContext } from '../../utils/GlobalState';
-import { UPDATE_PRODUCTS } from '../../utils/actions';
+import { UPDATE_WORKOUTS } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
@@ -21,7 +21,7 @@ function WorkoutList() {
 	useEffect(() => {
 		if (data) {
 			dispatch({
-				type: UPDATE_PRODUCTS,
+				type: UPDATE_WORKOUTS,
 				products: data.products,
 			});
 			data.products.forEach((product) => {
@@ -30,7 +30,7 @@ function WorkoutList() {
 		} else if (!loading) {
 			idbPromise('products', 'get').then((products) => {
 				dispatch({
-					type: UPDATE_PRODUCTS,
+					type: UPDATE_WORKOUTS,
 					products: products,
 				});
 			});
