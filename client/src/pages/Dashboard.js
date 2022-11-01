@@ -19,6 +19,7 @@ import WorkoutTable from '../components/WorkoutTable';
 import WorkoutStats from '../components/WorkoutStats';
 
 const Dashboard = () => {
+	
 	return (
 		<Grid
 			className="main"
