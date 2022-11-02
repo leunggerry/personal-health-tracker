@@ -11,8 +11,21 @@
 	 EditablePreview,
    } from '@chakra-ui/react'
    
- 
+import { useQuery, useMutation } from '@apollo/client';
+import { QUERY_ME } from '../../utils/queries';
+
  const Profile = () => {
+
+	// Get User Data
+	const { data } = useQuery(QUERY_ME);
+	console.log(data);
+	const userData = data ? data.me : {};
+	console.log(userData);
+
+	function myFunc() {
+		console.log("CHANGED");
+	}
+
 	 return (
 		 <div className="container">
 			 <div className="row">
@@ -31,9 +44,11 @@
 									 <h6 className="mb-0">Username</h6>
 								 </div>
 								 <div className="col-sm-9 text-secondary">
-									<Editable defaultValue='KennethValdez'>
-										<EditablePreview />
-										<EditableInput />
+									<Editable 
+										defaultValue='{"USERNAME"}'
+										>
+									 <EditablePreview />
+										<EditableInput onChange={() => myFunc()}/>
 									</Editable>
 							 	 </div>
 							 </div>
