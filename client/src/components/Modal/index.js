@@ -31,7 +31,9 @@ function SizeExample() {
 			<Modal onClose={onClose} size={size} isOpen={isOpen} isCentered>
 				<ModalOverlay />
 				<ModalContent>
-					<ModalHeader style={{backgroundColor:'grey'}}>Modal Title</ModalHeader>
+					<ModalHeader style={{ backgroundColor: 'grey' }}>
+						Modal Title
+					</ModalHeader>
 					<ModalCloseButton />
 					<ModalBody>
 						<strong>WORKOUTS</strong>

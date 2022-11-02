@@ -64,10 +64,12 @@ function App() {
 								<Route path="/login" element={<Login />} />
 								<Route path="/signup" element={<Signup />} />
 								<Route path="/profile" element={<Profile />} />
-								<Route path="/workouts" element={<Workouts />} />
 								<Route path="/dashboard" element={<Dashboard />} />
 								{/* TODO: Can we take this out. I don't think we are using it */}
 								<Route path="*" element={<NoMatch />} />
+
+								{/* REMOVED WORKOUT PAGE ROUTE -- IT'S STILL IN DEVELOPMENT */}
+								{/* <Route path="/workouts" element={<Workouts />} /> */}
 							</Routes>
 							<Footer />
 						</Box>

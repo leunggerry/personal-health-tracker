@@ -9,7 +9,7 @@ import {
 
 const WorkoutStats = () => {
 	return (
-		<StatGroup style={{ width: '25%'}}>
+		<StatGroup style={{ width: '25%' }}>
 			<Stat>
 				<StatLabel>Daily Jog</StatLabel>
 				<StatNumber>4 km</StatNumber>
