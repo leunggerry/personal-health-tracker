@@ -197,8 +197,10 @@ section {
 .info-title {
 	font-weight: 600;
 	font-size: 22px;
+	color: white;
 }
 
 .profile-container {
 	margin-bottom: 40px;
+	color: white;
 }
