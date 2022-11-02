@@ -1,9 +1,9 @@
 export const getWorkoutIds = () => {
-	const savedWorkoutIds = localStorage.getItem('workouts')
+	const savedWorkoutsIds = localStorage.getItem('workouts')
 		? JSON.parse(localStorage.getItem('workouts'))
 		: [];
 
-	return savedWorkoutIds;
+	return savedWorkoutsIds;
 };
 
 export const saveWorkoutIds = (workoutIdArr) => {
@@ -14,19 +14,19 @@ export const saveWorkoutIds = (workoutIdArr) => {
 	}
 };
 
-export const removeWorkoutId = (workoutId) => {
-	const savedWorkoutIds = localStorage.getItem('workouts')
+export const removeWorkoutIds = (workoutId) => {
+	const savedWorkoutsIds = localStorage.getItem('workouts')
 		? JSON.parse(localStorage.getItem('workouts'))
 		: null;
 
-	if (!savedWorkoutIds) {
+	if (!savedWorkoutsIds) {
 		return false;
 	}
 
-	const updatedWorkoutIds = savedWorkoutIds?.filter(
-		(savedWorkoutId) => savedWorkoutId !== workoutId
+	const updatedSavedWorkoutsIds = savedWorkoutsIds?.filter(
+		(savedWorkoutsId) => savedWorkoutsId !== workoutId
 	);
-	localStorage.setItem('workouts', JSON.stringify(updatedWorkoutIds));
+	localStorage.setItem('workouts', JSON.stringify(updatedSavedWorkoutsIds));
 
 	return true;
 };
