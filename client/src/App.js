@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
 	ApolloClient,
@@ -22,7 +22,6 @@ import OrderHistory from './pages/OrderHistory';
 import Profile from './pages/Profile';
 import Workouts from './pages/Workouts';
 import Dashboard from './pages/Dashboard';
-import SecondDashboard from './pages/draftPages/secondDashboard';
 
 const httpLink = createHttpLink({
 	uri: '/graphql',
@@ -43,14 +42,31 @@ const client = new ApolloClient({
 	cache: new InMemoryCache(),
 });
 
+
+
 function App() {
+	const [loading, setLoading] = useState(false);
+
+useEffect(() => {
+  setLoading(true);
+  setTimeout(() => {
+	setLoading(false);
+  }, 2000);
+}, []);
 	return (
+
 		<ApolloProvider client={client}>
 			<Router>
+			    	{loading ? (
+        			<div className="loader-container">
+      	 			 <div className="spinner"></div>
+       					 </div>
+     						) : (
 				<StoreProvider>
 					<Navigation />
-					{/* <Box maxW="lm" borderWidth="1px" borderRadius="lg" overflow="hidden"> */}
+					
 					<Routes>
+						
 						<Route path="/" element={<LandingPage />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/signup" element={<Signup />} />
@@ -62,7 +78,6 @@ function App() {
 						<Route path="/workouts" element={<Workouts />} />
 						{/* Adding dashboard route */}
 						<Route path="/dashboard" element={<Dashboard />} />
-						<Route path="/secondDashboard" element={<SecondDashboard />} />
 						<Route path="/products/:id" element={<Detail />} />
 						<Route path="*" element={<NoMatch />} />
 					</Routes>
@@ -71,6 +86,7 @@ function App() {
 						<Footer />
 					</Box>
 				</StoreProvider>
+			)}
 			</Router>
 		</ApolloProvider>
 	);
