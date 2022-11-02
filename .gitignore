@@ -1,3 +1,7 @@
+# My .gitignore files
+package-lock.json
+misc
+
 # Logs
 logs
 *.log
