@@ -22,7 +22,6 @@ import OrderHistory from './pages/OrderHistory';
 import Profile from './pages/Profile';
 import Workouts from './pages/Workouts';
 import Dashboard from './pages/Dashboard';
-import SecondDashboard from './pages/draftPages/secondDashboard';
 
 const httpLink = createHttpLink({
 	uri: '/graphql',
@@ -62,7 +61,6 @@ function App() {
 						<Route path="/workouts" element={<Workouts />} />
 						{/* Adding dashboard route */}
 						<Route path="/dashboard" element={<Dashboard />} />
-						<Route path="/secondDashboard" element={<SecondDashboard />} />
 						<Route path="/products/:id" element={<Detail />} />
 						<Route path="*" element={<NoMatch />} />
 					</Routes>
