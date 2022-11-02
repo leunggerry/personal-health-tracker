@@ -11,8 +11,9 @@
 	 EditablePreview,
    } from '@chakra-ui/react'
    
+import AuthService from '../utils/auth';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_ME } from '../../utils/queries';
+import { QUERY_ME } from '../utils/queries';
 
  const Profile = () => {
 
@@ -22,86 +23,45 @@ import { QUERY_ME } from '../../utils/queries';
 	const userData = data ? data.me : {};
 	console.log(userData);
 
-	function myFunc() {
-		console.log("CHANGED");
-	}
-
-	 return (
-		 <div className="container">
-			 <div className="row">
-				 <div className="col-md-4 profile-pic-section">
+	return AuthService.loggedIn() ? (
+		<div className="container profile-container">
+			 <div className="col">
+				 <div className="col-md-12 profile-pic-section">
 					 <div className="d-flex flex-column align-items-center text-center p-3 py-5">
 						 <img className="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"></img>
-						 <span className="font-weight-bold">KennethValdez</span>
-						 <span className="text-black-50">edogaru@mail.com.my</span>
+						 <span className="font-weight-bold">{userData.firstName} {userData.lastName}</span>
+						 <span className="text-black-50">{userData.email}</span>
 					 </div>
 				 </div>
-				 <div className="col-md-8 profile-info-section">
-					 <div className="card mb-3 profile-info-card">
-						 <div className="card-body">
-							 <div className="row">
-								 <div className="col-sm-3">
-									 <h6 className="mb-0">Username</h6>
-								 </div>
-								 <div className="col-sm-9 text-secondary">
-									<Editable 
-										defaultValue='{"USERNAME"}'
-										>
-									 <EditablePreview />
-										<EditableInput onChange={() => myFunc()}/>
-									</Editable>
-							 	 </div>
-							 </div>
-							 <div className="row">
-								 <div className="col-sm-3">
-									 <h6 className="mb-0">Email</h6>
-								 </div>
-								 <div className="col-sm-9 text-secondary">
-								 <Editable defaultValue='edogaru@mail.com.my'>
-										<EditablePreview />
-										<EditableInput />
-									</Editable>
-								 </div>
-							 </div>
-							 <div className="row">
-								 <div className="col-sm-3">
-									 <h6 className="mb-0">Weight</h6>
-								 </div>
-								 <div className="col-sm-9 text-secondary">
-								 <Editable defaultValue='160lbs'>
-										<EditablePreview />
-										<EditableInput />
-									</Editable>
-								 </div>
-							 </div>
-							 <div className="row">
-								 <div className="col-sm-3">
-									 <h6 className="mb-0">Height</h6>
-								 </div>
-								 <div className="col-sm-9 text-secondary">
-								 <Editable defaultValue='175cm'>
-										<EditablePreview />
-										<EditableInput />
-									</Editable>
-								 </div>
-							 </div>
-							 <div className="row">
-								 <div className="col-sm-3">
-									 <h6 className="mb-0">City</h6>
-								 </div>
-								 <div className="col-sm-9 text-secondary">
-								 	<Editable defaultValue='Ottawa, ON'>
-										<EditablePreview />
-										<EditableInput />
-									</Editable>
-								 </div>
-							 </div>
-						 </div>
-					 </div>
+				 <div className="col-md-12 profile-info-section">
+						<div className="row">
+							<h6 className="info-title">Username</h6>
+							<h6 className="info-data">{userData.username}</h6>
+						</div>
+						<div className="row">
+							<h6 className="info-title">Email</h6>
+							<h6 className="info-data">{userData.email}</h6>
+						</div>
+						<div className="row">
+							<h6 className="info-title">First Name</h6>
+							<h6 className="info-data">{userData.firstName}</h6>
+						</div>
+						<div className="row">
+							<h6 className="info-title">Last Name</h6>
+							<h6 className="info-data">{userData.lastName}</h6>
+						</div>
 				 </div>
 			 </div>
 		 </div>
-	 );
+	) : (
+		<h3>
+			<span role="img" aria-label="shocked">
+				😱
+			</span>
+			Oops, Sign up or Login to view this page!
+		</h3>
+	);
+
  };
  
  export default Profile;

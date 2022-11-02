@@ -187,3 +187,18 @@ section {
 .error-text {
 	color: var(--error);
 }
+
+.profile-info-section {
+	border: 2px solid lightgray;
+	display: flex;
+	justify-content: center;
+}
+
+.info-title {
+	font-weight: 600;
+	font-size: 22px;
+}
+
+.profile-container {
+	margin-bottom: 40px;
+}
