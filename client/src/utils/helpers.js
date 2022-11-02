@@ -54,3 +54,25 @@ export function idbPromise(storeName, method, object) {
 		};
 	});
 }
+
+export function getDay() {
+	const d = new Date();
+
+	switch (d.getDay()) {
+		case 1:
+			return 'mondayWorkouts';
+		case 2:
+			return 'tuesdayWorkouts';
+		case 3:
+			return 'wednesdayWorkouts';
+		case 4:
+			return 'thursdayWorkouts';
+		case 5:
+			return 'fridayWorkouts';
+		case 6:
+			return 'satdayWorkouts';
+		case 7:
+		default:
+			return 'sundayWorkouts';
+	}
+}
