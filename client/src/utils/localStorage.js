@@ -33,7 +33,7 @@ export const removeWorkoutIds = (workoutId) => {
 
 // User's Favourite workouts utilities
 export const getFavWorkoutIds = () => {
-	const savedWorkoutIds = localStorage.getItem('workouts')
+	const savedWorkoutIds = localStorage.getItem('favWorkouts')
 		? JSON.parse(localStorage.getItem('workouts'))
 		: [];
 
@@ -42,15 +42,15 @@ export const getFavWorkoutIds = () => {
 
 export const saveFavWorkoutIds = (workoutIdArr) => {
 	if (workoutIdArr.length) {
-		localStorage.setItem('workouts', JSON.stringify(workoutIdArr));
+		localStorage.setItem('favWorkouts', JSON.stringify(workoutIdArr));
 	} else {
-		localStorage.removeItem('workouts');
+		localStorage.removeItem('favWorkouts');
 	}
 };
 
 export const removeFavWorkoutId = (workoutId) => {
-	const savedWorkoutIds = localStorage.getItem('workouts')
-		? JSON.parse(localStorage.getItem('workouts'))
+	const savedWorkoutIds = localStorage.getItem('favWorkouts')
+		? JSON.parse(localStorage.getItem('favWorkouts'))
 		: null;
 
 	if (!savedWorkoutIds) {
@@ -60,7 +60,7 @@ export const removeFavWorkoutId = (workoutId) => {
 	const updatedWorkoutIds = savedWorkoutIds?.filter(
 		(savedWorkoutId) => savedWorkoutId !== workoutId
 	);
-	localStorage.setItem('workouts', JSON.stringify(updatedWorkoutIds));
+	localStorage.setItem('favWorkouts', JSON.stringify(updatedWorkoutIds));
 
 	return true;
 };
