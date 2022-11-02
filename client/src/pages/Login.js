@@ -21,6 +21,7 @@ function Login(props) {
 				},
 			});
 			const token = mutationResponse.data.login.token;
+			// Save the login token in local storage
 			Auth.login(token);
 		} catch (e) {
 			console.log(e);
