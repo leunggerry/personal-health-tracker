@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
 	ApolloClient,
@@ -42,14 +42,31 @@ const client = new ApolloClient({
 	cache: new InMemoryCache(),
 });
 
+
+
 function App() {
+	const [loading, setLoading] = useState(false);
+
+useEffect(() => {
+  setLoading(true);
+  setTimeout(() => {
+	setLoading(false);
+  }, 2000);
+}, []);
 	return (
+
 		<ApolloProvider client={client}>
 			<Router>
+			    	{loading ? (
+        			<div className="loader-container">
+      	 			 <div className="spinner"></div>
+       					 </div>
+     						) : (
 				<StoreProvider>
 					<Navigation />
-					{/* <Box maxW="lm" borderWidth="1px" borderRadius="lg" overflow="hidden"> */}
+					
 					<Routes>
+						
 						<Route path="/" element={<LandingPage />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/signup" element={<Signup />} />
@@ -69,6 +86,7 @@ function App() {
 						<Footer />
 					</Box>
 				</StoreProvider>
+			)}
 			</Router>
 		</ApolloProvider>
 	);
