@@ -13,6 +13,7 @@ import {
 
 import Modal from '../Modal';
 
+import Auth from '../../utils/auth';
 import { QUERY_ME } from '../../utils/queries';
 import { REMOVE_SCHEDULE_WORKOUT } from '../../utils/mutations';
 import { useMutation, useQuery } from '@apollo/client';
@@ -31,7 +32,27 @@ function StripedColumnsExample() {
 	const [removeScheduleWorkout] = useMutation(REMOVE_SCHEDULE_WORKOUT);
 
 	// handle remove scheduled workout
-	const handleRemoveScheduleWorkout = async (workoutId) => {};
+	const handleRemoveScheduleWorkout = async (workoutId) => {
+		const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+		if (!token) {
+			return false;
+		}
+
+		try {
+			await removeScheduleWorkout({
+				variables: {
+					workoutDay: getDay(),
+					favWorkoutId: workoutId,
+				},
+			});
+
+			//reload the screen
+			window.location.reload();
+		} catch (err) {
+			console.log(err);
+		}
+	};
 
 	// get todays workouts
 	let todaysWorkouts;
@@ -51,6 +72,7 @@ function StripedColumnsExample() {
 					<Tr>
 						<Th>Exercise Name</Th>
 						<Th>Lifting Logs</Th>
+						<Th>Remove Workout</Th>
 					</Tr>
 				</Thead>
 				<Tbody>
@@ -64,7 +86,15 @@ function StripedColumnsExample() {
 											{workout.setsCount} Sets - {workout.repsCount} Laps/Reps
 										</div>
 									</Td>
-									<Td></Td>
+									<Td>
+										<Button
+											size="xs"
+											colorScheme="red"
+											onClick={() => handleRemoveScheduleWorkout(workout._id)}
+										>
+											Remove Workout
+										</Button>
+									</Td>
 								</Tr>
 							);
 						})}
