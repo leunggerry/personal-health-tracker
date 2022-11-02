@@ -4,7 +4,6 @@
 
 This is an application where a user can add workouts and track daily workout sessions.
 
-
 ## Table of Contents
 
 - [Installation Instructions](#installation)
@@ -25,6 +24,10 @@ This is an application where a user can add workouts and track daily workout ses
 website link
 
 ## Screenshots
+
+![Land Page](./readme-screenshots/landing-page.png)
+![Sign in page](./readme-screenshots/login-page.png)
+![User dashboard with favourite and schedule workouts](./readme-screenshots/user-dashboard.png)
 
 ## Contributors
 
