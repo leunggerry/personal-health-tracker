@@ -45,9 +45,28 @@ function Navigation() {
 			);
 		}
 	}
-	return (
-		<header>
-			<Navbar variant="dark" sticky="top">
+
+	//if logged in direct to dashboard
+	function bannerDirect() {
+		if (Auth.loggedIn()) {
+			return (
+				<Link to="/dashboard">
+					<Navbar.Brand>
+						<img
+							alt="Capstone logo"
+							src="/Capstone-logo60.png"
+							width="30"
+							height="30"
+							className="d-inline-block align-top"
+						/>{' '}
+						Capstone
+					</Navbar.Brand>
+				</Link>
+			);
+		}
+		//else not logged in
+		else {
+			return (
 				<Link to="/">
 					<Navbar.Brand>
 						<img
@@ -60,6 +79,13 @@ function Navigation() {
 						Capstone
 					</Navbar.Brand>
 				</Link>
+			);
+		}
+	}
+	return (
+		<header>
+			<Navbar variant="dark" sticky="top">
+				{bannerDirect()}
 			</Navbar>
 			{showNavigation()}
 		</header>
