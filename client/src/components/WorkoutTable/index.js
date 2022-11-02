@@ -8,12 +8,38 @@ import {
 	Td,
 	TableCaption,
 	TableContainer,
+	Button,
 } from '@chakra-ui/react';
-import Button from 'react-bootstrap/Button';
 
 import Modal from '../Modal';
 
+import { QUERY_ME } from '../../utils/queries';
+import { REMOVE_SCHEDULE_WORKOUT } from '../../utils/mutations';
+import { useMutation, useQuery } from '@apollo/client';
+import { getDay } from '../../utils/helpers';
+
 function StripedColumnsExample() {
+	// Get User Data
+	const { data } = useQuery(QUERY_ME);
+
+	const userData = data ? data.me : {};
+
+	//check if useEffect Hook needs to run again
+	const userDataLength = Object.keys(userData).length;
+
+	//mutation to remove schedule workout
+	const [removeScheduleWorkout] = useMutation(REMOVE_SCHEDULE_WORKOUT);
+
+	// handle remove scheduled workout
+	const handleRemoveScheduleWorkout = async (workoutId) => {};
+
+	// get todays workouts
+	let todaysWorkouts;
+	if (userDataLength > 0) {
+		console.log(userData);
+		todaysWorkouts = userData[getDay()];
+		console.log(todaysWorkouts);
+	}
 	return (
 		<TableContainer>
 			<Table variant="simple">
@@ -28,28 +54,20 @@ function StripedColumnsExample() {
 					</Tr>
 				</Thead>
 				<Tbody>
-					<Tr>
-						<Td>Push ups</Td>
-						<Td>
-							<div>Set 1 : 4 Lap/Rep</div>
-							<br />
-							<div>Set 2 : 4 Lap/Rep</div>
-							<br />
-							<div>Set 3 : 4 Lap/Rep</div>
-						</Td>
-					</Tr>
-					<Tr>
-						<Td>Ab Roll</Td>
-						<Td>
-							<div>Set 1 : 4 Lap/Rep</div>
-						</Td>
-					</Tr>
-					<Tr>
-						<Td>Band Back Fly</Td>
-						<Td>
-							<div>Set 1 : 4 Lap/Rep</div>
-						</Td>
-					</Tr>
+					{todaysWorkouts &&
+						todaysWorkouts.map((workout) => {
+							return (
+								<Tr key={workout._id}>
+									<Td>{workout.workoutName}</Td>
+									<Td>
+										<div>
+											{workout.setsCount} Sets - {workout.repsCount} Laps/Reps
+										</div>
+									</Td>
+									<Td></Td>
+								</Tr>
+							);
+						})}
 				</Tbody>
 			</Table>
 		</TableContainer>

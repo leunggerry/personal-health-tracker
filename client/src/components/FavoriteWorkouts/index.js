@@ -9,15 +9,16 @@ import { useQuery, useMutation } from '@apollo/client';
 
 import Auth from '../../utils/auth';
 import { QUERY_ME } from '../../utils/queries';
-import { DELETE_FAV_WORKOUT } from '../../utils/mutations';
+import { DELETE_FAV_WORKOUT, SCHEDULE_WORKOUT } from '../../utils/mutations';
 import { removeFavWorkoutId } from '../../utils/localStorage';
+import { getDay } from '../../utils/helpers';
 
 const FavoriteWorkouts = () => {
 	// Get User Data
 	const { data } = useQuery(QUERY_ME);
-	console.log(data);
+	//console.log(data);
 	const userData = data ? data.me : {};
-	console.log(userData);
+	//console.log(userData);
 
 	//check if useEffect hook needs to run again
 	const userDataLength = Object.keys(userData).length;
@@ -43,7 +44,28 @@ const FavoriteWorkouts = () => {
 		}
 	};
 	// add workout to schedule
-	const addWorkoutSchedule = async () => {};
+	getDay();
+	const [scheduleWorkout] = useMutation(SCHEDULE_WORKOUT);
+	const handleAddWorkoutToSchedule = async (workoutId) => {
+		const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+		if (!token) {
+			return false;
+		}
+
+		try {
+			await scheduleWorkout({
+				variables: {
+					workoutDay: getDay(),
+					favWorkoutId: workoutId,
+				},
+			});
+
+			window.location.reload();
+		} catch (err) {
+			console.error(err);
+		}
+	};
 
 	// if no data yet wait
 	if (!userDataLength) {
@@ -51,21 +73,27 @@ const FavoriteWorkouts = () => {
 	}
 
 	return (
-		<div className="container" style={{
-			display:'flex',
-			alignItems:'center',
-			justifyContent:'center',
-			flexDirection:'column',
-		}}>
+		<div
+			className="container"
+			style={{
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+				flexDirection: 'column',
+			}}
+		>
 			<Heading as="h4" size="md">
 				Favorite Workouts
 			</Heading>
-			<List spacing={3} style={{
-					display:'flex',
-					alignItems:'center',
-					justifyContent:'center',
-					flexDirection:'column'
-				}}>
+			<List
+				spacing={3}
+				style={{
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+					flexDirection: 'column',
+				}}
+			>
 				{userData.favWorkouts.map((workout) => {
 					return (
 						<ListItem key={workout._id}>
@@ -76,6 +104,13 @@ const FavoriteWorkouts = () => {
 								onClick={() => handleRemoveFavouriteWorkout(workout._id)}
 							>
 								Remove
+							</Button>
+							<Button
+								size="xs"
+								colorScheme="blue"
+								onClick={() => handleAddWorkoutToSchedule(workout._id)}
+							>
+								Add to Schedule
 							</Button>
 						</ListItem>
 					);
