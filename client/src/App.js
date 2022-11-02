@@ -57,7 +57,7 @@ function App() {
 					</div>
 				) : (
 					<StoreProvider>
-						<Box>
+						<Box className="applicationBox">
 							<Navigation />
 							<Routes>
 								<Route path="/" element={<LandingPage />} />

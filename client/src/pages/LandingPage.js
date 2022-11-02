@@ -5,22 +5,22 @@ import { Carousel, Container, Row, Col } from 'react-bootstrap';
 import HeroBanner from '../components/HeroBanner';
 
 // import images
-import carousel1 from '../assets/images/desktop-dashboard1.png';
-import carousel2 from '../assets/images/desktop-dashboard2.png';
-import carousel3 from '../assets/images/desktop-dashboard3.png';
+import carousel1 from '../assets/images/solen-feyissa-7M-bcTN7w9c-unsplash.jpg';
+import carousel2 from '../assets/images/sven-mieke-jO6vBWX9h9Y-unsplash.jpg';
+import carousel3 from '../assets/images/victor-freitas-E2FLRJtZx2E-unsplash.jpg';
 
 const LandingPage = () => {
 	if (!Auth.loggedIn()) {
 		return (
 			<>
 				<HeroBanner />
-				<Container>
+				{/* <Container>
 					<Row>
 						<Col>
 							<h2 className="section-title">Header text</h2>
 						</Col>
 					</Row>
-				</Container>
+				</Container> */}
 				<Container>
 					<Row>
 						<Col>
@@ -50,7 +50,7 @@ const LandingPage = () => {
 						</Col>
 					</Row>
 				</Container>
-				<Container>
+				{/* <Container>
 					<Row>
 						<Col>
 							<h2>Start Building Habits.</h2>
@@ -67,7 +67,7 @@ const LandingPage = () => {
 							</p>
 						</Col>
 					</Row>
-				</Container>
+				</Container> */}
 			</>
 		);
 	} else {

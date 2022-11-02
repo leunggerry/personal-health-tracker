@@ -1,6 +1,7 @@
 /* Color Palate */
 :root {
 	--rich-black-fogra-29: #111116ff;
+	--rich-black-fogra-29-copy: rgb(43, 43, 54);
 	--white: #fefefeff;
 	--russet: #754022ff;
 	--gainsboro: #dedbd9ff;
@@ -77,9 +78,13 @@ section {
 	padding: 60px;
 }
 
+.applicationBox {
+	background-color: var(--rich-black-fogra-29-copy);
+}
+
 .main {
 	/* position: relative; */
-	min-height: 160vh;
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
