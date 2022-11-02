@@ -47,7 +47,7 @@ function Navigation() {
 	}
 	return (
 		<header>
-			<Navbar variant="dark" sticky="top">
+			<Navbar variant="dark" sticky="top" >
 				<Link to="/">
 					<Navbar.Brand>
 						<img

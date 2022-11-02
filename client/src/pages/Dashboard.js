@@ -12,6 +12,7 @@ import {
 	WrapItem,
 	Center,
 	VStack,
+	Container
 } from '@chakra-ui/react';
 import FavoriteWorkouts from '../components/FavoriteWorkouts';
 // import FavoritesDrawer from '../components/Drawer';
@@ -21,8 +22,8 @@ import WorkoutStats from '../components/WorkoutStats';
 const Dashboard = () => {
 	
 	return (
+		// <Container >
 		<Grid
-			className="main"
 			h="200px"
 			templateRows="repeat(2, 1fr)"
 			templateColumns="repeat(5, 1fr)"
@@ -30,12 +31,7 @@ const Dashboard = () => {
 			display='flex'
 			flexDirection='column'
 			justifyContent='center'
-			// width={[
-			// 	'100%', // 0-30em iPhone 12
-			// 	'80%', // 30em-48em
-			// 	'100%', // 48em-62em
-			// 	'100%', // 62em+
-			//   ]}
+			className="main"
 		>
 			<GridItem
 				rowSpan={2}
@@ -49,7 +45,7 @@ const Dashboard = () => {
 				<FavoriteWorkouts />
 				{/* <FavoritesDrawer /> */}
 			</GridItem>
-			<GridItem colSpan={2} boxShadow="dark-lg" p="6" rounded="md" bg="white" style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+			<GridItem colSpan={2} boxShadow="dark-lg" p="6" rounded="md" bg="white" style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
 				<WorkoutStats />
 			</GridItem>
 
@@ -123,6 +119,7 @@ const Dashboard = () => {
 				<WorkoutTable />
 			</GridItem>
 		</Grid>
+		// </Container>
 	);
 };
 
