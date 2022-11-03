@@ -10,47 +10,46 @@ import carousel2 from '../assets/images/sven-mieke-jO6vBWX9h9Y-unsplash.jpg';
 import carousel3 from '../assets/images/victor-freitas-E2FLRJtZx2E-unsplash.jpg';
 
 const LandingPage = () => {
-	if (!Auth.loggedIn()) {
-		return (
-			<>
-				<HeroBanner />
-				{/* <Container>
+	return (
+		<>
+			<HeroBanner />
+			{/* <Container>
 					<Row>
 						<Col>
 							<h2 className="section-title">Header text</h2>
 						</Col>
 					</Row>
 				</Container> */}
-				<Container>
-					<Row>
-						<Col>
-							<Carousel className="Carousel-container" variant="dark">
-								<Carousel.Item interval={1000} className="Carousel-item">
-									<img
-										className="d-block w-100"
-										src={carousel1}
-										alt="First slide"
-									/>
-								</Carousel.Item>
-								<Carousel.Item interval={500} className="Carousel-item">
-									<img
-										className="d-block w-100"
-										src={carousel2}
-										alt="Second slide"
-									/>
-								</Carousel.Item>
-								<Carousel.Item className="Carousel-item">
-									<img
-										className="d-block w-100"
-										src={carousel3}
-										alt="Third slide"
-									/>
-								</Carousel.Item>
-							</Carousel>
-						</Col>
-					</Row>
-				</Container>
-				{/* <Container>
+			<Container>
+				<Row>
+					<Col>
+						<Carousel className="Carousel-container" variant="dark">
+							<Carousel.Item interval={1000} className="Carousel-item">
+								<img
+									className="d-block w-100"
+									src={carousel1}
+									alt="First slide"
+								/>
+							</Carousel.Item>
+							<Carousel.Item interval={500} className="Carousel-item">
+								<img
+									className="d-block w-100"
+									src={carousel2}
+									alt="Second slide"
+								/>
+							</Carousel.Item>
+							<Carousel.Item className="Carousel-item">
+								<img
+									className="d-block w-100"
+									src={carousel3}
+									alt="Third slide"
+								/>
+							</Carousel.Item>
+						</Carousel>
+					</Col>
+				</Row>
+			</Container>
+			{/* <Container>
 					<Row>
 						<Col>
 							<h2>Start Building Habits.</h2>
@@ -68,11 +67,8 @@ const LandingPage = () => {
 						</Col>
 					</Row>
 				</Container> */}
-			</>
-		);
-	} else {
-		return null;
-	}
+		</>
+	);
 };
 
 export default LandingPage;
