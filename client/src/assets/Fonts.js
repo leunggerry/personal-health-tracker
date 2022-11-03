@@ -1,8 +1,8 @@
-import { Global } from "@emotion/react"
+import { Global } from '@emotion/react';
 
 const Fonts = () => (
 	<Global
-	  styles={`
+		styles={`
 		/* Copied from https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Raleway&display=swap */
 		/* latin-ext */
 		@font-face {
@@ -42,5 +42,5 @@ const Fonts = () => (
 		}
 		`}
 	/>
-  )
+);
 export default Fonts;

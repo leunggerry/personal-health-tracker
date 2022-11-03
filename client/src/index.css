@@ -82,21 +82,21 @@ section {
 	background-color: var(--rich-black-fogra-29-copy);
 }
 
-  .social-container {
+.social-container {
 	padding: 25px 50px;
-  }
-  
-  a.social {
+}
+
+a.social {
 	margin: 0 1rem;
 	transition: transform 250ms;
 	display: inline-block;
 	color: white;
-  }
-  
-  a.social:hover {
+}
+
+a.social:hover {
 	transform: translateY(-2px);
 	color: gray;
-  }
+}
 
 .main {
 	/* position: relative; */
