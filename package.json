@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "node server-db/server.js",
 		"develop": "concurrently \"cd server-db && npm run watch\" \"cd client && npm start\"",
-		"install": "cd server-db && npm i && cd ../client && npm i",
+		"install": "cd server-db && npm i && npm run seed && cd ../client && npm i",
 		"seed": "cd server-db && npm run seed",
 		"build": "cd client && npm run build",
 		"format": "prettier . --write",

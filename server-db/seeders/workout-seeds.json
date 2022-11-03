@@ -16,5 +16,53 @@
 		"workoutDescription": "Bench Press",
 		"setsCount": 5,
 		"repsCount": 20
+	},
+	{
+		"workoutName": "Incline Bench",
+		"workoutDescription": "Use the bar on the incline bench press to lift the bar",
+		"setsCount": 5,
+		"repsCount": 20
+	},
+	{
+		"workoutName": "Decline Bench",
+		"workoutDescription": "Use the bar on the decline bench press to lift the bar",
+		"setsCount": 5,
+		"repsCount": 20
+	},
+	{
+		"workoutName": "Chest Fly's",
+		"workoutDescription": "Use the bar on the decline bench press to lift the bar",
+		"setsCount": 5,
+		"repsCount": 20
+	},
+	{
+		"workoutName": "Back Rows",
+		"workoutDescription": "Use the bar on the decline bench press to lift the bar",
+		"setsCount": 5,
+		"repsCount": 20
+	},
+	{
+		"workoutName": "Pull Ups",
+		"workoutDescription": "Use the bar on the decline bench press to lift the bar",
+		"setsCount": 5,
+		"repsCount": 20
+	},
+	{
+		"workoutName": "Seated Rows",
+		"workoutDescription": "Use the bar on the decline bench press to lift the bar",
+		"setsCount": 5,
+		"repsCount": 20
+	},
+	{
+		"workoutName": "Dips",
+		"workoutDescription": "Use the bar on the decline bench press to lift the bar",
+		"setsCount": 5,
+		"repsCount": 20
+	},
+	{
+		"workoutName": "Squats",
+		"workoutDescription": "Use the bar on the decline bench press to lift the bar",
+		"setsCount": 5,
+		"repsCount": 20
 	}
 ]
