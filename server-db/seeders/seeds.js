@@ -18,7 +18,7 @@ db.once('open', async () => {
 	 ******************************************************/
 	const userData = [];
 
-	for (let i = 0; i < 50; i += 1) {
+	for (let i = 0; i < 10; i += 1) {
 		const username = faker.internet.userName();
 		const email = faker.internet.email(username);
 
@@ -43,14 +43,14 @@ db.once('open', async () => {
 	// Create workout data
 	const workoutData = [];
 
-	for (let i = 0; i < 50; i += 1) {
-		const workoutName = casual.title;
-		const workoutDescription = casual.short_description;
-		const setsCount = Math.floor(casual.random * 6);
-		const repsCount = Math.floor(casual.random * 10);
+	// for (let i = 0; i < 50; i += 1) {
+	// 	const workoutName = casual.title;
+	// 	const workoutDescription = casual.short_description;
+	// 	const setsCount = Math.floor(casual.random * 6);
+	// 	const repsCount = Math.floor(casual.random * 10);
 
-		workoutData.push({ workoutName, workoutDescription, setsCount, repsCount });
-	}
+	// 	workoutData.push({ workoutName, workoutDescription, setsCount, repsCount });
+	// }
 
 	// Add seed from JSON
 	for (let i = 0; i < workoutSeeds.length; i++) {
@@ -58,6 +58,8 @@ db.once('open', async () => {
 	}
 
 	const createdWorkouts = await Workout.collection.insertMany(workoutData);
+
+	// add the workouts to the test user
 	console.log('all done!');
 	process.exit(0);
 });
