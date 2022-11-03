@@ -5,6 +5,9 @@ const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 const { use } = require('../routes/api/user-routes');
 
+//workoutseeds
+const workoutSeeds = require('../seeders/workout-seeds.json');
+
 const resolvers = {
 	Query: {
 		/******************************************************
@@ -78,6 +81,17 @@ const resolvers = {
 		addUser: async (parent, args) => {
 			// create user entry in db
 			const user = await User.create(args);
+
+			// add default workouts as Favourite
+			const workoutData = await Workout.find({}).select('_id');
+			console.log(workoutData);
+			const userWorkouts = await User.findOneAndUpdate(
+				{ _id: user._id },
+				{ $push: { favWorkouts: workoutData } },
+				{ new: true }
+			);
+
+			// console.log(userWorkouts);
 			// create session token
 			const token = signToken(user);
 
