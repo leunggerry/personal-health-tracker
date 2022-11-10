@@ -124,7 +124,7 @@ const Dashboard = () => {
 				{/* Workout Logs */}
 				<GridItem colSpan={4} boxShadow="dark-lg" p="6" rounded="md" bg="white">
 					<div className="workout-logs-header">
-						<strong>Workouts Logs</strong>
+						<strong>Workout Logs</strong>
 					</div>
 					<WorkoutTable />
 				</GridItem>

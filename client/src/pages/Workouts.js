@@ -14,7 +14,7 @@ import { ADD_FAV_WORKOUT } from '../utils/mutations';
 import { saveWorkoutIds, getWorkoutIds } from '../utils/localStorage';
 
 const Workouts = () => {
-	const [addWorkout] = useMutation(ADD_FAV_WORKOUT);
+	const [addWorkoutToFav] = useMutation(ADD_FAV_WORKOUT);
 
 	// useQuery to get all workouts
 	const { loading, data } = useQuery(QUERY_ALL_WORKOUTS);
@@ -32,19 +32,21 @@ const Workouts = () => {
 		return () => saveWorkoutIds(savedWorkout);
 	});
 
-	// handle adding a workout
-	const handleAddWorkout = async (workoutId) => {
+	// handle adding a workout to favourites
+	const handleAddWorkoutToFav = async (workoutId) => {
 		// find the workout by it's id
 		const workoutToSave = loadedWorkouts.find(
 			(workout) => workout.id === workoutId
 		);
-
+		console.log(workoutId);
 		try {
-			const { data } = await addWorkout({
-				variables: { favWorkoutId: addWorkout },
+			const { data } = await addWorkoutToFav({
+				variables: { favWorkoutId: workoutId },
 			});
-			// if book successfully saves to user's account, save book id to state
-			setsaveWorkoutIds([...saveWorkoutIds, workoutToSave.bookId]);
+
+			console.log(data);
+
+			window.location.reload();
 		} catch (err) {
 			console.error(err);
 		}
@@ -58,8 +60,9 @@ const Workouts = () => {
 			<Container>
 				<CardColumns>
 					{dbWorkouts.map((workoutItem) => {
+						// console.log(workoutItem);
 						return (
-							<Card key={workoutItem.Id} border="dark">
+							<Card key={workoutItem._id} border="dark">
 								<Card.Body>
 									<Card.Title>{workoutItem.workoutName}</Card.Title>
 									<p className="small"></p>
@@ -67,10 +70,10 @@ const Workouts = () => {
 										Description: {workoutItem.workoutDescription}
 									</Card.Text>
 									<Button
-										className="btn-block btn-danger"
-										onClick={() => handleAddWorkout(workoutItem.Id)}
+										className="btn-block btn-blue"
+										onClick={() => handleAddWorkoutToFav(workoutItem._id)}
 									>
-										+ Add
+										+ Add To Favourtie Workout
 									</Button>
 								</Card.Body>
 							</Card>
