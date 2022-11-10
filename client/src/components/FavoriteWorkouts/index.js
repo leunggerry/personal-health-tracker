@@ -13,6 +13,18 @@ import { DELETE_FAV_WORKOUT, SCHEDULE_WORKOUT } from '../../utils/mutations';
 import { removeFavWorkoutId } from '../../utils/localStorage';
 import { getDay } from '../../utils/helpers';
 
+import {
+	Table,
+	Thead,
+	Tbody,
+	Tfoot,
+	Tr,
+	Th,
+	Td,
+	TableCaption,
+	TableContainer,
+  } from '@chakra-ui/react'
+
 const FavoriteWorkouts = () => {
 	// Get User Data
 	const { data } = useQuery(QUERY_ME);
@@ -39,6 +51,7 @@ const FavoriteWorkouts = () => {
 			});
 			// upon success, remove book's id from localStorage
 			removeFavWorkoutId(workoutId);
+			window.location.reload();
 		} catch (err) {
 			console.error(err);
 		}
@@ -91,13 +104,24 @@ const FavoriteWorkouts = () => {
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'center',
-					flexDirection: 'column',
+					flexDirection: 'row',
 				}}
 			>
+						<TableContainer>
+						<Table>
+						<Thead>
+							<Tr>
+							<Th>Exercise Name</Th>
+							<Th>Remove Workout</Th>
+							<Th>Add Workout</Th>
+							</Tr>
+						</Thead>
+							<Tbody>
 				{userData.favWorkouts.map((workout) => {
 					return (
-						<ListItem key={workout._id}>
-							<Checkbox defaultChecked>{workout.workoutName}</Checkbox>
+							<Tr>
+							<Td><span>{workout.workoutName}</span></Td>
+							<Td>
 							<Button
 								size="xs"
 								colorScheme="red"
@@ -105,6 +129,8 @@ const FavoriteWorkouts = () => {
 							>
 								Remove
 							</Button>
+							</Td>
+							<Td>
 							<Button
 								size="xs"
 								colorScheme="blue"
@@ -112,9 +138,13 @@ const FavoriteWorkouts = () => {
 							>
 								Add to Schedule
 							</Button>
-						</ListItem>
+							</Td>
+							</Tr>
 					);
 				})}
+				</Tbody>
+				</Table>
+				</TableContainer>
 				{/* <ListItem>
 					<Checkbox defaultChecked>Push ups</Checkbox>
 				</ListItem>
