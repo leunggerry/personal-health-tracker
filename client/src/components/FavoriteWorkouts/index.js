@@ -23,7 +23,7 @@ import {
 	Td,
 	TableCaption,
 	TableContainer,
-  } from '@chakra-ui/react'
+} from '@chakra-ui/react';
 
 const FavoriteWorkouts = () => {
 	// Get User Data
@@ -107,43 +107,47 @@ const FavoriteWorkouts = () => {
 					flexDirection: 'row',
 				}}
 			>
-						<TableContainer>
-						<Table>
+				<TableContainer>
+					<Table>
 						<Thead>
 							<Tr>
-							<Th>Exercise Name</Th>
-							<Th>Remove Workout</Th>
-							<Th>Add Workout</Th>
+								<Th>Exercise Name</Th>
+								<Th>Remove Workout</Th>
+								<Th>Add Workout</Th>
 							</Tr>
 						</Thead>
-							<Tbody>
-				{userData.favWorkouts.map((workout) => {
-					return (
-							<Tr>
-							<Td><span>{workout.workoutName}</span></Td>
-							<Td>
-							<Button
-								size="xs"
-								colorScheme="red"
-								onClick={() => handleRemoveFavouriteWorkout(workout._id)}
-							>
-								Remove
-							</Button>
-							</Td>
-							<Td>
-							<Button
-								size="xs"
-								colorScheme="blue"
-								onClick={() => handleAddWorkoutToSchedule(workout._id)}
-							>
-								Add to Schedule
-							</Button>
-							</Td>
-							</Tr>
-					);
-				})}
-				</Tbody>
-				</Table>
+						<Tbody>
+							{userData.favWorkouts.map((workout) => {
+								return (
+									<Tr key={workout._id}>
+										<Td>
+											<span>{workout.workoutName}</span>
+										</Td>
+										<Td>
+											<Button
+												size="xs"
+												colorScheme="red"
+												onClick={() =>
+													handleRemoveFavouriteWorkout(workout._id)
+												}
+											>
+												Remove
+											</Button>
+										</Td>
+										<Td>
+											<Button
+												size="xs"
+												colorScheme="blue"
+												onClick={() => handleAddWorkoutToSchedule(workout._id)}
+											>
+												Add to Schedule
+											</Button>
+										</Td>
+									</Tr>
+								);
+							})}
+						</Tbody>
+					</Table>
 				</TableContainer>
 				{/* <ListItem>
 					<Checkbox defaultChecked>Push ups</Checkbox>

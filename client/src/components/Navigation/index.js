@@ -13,11 +13,11 @@ function Navigation() {
 							Dashboard
 						</Link>
 					</Nav.Item>
-					{/* <Nav.Item>
+					<Nav.Item>
 						<Link to="/workouts" className="nav-link">
 							Workouts
 						</Link>
-					</Nav.Item> */}
+					</Nav.Item>
 					<Nav.Item>
 						<Link to="/profile" className="nav-link">
 							Profile
