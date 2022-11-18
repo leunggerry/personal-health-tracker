@@ -13,7 +13,7 @@ import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Navigation from './components/Navigation';
-import Footer from './components/Footer';
+import FooterComponent from './components/Footer';
 import { StoreProvider } from './utils/GlobalState';
 import Profile from './pages/Profile';
 import Workouts from './pages/Workouts';
@@ -56,18 +56,22 @@ function App() {
 					</div>
 				) : (
 					<StoreProvider>
-						<Navigation />
-						<Routes>
-							<Route path="/" element={<LandingPage />} />
-							<Route path="/login" element={<Login />} />
-							<Route path="/signup" element={<Signup />} />
-							<Route path="/profile" element={<Profile />} />
-							<Route path="/dashboard" element={<Dashboard />} />
-							<Route path="/workouts" element={<Workouts />} />
-							{/* TODO: Can we take this out. I don't think we are using it */}
-							<Route path="*" element={<NoMatch />} />
-						</Routes>
-						<Footer />
+						<section className="flex flex-col h-screen">
+							<Navigation />
+							<main className="grow">
+								<Routes>
+									<Route path="/" element={<LandingPage />} />
+									<Route path="/login" element={<Login />} />
+									<Route path="/signup" element={<Signup />} />
+									<Route path="/profile" element={<Profile />} />
+									<Route path="/dashboard" element={<Dashboard />} />
+									<Route path="/workouts" element={<Workouts />} />
+									{/* TODO: Can we take this out. I don't think we are using it */}
+									<Route path="*" element={<NoMatch />} />
+								</Routes>
+							</main>
+							<FooterComponent />
+						</section>
 					</StoreProvider>
 				)}
 			</Router>
