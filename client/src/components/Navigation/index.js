@@ -23,7 +23,7 @@ function Navigation() {
 						</Navbar.Brand>
 					</Link>
 					<Navbar.Toggle />
-					<Navbar.Collapse className="Hello flex flex-col items-center">
+					<Navbar.Collapse className="flex flex-col items-center">
 						<Link to="/dashboard" className="pt-1 pb-4">
 							Dashboard
 						</Link>
