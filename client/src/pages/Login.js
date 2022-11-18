@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Label, TextInput, Button, Checkbox } from 'flowbite-react';
+import { TextInput, Button } from 'flowbite-react';
 
 import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
@@ -51,19 +51,19 @@ function Login(props) {
 				</div>
 				<div>
 					<TextInput
-						id="username"
-						type="username"
 						placeholder="Username"
-						required={true}
+						name="username"
+						type="username"
+						id="username"
 						onChange={handleChange}
 					/>
 				</div>
 				<div>
 					<TextInput
-						id="pwd"
-						type="password"
-						required={true}
 						placeholder="******"
+						name="password"
+						type="password"
+						id="pwd"
 						onChange={handleChange}
 					/>
 					{error ? (
