@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Navbar, Button } from 'flowbite-react';
 import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
 
 function Navigation() {
-	const [isNavOpen, setIsNavOpen] = useState(false);
-
 	function showNavigation() {
 		if (Auth.loggedIn()) {
 			return (
 				<Navbar fluid={true} rounded={true}>
-					<Navbar.Brand href="https://flowbite.com/">
-						<img
-							alt="Capstone logo"
-							src="/Capstone-logo60.png"
-							width="30"
-							height="30"
-							className="d-inline-block align-top"
-						/>
-						<span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-							Capstone
-						</span>
-					</Navbar.Brand>
+					<Link to="/dashboard">
+						<Navbar.Brand>
+							<img
+								alt="Capstone logo"
+								src="/Capstone-logo60.png"
+								width="30"
+								height="30"
+								className="mr-3"
+							/>
+							<span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+								Capstone
+							</span>
+						</Navbar.Brand>
+					</Link>
 					<Navbar.Toggle />
 					<Navbar.Collapse>
 						<Navbar.Link href="/navbars" active={true}>
@@ -37,18 +37,20 @@ function Navigation() {
 		} else {
 			return (
 				<Navbar fluid={true} rounded={true}>
-					<Navbar.Brand href="https://flowbite.com/">
-						<img
-							alt="Capstone logo"
-							src="/Capstone-logo60.png"
-							width="30"
-							height="30"
-							className="d-inline-block align-top"
-						/>
-						<span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-							Capstone
-						</span>
-					</Navbar.Brand>
+					<Link to="/">
+						<Navbar.Brand>
+							<img
+								alt="Capstone logo"
+								src="/Capstone-logo60.png"
+								width="30"
+								height="30"
+								className="mr-3"
+							/>
+							<span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+								Capstone
+							</span>
+						</Navbar.Brand>
+					</Link>
 					<Navbar.Toggle />
 					<Navbar.Collapse>
 						{/* TODO: add gap between buttons */}
@@ -63,12 +65,11 @@ function Navigation() {
 			);
 		}
 	}
-
 	return (
-		<header>
-			<nav className="px-2 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+		<header className="shadow-md">
+			<div className="px-2 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
 				{showNavigation()}
-			</nav>
+			</div>
 		</header>
 	);
 }

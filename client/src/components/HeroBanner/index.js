@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card } from 'flowbite-react';
 import placeHolderImage from '../../assets/images/kelly-sikkema-bE6k8SQT2FQ-unsplash.jpg';
 import Fonts from '../../assets/Fonts';
 
@@ -23,8 +24,11 @@ function HeroBanner() {
 					</p>
 				</div>
 				{/* Image div */}
+
 				<div className="basis-1/3 flex-1">
-					<img src={placeHolderImage} className="img-thumbnail" alt="..." />
+					<Card>
+						<img src={placeHolderImage} className="object-cover" alt="..." />
+					</Card>
 				</div>
 			</div>
 		</section>
