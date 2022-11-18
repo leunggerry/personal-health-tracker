@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Label, TextInput, Button, Checkbox } from 'flowbite-react';
-// import { Container, Row, Col } from 'react-bootstrap';
-import { Container, Grid, SimpleGrid } from '@chakra-ui/react';
 
 import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
@@ -39,29 +37,45 @@ function Login(props) {
 
 	return (
 		<div class="container mx-auto xs:flex xs:justify-center md:flex">
-			<form className="flex flex-col gap-4 rounded-lg bg-slate-300 pt-16 px-8 pb-11 xs:w-72 sm:w-80 2xl:w-96 ">
+			<form
+				className="flex flex-col gap-4 rounded-lg bg-slate-300 pt-16 px-8 pb-11 xs:pt-8 xs:w-72 sm:w-80 2xl:w-96"
+				onSubmit={handleFormSubmit}
+			>
+				<div className="grid grid-cols-1 dark:text-white ">
+					<h2 className="text-3xl font-semibold mt-0 mx-0 mb-3 2xl:text-4xl flex justify-center">
+						Login
+					</h2>
+					<h3 className="text-2xl text-gray-600 font-medium mt-0 mx-0 mb-7 xs:text-lg 2xl:text-3xl flex justify-center">
+						Enter you credentials
+					</h3>
+				</div>
 				<div>
-					<div className="mb-2 block">
-						<Label htmlFor="email1" value="Your email" />
-					</div>
 					<TextInput
-						id="email1"
-						type="email"
-						placeholder="name@flowbite.com"
+						id="username"
+						type="username"
+						placeholder="Username"
 						required={true}
+						onChange={handleChange}
 					/>
 				</div>
 				<div>
-					<div className="mb-2 block">
-						<Label htmlFor="password1" value="Your password" />
-					</div>
-					<TextInput id="password1" type="password" required={true} />
+					<TextInput
+						id="pwd"
+						type="password"
+						required={true}
+						placeholder="******"
+						onChange={handleChange}
+					/>
+					{error ? (
+						<div>
+							<p className="text-red-700">
+								The provided credentials are incorrect
+							</p>
+						</div>
+					) : null}
+					<Link to="/signup">Forgot your password?</Link>
 				</div>
-				<div className="flex items-center gap-2">
-					<Checkbox id="remember" />
-					<Label htmlFor="remember">Remember me</Label>
-				</div>
-				<Button type="submit">Submit</Button>
+				<Button type="submit">LOGIN</Button>
 			</form>
 		</div>
 	);
