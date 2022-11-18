@@ -1,17 +1,10 @@
 import React from 'react';
 import placeHolderImage from '../../assets/images/kelly-sikkema-bE6k8SQT2FQ-unsplash.jpg';
-import { ChakraProvider, extendTheme, Heading, Text } from '@chakra-ui/react';
 import Fonts from '../../assets/Fonts';
 
-const theme = extendTheme({
-	fonts: {
-		heading: 'Open Sans',
-		body: 'Verdana',
-	},
-});
 function HeroBanner() {
 	return (
-		<section className="container mx-auto">
+		<section className="container mx-auto py-4">
 			<div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
 				{/* CTA */}
 				<div className="basis-1/3 flex-1">
