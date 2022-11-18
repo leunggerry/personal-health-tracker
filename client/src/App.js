@@ -7,7 +7,6 @@ import {
 	createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { Box } from '@chakra-ui/react';
 
 import LandingPage from './pages/LandingPage';
 import NoMatch from './pages/NoMatch';
@@ -57,21 +56,18 @@ function App() {
 					</div>
 				) : (
 					<StoreProvider>
-						<Box className="applicationBox">
-							<Navigation />
-							<Routes>
-								<Route path="/" element={<LandingPage />} />
-								<Route path="/login" element={<Login />} />
-								<Route path="/signup" element={<Signup />} />
-								<Route path="/profile" element={<Profile />} />
-								<Route path="/dashboard" element={<Dashboard />} />
-								{/* REMOVED WORKOUT PAGE ROUTE -- IT'S STILL IN DEVELOPMENT */}
-								<Route path="/workouts" element={<Workouts />} />
-								{/* TODO: Can we take this out. I don't think we are using it */}
-								<Route path="*" element={<NoMatch />} />
-							</Routes>
-							<Footer />
-						</Box>
+						<Navigation />
+						<Routes>
+							<Route path="/" element={<LandingPage />} />
+							<Route path="/login" element={<Login />} />
+							<Route path="/signup" element={<Signup />} />
+							<Route path="/profile" element={<Profile />} />
+							<Route path="/dashboard" element={<Dashboard />} />
+							<Route path="/workouts" element={<Workouts />} />
+							{/* TODO: Can we take this out. I don't think we are using it */}
+							<Route path="*" element={<NoMatch />} />
+						</Routes>
+						<Footer />
 					</StoreProvider>
 				)}
 			</Router>
