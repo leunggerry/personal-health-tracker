@@ -23,14 +23,24 @@ function Navigation() {
 						</Navbar.Brand>
 					</Link>
 					<Navbar.Toggle />
-					<Navbar.Collapse>
-						<Navbar.Link href="/navbars" active={true}>
-							Home
-						</Navbar.Link>
-						<Navbar.Link href="/navbars">About</Navbar.Link>
-						<Navbar.Link href="/navbars">Services</Navbar.Link>
-						<Navbar.Link href="/navbars">Pricing</Navbar.Link>
-						<Navbar.Link href="/navbars">Contact</Navbar.Link>
+					<Navbar.Collapse className="Hello flex flex-col items-center">
+						<Link to="/dashboard" className="pt-1 pb-4">
+							Dashboard
+						</Link>
+						<Link to="/workouts" className="pt-1 pb-4">
+							Workouts
+						</Link>
+						<Link to="/profile" className="pt-1 pb-4">
+							Profile
+						</Link>
+						<Button size="xs" variant="secondary">
+							<a href="/" onClick={() => Auth.logout()}>
+								Logout
+							</a>
+						</Button>{' '}
+						{/* <Navbar.Link href="/" onClick={() => Auth.logout()}>
+							Logout
+						</Navbar.Link> */}
 					</Navbar.Collapse>
 				</Navbar>
 			);
@@ -67,7 +77,7 @@ function Navigation() {
 	}
 	return (
 		<header className="shadow-md">
-			<div className="px-2 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+			<div className="px-2 h-16 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
 				{showNavigation()}
 			</div>
 		</header>
