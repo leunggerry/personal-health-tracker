@@ -7,6 +7,7 @@ import {
 	createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import Auth from './utils/auth';
 
 import LandingPage from './pages/LandingPage';
 import NoMatch from './pages/NoMatch';
@@ -60,13 +61,17 @@ function App() {
 							<Navigation />
 							<main className="grow">
 								<Routes>
-									<Route path="/" element={<LandingPage />} />
+									{!Auth.loggedIn() ? (
+										<Route path="/" element={<LandingPage />} />
+									) : (
+										// TODO: This routes to the no match page. Will look into fixing it or remove it.
+										<Route path="/dashboard" element={<Dashboard />} />
+									)}
 									<Route path="/login" element={<Login />} />
 									<Route path="/signup" element={<Signup />} />
 									<Route path="/profile" element={<Profile />} />
 									<Route path="/dashboard" element={<Dashboard />} />
 									<Route path="/workouts" element={<Workouts />} />
-									{/* TODO: Can we take this out. I don't think we are using it */}
 									<Route path="*" element={<NoMatch />} />
 								</Routes>
 							</main>

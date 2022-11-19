@@ -8,20 +8,18 @@ function Navigation() {
 		if (Auth.loggedIn()) {
 			return (
 				<Navbar fluid={true} rounded={true}>
-					<Link to="/dashboard">
-						<Navbar.Brand>
-							<img
-								alt="Capstone logo"
-								src="/Capstone-logo60.png"
-								width="30"
-								height="30"
-								className="mr-3"
-							/>
-							<span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-								Capstone
-							</span>
-						</Navbar.Brand>
-					</Link>
+					<Navbar.Brand href="/dashboard">
+						<img
+							alt="Capstone logo"
+							src="/Capstone-logo60.png"
+							width="30"
+							height="30"
+							className="mr-3"
+						/>
+						<span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+							Capstone
+						</span>
+					</Navbar.Brand>
 					<Navbar.Toggle />
 					<Navbar.Collapse className="flex flex-col items-center">
 						<Link to="/dashboard" className="pt-1 pb-4">

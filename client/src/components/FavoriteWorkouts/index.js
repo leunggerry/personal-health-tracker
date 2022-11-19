@@ -1,29 +1,11 @@
-/**
- * Components contains
- * - MyWorkoutPlan
- * -Favorited workouts
- */
 import React from 'react';
-import { Heading, List, ListItem, Checkbox, Button } from '@chakra-ui/react';
+import { Sidebar, Checkbox, Button } from 'flowbite-react';
 import { useQuery, useMutation } from '@apollo/client';
-
 import Auth from '../../utils/auth';
 import { QUERY_ME } from '../../utils/queries';
 import { DELETE_FAV_WORKOUT, SCHEDULE_WORKOUT } from '../../utils/mutations';
 import { removeFavWorkoutId } from '../../utils/localStorage';
 import { getDay } from '../../utils/helpers';
-
-import {
-	Table,
-	Thead,
-	Tbody,
-	Tfoot,
-	Tr,
-	Th,
-	Td,
-	TableCaption,
-	TableContainer,
-} from '@chakra-ui/react';
 
 const FavoriteWorkouts = () => {
 	// Get User Data
@@ -86,79 +68,44 @@ const FavoriteWorkouts = () => {
 	}
 
 	return (
-		<div
-			className="container"
-			style={{
-				display: 'flex',
-				alignItems: 'center',
-				justifyContent: 'center',
-				flexDirection: 'column',
-			}}
-		>
-			<Heading as="h4" size="md">
-				Favorite Workouts
-			</Heading>
-			<List
-				spacing={3}
-				style={{
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
-					flexDirection: 'row',
-				}}
+		<div className="flex">
+			<Sidebar
+				// className="xs:w-screen"
+				className="w-full"
+				aria-label="Sidebar with Favorite workouts"
 			>
-				<TableContainer>
-					<Table>
-						<Thead>
-							<Tr>
-								<Th>Exercise Name</Th>
-								<Th>Remove Workout</Th>
-								<Th>Add Workout</Th>
-							</Tr>
-						</Thead>
-						<Tbody>
-							{userData.favWorkouts.map((workout) => {
-								return (
-									<Tr key={workout._id}>
-										<Td>
-											<span>{workout.workoutName}</span>
-										</Td>
-										<Td>
-											<Button
-												size="xs"
-												colorScheme="red"
-												onClick={() =>
-													handleRemoveFavouriteWorkout(workout._id)
-												}
-											>
-												Remove
-											</Button>
-										</Td>
-										<Td>
-											<Button
-												size="xs"
-												colorScheme="blue"
-												onClick={() => handleAddWorkoutToSchedule(workout._id)}
-											>
-												Add to Schedule
-											</Button>
-										</Td>
-									</Tr>
-								);
-							})}
-						</Tbody>
-					</Table>
-				</TableContainer>
-				{/* <ListItem>
-					<Checkbox defaultChecked>Push ups</Checkbox>
-				</ListItem>
-				<ListItem>
-					<Checkbox defaultChecked>Ab Roll</Checkbox>
-				</ListItem>
-				<ListItem>
-					<Checkbox defaultChecked>Band Back Fly</Checkbox>
-				</ListItem> */}
-			</List>
+				<h4 className="text-2xl font-bold dark:text-white">
+					Favorite Workouts
+				</h4>
+
+				<Sidebar.Items className="pt-3 flex-col h-96">
+					<Sidebar.ItemGroup>
+						{userData.favWorkouts.map((workout) => {
+							return (
+								<div key={workout._id} className="flex flex-row items-center">
+									<p className="px-3 flex-1 whitespace-nowrap">
+										{workout.workoutName}
+									</p>
+									<Button.Group>
+										<Button
+											className="py-0 px-0 text-xs font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-red-700 dark:hover:bg-red-500 dark:focus:ring-blue-800"
+											onClick={() => handleRemoveFavouriteWorkout(workout._id)}
+										>
+											Remove
+										</Button>
+										<Button
+											className="py-0 px-0 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+											onClick={() => handleAddWorkoutToSchedule(workout._id)}
+										>
+											Add to Schedule
+										</Button>
+									</Button.Group>
+								</div>
+							);
+						})}
+					</Sidebar.ItemGroup>
+				</Sidebar.Items>
+			</Sidebar>
 		</div>
 	);
 };

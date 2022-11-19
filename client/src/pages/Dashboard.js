@@ -2,21 +2,22 @@ import React from 'react';
 import FavoriteWorkouts from '../components/FavoriteWorkouts';
 import WorkoutTable from '../components/WorkoutTable';
 import WorkoutStats from '../components/WorkoutStats';
+import Jumbotron from '../components/Jumbotron';
 import Auth from '../utils/auth';
 
 const Dashboard = () => {
 	return Auth.loggedIn() ? (
-		<section class="flex flex-col flex-wrap lg:flex lg:flex-row bg-blue-500 p-2">
+		<section className="flex flex-col flex-wrap lg:flex lg:flex-row bg-blue-500 p-2">
 			{/* FavoriteWorkouts */}
-			<div class="basis-1/4 bg-red-400">
+			<div className="basis-1/3 bg-red-400">
 				<FavoriteWorkouts />
 			</div>
 			{/* WorkoutStats */}
-			<div class="basis-1/2 bg-red-400">
+			<div className="basis-1/2 bg-red-400">
 				<WorkoutStats />
 			</div>
 			{/* Workout Summary */}
-			<div class="basis-1/2 bg-gray-200-100-400">
+			<div className="basis-1/2 bg-gray-200-100-400">
 				<h4 className="text-2xl font-bold dark:text-white">Session Summary</h4>
 				<h5 className="text-xl font-bold dark:text-white">Monday</h5>
 				<div className="workout-session">
@@ -58,7 +59,7 @@ const Dashboard = () => {
 					</div>
 				</div>
 			</div>
-			<div class="basis-1/2 bg-red-400">
+			<div className="basis-1/2 bg-red-400">
 				{/* Workout Summary */}
 				<div className="workout-logs-header">
 					<strong>Workout Logs</strong>
@@ -67,14 +68,15 @@ const Dashboard = () => {
 			</div>
 		</section>
 	) : (
-		<section class="flex justify-center items-center h-screen">
+		// <section className="flex justify-center items-center h-screen">
+		<Jumbotron>
 			<h3 className="text-3xl font-bold dark:text-white">
 				<span role="img" aria-label="shocked">
 					😱
 				</span>
 				Oops, Sign up or Login to view this page!
 			</h3>
-		</section>
+		</Jumbotron>
 	);
 };
 
