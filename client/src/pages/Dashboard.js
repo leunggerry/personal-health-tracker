@@ -13,7 +13,7 @@ const Dashboard = () => {
 				<FavoriteWorkouts />
 			</div>
 			{/* WorkoutStats */}
-			<div className="basis-1/2 bg-red-400">
+			<div className="basis-2/3 bg-red-400">
 				<WorkoutStats />
 			</div>
 			{/* Workout Summary */}
