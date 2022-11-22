@@ -1,94 +1,79 @@
 import React from 'react';
+import { Navbar } from 'flowbite-react';
 import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
-import { Navbar, Button, Nav } from 'react-bootstrap';
+import DarkModeButton from '../DarkModeButton';
 
 function Navigation() {
 	function showNavigation() {
 		if (Auth.loggedIn()) {
 			return (
-				<Nav className="justify-content-space-between">
-					<Nav.Item>
-						<Link to="/dashboard" className="nav-link">
-							Dashboard
-						</Link>
-					</Nav.Item>
-					{/* <Nav.Item>
-						<Link to="/workouts" className="nav-link">
-							Workouts
-						</Link>
-					</Nav.Item> */}
-					<Nav.Item>
-						<Link to="/profile" className="nav-link">
-							Profile
-						</Link>
-					</Nav.Item>
-					<Nav.Item>
-						<Nav.Link href="/" onClick={() => Auth.logout()}>
+				<Navbar
+					fluid={true}
+					rounded={true}
+					// className="border-gray-200 rounded bg-gray-50 dark:bg-gray-800 dark:border-gray-700"
+				>
+					<Navbar.Brand href="/dashboard">
+						<img
+							alt="Capstone logo"
+							src="/Capstone-logo60.png"
+							width="30"
+							height="30"
+							className="mr-3"
+						/>
+						<span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+							Capstone
+						</span>
+					</Navbar.Brand>
+					<Navbar.Toggle />
+					<Navbar.Collapse
+						// TODO: add a blurred backdrop and remove bg color
+						className="MENU dark:text-white"
+						// className="MENU flex z-[10] pt-3 bg-gray-300 md:bg-white"
+					>
+						<Link to="/dashboard">Dashboard</Link>
+						<Link to="/workouts">Workouts</Link>
+						<Link to="/profile">Profile</Link>
+						<a href="/" onClick={() => Auth.logout()} className="pl-0 py-0">
 							Logout
-						</Nav.Link>
-					</Nav.Item>
-				</Nav>
+						</a>
+						<DarkModeButton />
+					</Navbar.Collapse>
+				</Navbar>
 			);
 		} else {
 			return (
-				<Nav className="justify-content-end" as="ul">
-					<Nav.Item as="li">
-						<Button variant="secondary">
-							<Link to="/signup">Signup</Link>
-						</Button>{' '}
-						<Button variant="secondary">
-							<Link to="/login">Login</Link>
-						</Button>{' '}
-					</Nav.Item>
-				</Nav>
-			);
-		}
-	}
+				<Navbar fluid={true} rounded={true}>
+					<Navbar.Brand href="/">
+						<img
+							alt="Capstone logo"
+							src="/Capstone-logo60.png"
+							width="30"
+							height="30"
+							className="mr-3"
+						/>
+						<span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+							Capstone
+						</span>
+					</Navbar.Brand>
 
-	//if logged in direct to dashboard
-	function bannerDirect() {
-		if (Auth.loggedIn()) {
-			return (
-				<Link to="/dashboard">
-					<Navbar.Brand>
-						<img
-							alt="Capstone logo"
-							src="/Capstone-logo60.png"
-							width="30"
-							height="30"
-							className="d-inline-block align-top"
-						/>{' '}
-						Capstone
-					</Navbar.Brand>
-				</Link>
-			);
-		}
-		//else not logged in
-		else {
-			return (
-				<Link to="/">
-					<Navbar.Brand>
-						<img
-							alt="Capstone logo"
-							src="/Capstone-logo60.png"
-							width="30"
-							height="30"
-							className="d-inline-block align-top"
-						/>{' '}
-						Capstone
-					</Navbar.Brand>
-				</Link>
+					<Navbar.Toggle />
+					<Navbar.Collapse className="MENU dark:text-white">
+						{/* TODO: add gap between buttons */}
+						<Link to="/signup">Signup</Link>
+						<Link to="/login">Login</Link>
+						<DarkModeButton />
+					</Navbar.Collapse>
+				</Navbar>
 			);
 		}
 	}
 	return (
-		<header>
-			<Navbar variant="dark" sticky="top">
-				{bannerDirect()}
-			</Navbar>
+		<>
 			{showNavigation()}
-		</header>
+			{/* <div className="px-2 h-16 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+			</div> */}
+		</>
 	);
 }
 

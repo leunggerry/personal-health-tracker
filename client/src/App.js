@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
 	ApolloClient,
@@ -7,14 +7,14 @@ import {
 	createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { Box } from '@chakra-ui/react';
+import Auth from './utils/auth';
 
 import LandingPage from './pages/LandingPage';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Navigation from './components/Navigation';
-import Footer from './components/Footer';
+import FooterComponent from './components/Footer';
 import { StoreProvider } from './utils/GlobalState';
 import Profile from './pages/Profile';
 import Workouts from './pages/Workouts';
@@ -57,22 +57,32 @@ function App() {
 					</div>
 				) : (
 					<StoreProvider>
-						<Box className="applicationBox">
-							<Navigation />
-							<Routes>
-								<Route path="/" element={<LandingPage />} />
-								<Route path="/login" element={<Login />} />
-								<Route path="/signup" element={<Signup />} />
-								<Route path="/profile" element={<Profile />} />
-								<Route path="/dashboard" element={<Dashboard />} />
-								{/* TODO: Can we take this out. I don't think we are using it */}
-								<Route path="*" element={<NoMatch />} />
+						<section className="flex flex-col h-screen gap-4 pt-16 dark:bg-gray-800">
+							<header className="shadow-md px-2 h-16 fixed top-0 left-0 right-0 dark:bg-gray-800 dark:border-gray-700 z-[10]">
+								<Navigation />
+							</header>
 
-								{/* REMOVED WORKOUT PAGE ROUTE -- IT'S STILL IN DEVELOPMENT */}
-								{/* <Route path="/workouts" element={<Workouts />} /> */}
-							</Routes>
-							<Footer />
-						</Box>
+							<main
+								className="p-4 my-2 mx-0 grow"
+								// className="overflow-auto"
+							>
+								<Routes>
+									{!Auth.loggedIn() ? (
+										<Route path="/" element={<LandingPage />} />
+									) : (
+										// TODO: This routes to the no match page. Will look into fixing it or remove it.
+										<Route path="/dashboard" element={<Dashboard />} />
+									)}
+									<Route path="/login" element={<Login />} />
+									<Route path="/signup" element={<Signup />} />
+									<Route path="/profile" element={<Profile />} />
+									<Route path="/dashboard" element={<Dashboard />} />
+									<Route path="/workouts" element={<Workouts />} />
+									<Route path="*" element={<NoMatch />} />
+								</Routes>
+							</main>
+							<FooterComponent />
+						</section>
 					</StoreProvider>
 				)}
 			</Router>

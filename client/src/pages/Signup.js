@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// import { Container, Row, Col } from 'react-bootstrap';
-import { Container, Grid, SimpleGrid } from '@chakra-ui/react';
+import { TextInput, Button } from 'flowbite-react';
 
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
@@ -41,57 +40,67 @@ function Signup(props) {
 	};
 
 	return (
-		<Container fluid="md" className="main" centerContent>
-			<Grid>
-				<Link to="/login" style={{ padding: '40px' }}>
-					← Go to Login
-				</Link>
-				<SimpleGrid w={[300, 400, 500]} minChildWidth="120px">
-					<div className="login-card">
-						<h2>Signup</h2>
-						<h3>Enter you credentials</h3>
-						<form className="login-form" onSubmit={handleFormSubmit}>
-							<input
-								placeholder="First"
-								name="firstName"
-								type="firstName"
-								id="firstName"
-								onChange={handleChange}
-							/>
-							<input
-								placeholder="Last"
-								name="lastName"
-								type="lastName"
-								id="lastName"
-								onChange={handleChange}
-							/>
-							<input
-								placeholder="Username"
-								name="username"
-								type="username"
-								id="username"
-								onChange={handleChange}
-							/>
-							<input
-								placeholder="youremail@test.com"
-								name="email"
-								type="email"
-								id="email"
-								onChange={handleChange}
-							/>
-							<input
-								placeholder="******"
-								name="password"
-								type="password"
-								id="pwd"
-								onChange={handleChange}
-							/>
-							<button type="submit">SIGNUP</button>
-						</form>
-					</div>
-				</SimpleGrid>
-			</Grid>
-		</Container>
+		<section class="flex justify-center items-center h-screen">
+			<form
+				className="flex flex-col gap-4 rounded-lg bg-slate-300 pt-16 px-8 pb-11 xs:pt-8 xs:w-72 sm:w-80 2xl:w-96"
+				onSubmit={handleFormSubmit}
+			>
+				<div className="grid grid-cols-1 dark:text-white ">
+					<h2 className="text-3xl font-semibold mt-0 mx-0 mb-3 2xl:text-4xl flex justify-center">
+						Signup
+					</h2>
+					<h3 className="text-2xl text-gray-600 font-medium mt-0 mx-0 mb-7 xs:text-lg 2xl:text-3xl flex justify-center">
+						Enter you credentials
+					</h3>
+				</div>
+				<div>
+					<TextInput
+						placeholder="First"
+						name="firstName"
+						type="firstName"
+						id="firstName"
+						onChange={handleChange}
+					/>
+				</div>
+				<div>
+					<TextInput
+						placeholder="Last"
+						name="lastName"
+						type="lastName"
+						id="lastName"
+						onChange={handleChange}
+					/>
+				</div>
+				<div>
+					<TextInput
+						placeholder="Username"
+						name="username"
+						type="username"
+						id="username"
+						onChange={handleChange}
+					/>
+				</div>
+				<div>
+					<TextInput
+						placeholder="youremail@test.com"
+						name="email"
+						type="email"
+						id="email"
+						onChange={handleChange}
+					/>
+				</div>
+				<div>
+					<TextInput
+						placeholder="******"
+						name="password"
+						type="password"
+						id="pwd"
+						onChange={handleChange}
+					/>
+				</div>
+				<Button type="submit">SIGNUP</Button>
+			</form>
+		</section>
 	);
 }
 

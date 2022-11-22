@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// import { Container, Row, Col } from 'react-bootstrap';
-import { Container, Grid, SimpleGrid } from '@chakra-ui/react';
+import { TextInput, Button } from 'flowbite-react';
 
 import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
@@ -37,45 +36,48 @@ function Login(props) {
 	};
 
 	return (
-		<Container fluid="md" className="main" centerContent>
-			<Grid>
-				<Link to="/signup" style={{ padding: '40px' }}>
-					← Go to Signup
-				</Link>
-				<SimpleGrid w={[300, 400, 500]} minChildWidth="120px">
-					<div className="login-card">
-						<h2>Login</h2>
-						<h3>Enter you credentials</h3>
-						<form className="login-form" onSubmit={handleFormSubmit}>
-							<input
-								placeholder="Username"
-								name="username"
-								type="username"
-								id="username"
-								onChange={handleChange}
-							/>
-							<input
-								placeholder="******"
-								name="password"
-								type="password"
-								id="pwd"
-								onChange={handleChange}
-							/>
-							{error ? (
-								<div>
-									<p className="error-text">
-										The provided credentials are incorrect
-									</p>
-								</div>
-							) : null}
-							{/* TODO: make sure the forgor your password link leads somewhere */}
-							<Link to="/signup">Forgot your password?</Link>
-							<button type="submit">LOGIN</button>
-						</form>
-					</div>
-				</SimpleGrid>
-			</Grid>
-		</Container>
+		<section class="flex justify-center items-center h-screen">
+			<form
+				className="flex flex-col gap-4 rounded-lg bg-slate-300 pt-16 px-8 pb-11 xs:pt-8 xs:w-72 sm:w-80 2xl:w-96"
+				onSubmit={handleFormSubmit}
+			>
+				<div className="grid grid-cols-1 dark:text-white ">
+					<h2 className="text-3xl font-semibold mt-0 mx-0 mb-3 2xl:text-4xl flex justify-center">
+						Login
+					</h2>
+					<h3 className="text-2xl text-gray-600 font-medium mt-0 mx-0 mb-7 xs:text-lg 2xl:text-3xl flex justify-center">
+						Enter you credentials
+					</h3>
+				</div>
+				<div>
+					<TextInput
+						placeholder="Username"
+						name="username"
+						type="username"
+						id="username"
+						onChange={handleChange}
+					/>
+				</div>
+				<div>
+					<TextInput
+						placeholder="******"
+						name="password"
+						type="password"
+						id="pwd"
+						onChange={handleChange}
+					/>
+					{error ? (
+						<div>
+							<p className="text-red-700">
+								The provided credentials are incorrect
+							</p>
+						</div>
+					) : null}
+					<Link to="/signup">Forgot your password?</Link>
+				</div>
+				<Button type="submit">LOGIN</Button>
+			</form>
+		</section>
 	);
 }
 

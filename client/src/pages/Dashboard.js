@@ -1,143 +1,94 @@
-/**
- * Components to add
- *  - Favories (favorited workouts)
- *  - Calendar
- */
 import React from 'react';
-import {
-	Heading,
-	Grid,
-	GridItem,
-	Wrap,
-	WrapItem,
-	Center,
-	VStack,
-	Container,
-} from '@chakra-ui/react';
 import FavoriteWorkouts from '../components/FavoriteWorkouts';
 import WorkoutTable from '../components/WorkoutTable';
 import WorkoutStats from '../components/WorkoutStats';
+import Jumbotron from '../components/Jumbotron';
 import Auth from '../utils/auth';
 
 const Dashboard = () => {
-	return (
-		// <Container >
-		Auth.loggedIn() ? (
-			<Grid
-				h="200px"
-				templateRows="repeat(2, 1fr)"
-				templateColumns="repeat(5, 1fr)"
-				gap={4}
-				display="flex"
-				flexDirection="column"
-				justifyContent="center"
-				className="main"
-			>
-				<GridItem
-					rowSpan={2}
-					colSpan={1}
-					boxShadow="dark-lg"
-					p="6"
-					rounded="md"
-					bg="white"
-				>
-					<FavoriteWorkouts />
-					{/* <FavoritesDrawer /> */}
-				</GridItem>
-				<GridItem
-					colSpan={2}
-					boxShadow="dark-lg"
-					p="6"
-					rounded="md"
-					bg="white"
-					style={{
-						display: 'flex',
-						justifyContent: 'center',
-						alignItems: 'center',
-					}}
-				>
-					<WorkoutStats />
-				</GridItem>
-
+	return Auth.loggedIn() ? (
+		<section className="flex flex-col flex-wrap gap-4 md:justify-center lg:flex lg:flex-row p-2 dark:bg-gray-800">
+			{/* FavoriteWorkouts */}
+			<div className="2xl:basis-1/3 shadow-md">
+				<FavoriteWorkouts />
+			</div>
+			{/* WorkoutStats */}
+			<div className="lg:basis-3/5 shadow-inner">
+				<WorkoutStats />
+			</div>
+			{/* Session Summary */}
+			<div className="basis-full bg-gray-200-100-400">
+				{/* <div className="basis-full bg-gray-200-100-400"> */}
+				<h4 className="text-2xl font-bold">Session Summary</h4>
+				<h5 className="text-xl font-bold">Monday</h5>
+				<div className="workout-session">
+					<span>Session 1</span>
+					<div className="md:flex md:flex-col lg:flex-row gap-4">
+						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1 inline-flex text-gray-600 sm:text-base">
+							<img
+								className="object-none object-center w-16"
+								alt=""
+								src="/images/icons/stopwatch.png"
+							/>
+							<p>
+								Session Length
+								<br />
+								<span>00:03:35</span>
+							</p>
+						</div>
+						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1 inline-flex text-gray-600 sm:text-base">
+							<img
+								className="object-none object-center w-16"
+								alt=""
+								src="/images/icons/stopwatch.png"
+							/>
+							<p>
+								Actual Workout
+								<br />
+								<span>00:03:35</span>
+							</p>
+						</div>
+						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1 inline-flex text-gray-600 sm:text-base">
+							<img
+								className="object-none object-center w-16"
+								alt=""
+								src="/images/icons/stopwatch.png"
+							/>
+							<p>
+								Rest Timer
+								<br />
+								<span>00:03:00</span>
+							</p>
+						</div>
+						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1 inline-flex text-gray-600 sm:text-base">
+							<img alt="" src="/images/icons/weight.png" />
+							<p>
+								Weight Lifted
+								<br />
+								<span>00:03:00</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="basis-full overflow-x-auto">
 				{/* Workout Summary */}
-				<GridItem colSpan={2} boxShadow="dark-lg" p="6" rounded="md" bg="white">
-					<Heading as="h4" size="md">
-						Session Summary
-					</Heading>
-					<Heading as="h5" size="sm">
-						Monday
-					</Heading>
-					<div className="workout-session">
-						<span>Session 1</span>
-						<Wrap justify="center">
-							{/* Session Length */}
-							<WrapItem boxShadow="xl" p="6" rounded="md" bg="#f6f5f5ff">
-								<Center w={[55, 180, 200]} h="80px">
-									<img alt="" src="/images/icons/stopwatch.png" />
-									<VStack spacing={1} align="stretch">
-										<div>Session Length</div>
-										<div>
-											<span>00:03:35</span>
-										</div>
-									</VStack>
-								</Center>
-							</WrapItem>
-
-							{/*  Actual Workout */}
-							<WrapItem boxShadow="xl" p="6" rounded="md" bg="#f6f5f5ff">
-								<Center w={[55, 180, 200]} h="80px">
-									<VStack spacing={1} align="stretch">
-										<div>Actual Workout</div>
-										<div>
-											<span>00:03:35</span>
-										</div>
-									</VStack>
-								</Center>
-							</WrapItem>
-
-							{/*  Rest Timer */}
-							<WrapItem boxShadow="xl" p="6" rounded="md" bg="#f6f5f5ff">
-								<Center w={[55, 180, 200]} h="80px">
-									<VStack spacing={1} align="stretch">
-										<div>Rest Timer</div>
-										<div>
-											<span>00:03:00</span>
-										</div>
-									</VStack>
-								</Center>
-							</WrapItem>
-							<WrapItem boxShadow="xl" p="6" rounded="md" bg="#f6f5f5ff">
-								<Center w={[55, 180, 200]} h="80px">
-									<img alt="" src="/images/icons/weight.png" />
-									<VStack spacing={1} align="stretch">
-										<div>Weight Lifted</div>
-										<div>
-											<span>0 Ibs</span>
-										</div>
-									</VStack>
-								</Center>
-							</WrapItem>
-						</Wrap>
-					</div>
-				</GridItem>
-
-				{/* Workout Logs */}
-				<GridItem colSpan={4} boxShadow="dark-lg" p="6" rounded="md" bg="white">
-					<div className="workout-logs-header">
-						<strong>Workouts Logs</strong>
-					</div>
+				<div className="workout-logs-header">
+					<strong>Workout Logs</strong>
 					<WorkoutTable />
-				</GridItem>
-			</Grid>
-		) : (
-			// </Container>
-			<h3>
+				</div>
+			</div>
+		</section>
+	) : (
+		// <section className="flex justify-center items-center h-screen">
+		<Jumbotron>
+			<h3 className="text-3xl font-bold dark:text-white">
 				<span role="img" aria-label="shocked">
 					😱
 				</span>
 				Oops, Sign up or Login to view this page!
 			</h3>
-		)
+		</Jumbotron>
 	);
 };
 

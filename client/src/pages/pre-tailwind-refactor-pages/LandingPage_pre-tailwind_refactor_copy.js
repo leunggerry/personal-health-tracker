@@ -1,6 +1,6 @@
 import React from 'react';
 import Auth from '../utils/auth';
-import { Carousel } from 'flowbite-react';
+import { Carousel, Container, Row, Col } from 'react-bootstrap';
 
 import HeroBanner from '../components/HeroBanner';
 
@@ -14,22 +14,43 @@ const LandingPage = () => {
 		return (
 			<>
 				<HeroBanner />
-				<section className="container mx-auto py-8">
-					{/* <Container>
+				{/* <Container>
 					<Row>
 						<Col>
 							<h2 className="section-title">Header text</h2>
 						</Col>
 					</Row>
 				</Container> */}
-					<div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
-						<Carousel className="object-cover object-center h-auto">
-							<img src={carousel1} alt="First slide" />
-							<img src={carousel2} alt="Second slide" />
-							<img src={carousel3} alt="Third slide" />
-						</Carousel>
-					</div>
-					{/* <Container>
+				<Container>
+					<Row>
+						<Col>
+							<Carousel className="Carousel-container" variant="dark">
+								<Carousel.Item interval={1000} className="Carousel-item">
+									<img
+										className="d-block w-100"
+										src={carousel1}
+										alt="First slide"
+									/>
+								</Carousel.Item>
+								<Carousel.Item interval={500} className="Carousel-item">
+									<img
+										className="d-block w-100"
+										src={carousel2}
+										alt="Second slide"
+									/>
+								</Carousel.Item>
+								<Carousel.Item className="Carousel-item">
+									<img
+										className="d-block w-100"
+										src={carousel3}
+										alt="Third slide"
+									/>
+								</Carousel.Item>
+							</Carousel>
+						</Col>
+					</Row>
+				</Container>
+				{/* <Container>
 					<Row>
 						<Col>
 							<h2>Start Building Habits.</h2>
@@ -47,7 +68,6 @@ const LandingPage = () => {
 						</Col>
 					</Row>
 				</Container> */}
-				</section>
 			</>
 		);
 	} else {

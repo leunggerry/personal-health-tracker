@@ -1,61 +1,157 @@
-import {
-	Stat,
-	StatLabel,
-	StatNumber,
-	StatHelpText,
-	StatArrow,
-	StatGroup,
-	Flex,
-	Divider,
-	Box,
-} from '@chakra-ui/react';
-
 const WorkoutStats = () => {
 	return (
-		<StatGroup style={{ width: '25%' }}>
-			<Flex align="center" mx="2">
-				<Box mx="4">
-					<Stat>
-						<StatLabel mb="2">Daily Jog</StatLabel>
-						<StatNumber>4 km</StatNumber>
-						<StatHelpText>
-							<StatArrow type="increase" />
-							23.36%
-						</StatHelpText>
-					</Stat>
-				</Box>
-			</Flex>
-
-			<Divider orientation="horizontal" borderColor="gray.300" my="2"></Divider>
-
-			<Flex align="center" mx="2">
-				<Box mx="4">
-					<Stat>
-						<StatLabel mb="2">Ab Roll</StatLabel>
-						<StatNumber>1 Set: 4Lap/Rep</StatNumber>
-						<StatHelpText>
-							<StatArrow type="decrease" />
-							9.05%
-						</StatHelpText>
-					</Stat>
-				</Box>
-			</Flex>
-
-			<Divider orientation="horizontal" borderColor="gray.300" my="2"></Divider>
-
-			<Flex align="center" mx="2">
-				<Box mx="4">
-					<Stat>
-						<StatLabel mb="2">Band Back Fly</StatLabel>
-						<StatNumber>5 Set: 10Lap/Rep</StatNumber>
-						<StatHelpText>
-							<StatArrow type="increase" />
-							60%
-						</StatHelpText>
-					</Stat>
-				</Box>
-			</Flex>
-		</StatGroup>
+		<>
+			<div className="container items-center px-4 py-8 m-auto mt-5">
+				<div className="flex flex-wrap justify-center pb-3 md:mx-24 lg:mx-0">
+					{/* <div className="flex flex-wrap justify-center pb-3 mx-4 md:mx-24 lg:mx-0"> */}
+					<ul className="w-full sm:w-4/5 text-xs sm:text-sm justify-center lg:justify-end items-center flex flex-row space-x-1 mt-6 overflow-hidden mb-4">
+						<li>
+							<button className="px-4 py-2 bg-indigo-500 rounded-full text-sm text-gray-100 hover:bg-indigo-700 hover:text-gray-200">
+								30 days
+							</button>
+						</li>
+						<li>
+							<button className="px-4 py-2 bg-gray-200 rounded-full text-sm text-gray-700 hover:bg-indigo-700 hover:text-gray-200">
+								90 days
+							</button>
+						</li>
+						<li>
+							<button className="px-4 py-2 bg-gray-200 rounded-full text-sm text-gray-700 hover:bg-indigo-700 hover:text-gray-200">
+								6 months
+							</button>
+						</li>
+						<li>
+							<button className="px-4 py-2 bg-gray-200 rounded-full text-sm text-gray-700 hover:bg-indigo-700 hover:text-gray-200">
+								12 months
+							</button>
+						</li>
+					</ul>
+					{/* STAT 1: Ab Roll */}
+					<div className="w-full p-2 lg:w-2/4  md:w-1/2">
+						<div className="flex flex-col px-6 py-10 overflow-hidden bg-white hover:bg-gradient-to-br hover:from-purple-400 hover:via-blue-400 hover:to-blue-500 rounded-xl shadow-lg duration-300 hover:shadow-2xl group">
+							<div className="flex flex-row justify-between items-center">
+								<div className="px-4 py-4 bg-gray-300  rounded-xl bg-opacity-30">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										className="h-6 w-6 group-hover:text-gray-50"
+										viewBox="0 0 20 20"
+										fill="currentColor"
+									>
+										<path
+											fillRule="evenodd"
+											d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+											clipRule="evenodd"
+										/>
+										<path
+											fillRule="evenodd"
+											d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+											clipRule="evenodd"
+										/>
+									</svg>
+								</div>
+								{/* Percent gain vs. Loss */}
+								<div className="inline-flex text-sm text-gray-600 group-hover:text-gray-200 sm:text-base">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										className="h-6 w-6 mr-2 text-green-500 group-hover:text-gray-200"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+										strokeWidth="2"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+										/>
+									</svg>
+									9.05%
+								</div>
+							</div>
+							{/* Sets and Reps */}
+							<h1 className="text-3xl sm:text-4xl xl:text-4xl font-bold text-gray-700 mt-12 group-hover:text-gray-50">
+								1 Set: 4Lap/Rep
+							</h1>
+							{/* Workut Name */}
+							<div className="flex flex-row justify-between group-hover:text-gray-200">
+								<p>Ab Roll</p>
+								<span>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										className="h-5 w-5 text-indigo-600 group-hover:text-gray-200"
+										viewBox="0 0 20 20"
+										fill="currentColor"
+									>
+										<path
+											fillRule="evenodd"
+											d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+											clipRule="evenodd"
+										/>
+									</svg>
+								</span>
+							</div>
+						</div>
+					</div>
+					{/* STAT 2: Band Back Fly */}
+					<div className="w-full p-2 lg:w-2/4  md:w-1/2">
+						<div className="flex flex-col px-6 py-10 overflow-hidden bg-white hover:bg-gradient-to-br hover:from-purple-400 hover:via-blue-400 hover:to-blue-500 rounded-xl shadow-lg duration-300 hover:shadow-2xl group">
+							<div className="flex flex-row justify-between items-center">
+								<div className="px-4 py-4 bg-gray-300  rounded-xl bg-opacity-30">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										className="h-6 w-6 group-hover:text-gray-50"
+										viewBox="0 0 20 20"
+										fill="currentColor"
+									>
+										<path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
+									</svg>
+								</div>
+								{/* Percent gain vs. Loss */}
+								<div className="inline-flex text-sm text-gray-600 group-hover:text-gray-200 sm:text-base">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										className="h-6 w-6 mr-2 text-green-500 group-hover:text-gray-200"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+										strokeWidth="2"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+										/>
+									</svg>
+									60%
+								</div>
+							</div>
+							{/* Sets and Reps */}
+							<h1 className="text-3xl sm:text-4xl xl:text-4xl font-bold text-gray-700 mt-12 group-hover:text-gray-50">
+								5 Set: 10Lap/Rep
+							</h1>
+							{/* Workut Name */}
+							<div className="flex flex-row justify-between group-hover:text-gray-200">
+								<p>Band Back Fly</p>
+								<span>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										className="h-5 w-5 text-indigo-600 group-hover:text-gray-200"
+										viewBox="0 0 20 20"
+										fill="currentColor"
+									>
+										<path
+											fillRule="evenodd"
+											d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+											clipRule="evenodd"
+										/>
+									</svg>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</>
 	);
 };
 
