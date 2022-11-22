@@ -2,7 +2,8 @@ const WorkoutStats = () => {
 	return (
 		<>
 			<div className="container items-center px-4 py-8 m-auto mt-5">
-				<div className="flex flex-wrap justify-center pb-3 mx-4 md:mx-24 lg:mx-0">
+				<div className="flex flex-wrap justify-center pb-3 md:mx-24 lg:mx-0">
+					{/* <div className="flex flex-wrap justify-center pb-3 mx-4 md:mx-24 lg:mx-0"> */}
 					<ul className="w-full sm:w-4/5 text-xs sm:text-sm justify-center lg:justify-end items-center flex flex-row space-x-1 mt-6 overflow-hidden mb-4">
 						<li>
 							<button className="px-4 py-2 bg-indigo-500 rounded-full text-sm text-gray-100 hover:bg-indigo-700 hover:text-gray-200">

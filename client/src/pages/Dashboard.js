@@ -7,25 +7,23 @@ import Auth from '../utils/auth';
 
 const Dashboard = () => {
 	return Auth.loggedIn() ? (
-		<section className="flex flex-col flex-wrap lg:flex lg:flex-row bg-blue-500 p-2">
+		<section className="flex flex-col flex-wrap gap-4 md:justify-center lg:flex lg:flex-row bg-blue-500 p-2">
 			{/* FavoriteWorkouts */}
-			<div className="basis-1/3 bg-red-400">
+			<div className="2xl:basis-1/3 bg-red-400">
 				<FavoriteWorkouts />
 			</div>
 			{/* WorkoutStats */}
-			<div className="basis-2/3 bg-red-400">
+			<div className="lg:basis-3/5 bg-red-400">
 				<WorkoutStats />
 			</div>
 			{/* Workout Summary */}
-			<div className="basis-1/2 bg-gray-200-100-400">
+			<div className="basis-full bg-gray-200-100-400">
 				<h4 className="text-2xl font-bold dark:text-white">Session Summary</h4>
 				<h5 className="text-xl font-bold dark:text-white">Monday</h5>
 				<div className="workout-session">
 					<span>Session 1</span>
-					<div className="lg:flex gap-4">
-						{/* <div className="sm:flex sm:items-center sm:justify-center"> */}
-						{/* <div className="p-4 grid grid-cols-2"> */}
-						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1">
+					<div className="md:flex md:flex-col lg:flex-row gap-4">
+						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1 inline-flex text-gray-600 sm:text-base">
 							<img
 								className="object-none object-center w-16"
 								alt=""
@@ -37,29 +35,42 @@ const Dashboard = () => {
 								<span>00:03:35</span>
 							</p>
 						</div>
-						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1">
-							<div>Actual Workout</div>
-							<div>
+						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1 inline-flex text-gray-600 sm:text-base">
+							<img
+								className="object-none object-center w-16"
+								alt=""
+								src="/images/icons/stopwatch.png"
+							/>
+							<p>
+								Actual Workout
+								<br />
 								<span>00:03:35</span>
-							</div>
+							</p>
 						</div>
-						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1">
-							<div>Rest Timer</div>
-							<div>
+						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1 inline-flex text-gray-600 sm:text-base">
+							<img
+								className="object-none object-center w-16"
+								alt=""
+								src="/images/icons/stopwatch.png"
+							/>
+							<p>
+								Rest Timer
+								<br />
 								<span>00:03:00</span>
-							</div>
+							</p>
 						</div>
-						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1">
+						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1 inline-flex text-gray-600 sm:text-base">
 							<img alt="" src="/images/icons/weight.png" />
-							<div>Weight Lifted</div>
-							<div>
+							<p>
+								Weight Lifted
+								<br />
 								<span>00:03:00</span>
-							</div>
+							</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div className="basis-1/2 bg-red-400">
+			<div className="basis-full overflow-x-auto bg-red-400">
 				{/* Workout Summary */}
 				<div className="workout-logs-header">
 					<strong>Workout Logs</strong>

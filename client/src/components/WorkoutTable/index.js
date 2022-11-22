@@ -1,17 +1,4 @@
-import {
-	Table,
-	Thead,
-	Tbody,
-	Tfoot,
-	Tr,
-	Th,
-	Td,
-	TableCaption,
-	TableContainer,
-	Button,
-} from '@chakra-ui/react';
-
-import Modal from '../Modal';
+import { Table, Button } from 'flowbite-react';
 
 import Auth from '../../utils/auth';
 import { QUERY_ME } from '../../utils/queries';
@@ -62,45 +49,60 @@ function StripedColumnsExample() {
 		console.log(todaysWorkouts);
 	}
 	return (
-		<TableContainer>
-			<Table variant="simple">
-				<TableCaption>
-					{/* <Button variant="primary">+ Add Workout</Button> */}
-					<Modal />
-				</TableCaption>
-				<Thead>
-					<Tr>
-						<Th>Exercise Name</Th>
-						<Th>Lifting Logs</Th>
-						<Th>Remove Workout</Th>
-					</Tr>
-				</Thead>
-				<Tbody>
-					{todaysWorkouts &&
-						todaysWorkouts.map((workout) => {
-							return (
-								<Tr key={workout._id}>
-									<Td>{workout.workoutName}</Td>
-									<Td>
-										<div>
-											{workout.setsCount} Sets - {workout.repsCount} Laps/Reps
-										</div>
-									</Td>
-									<Td>
-										<Button
-											size="xs"
-											colorScheme="red"
-											onClick={() => handleRemoveScheduleWorkout(workout._id)}
-										>
-											Remove Workout
-										</Button>
-									</Td>
-								</Tr>
-							);
-						})}
-				</Tbody>
-			</Table>
-		</TableContainer>
+		<Table>
+			<Table.Head>
+				<Table.HeadCell>Exercise Name</Table.HeadCell>
+				<Table.HeadCell>Lifting Logs</Table.HeadCell>
+				<Table.HeadCell>
+					<span className="sr-only">Remove Workout</span>
+				</Table.HeadCell>
+			</Table.Head>
+			<Table.Body>
+				{todaysWorkouts &&
+					todaysWorkouts.map((workout) => {
+						return (
+							<Table.Row
+								key={workout._id}
+								className="bg-white dark:border-gray-700 dark:bg-gray-800"
+							>
+								<Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+									{workout.workoutName}
+								</Table.Cell>
+								<Table.Cell>
+									<div>
+										{workout.setsCount} Sets - {workout.repsCount} Laps/Reps
+									</div>
+								</Table.Cell>
+								<Table.Cell>
+									<Button
+										size="xs"
+										// colorScheme="red"
+										onClick={() => handleRemoveScheduleWorkout(workout._id)}
+									>
+										Remove Workout
+									</Button>
+								</Table.Cell>
+							</Table.Row>
+						);
+					})}
+			</Table.Body>
+			{/* <Table.Body className="divide-y">
+				<Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+					<Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+						Sit Ups
+					</Table.Cell>
+					<Table.Cell>5 Sets - 20 Laps/Reps</Table.Cell>
+					<Table.Cell>
+						<a
+							href="/tables"
+							className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+						>
+							Remove Workout
+						</a>
+					</Table.Cell>
+				</Table.Row>
+			</Table.Body> */}
+		</Table>
 	);
 }
 

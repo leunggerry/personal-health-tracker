@@ -71,7 +71,7 @@ const FavoriteWorkouts = () => {
 		<div className="flex">
 			<Sidebar
 				// className="xs:w-screen"
-				className="w-full"
+				className="md:w-full"
 				aria-label="Sidebar with Favorite workouts"
 			>
 				<h4 className="text-2xl font-bold dark:text-white">
