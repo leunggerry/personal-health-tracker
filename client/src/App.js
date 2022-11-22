@@ -57,9 +57,15 @@ function App() {
 					</div>
 				) : (
 					<StoreProvider>
-						<section className="flex flex-col h-screen">
-							<Navigation />
-							<main className="grow">
+						<section className="flex flex-col h-screen gap-4 pt-16">
+							<header className="shadow-md px-2 h-16 fixed top-0 left-0 right-0 dark:bg-gray-900 dark:border-gray-700 z-[10]">
+								<Navigation />
+							</header>
+
+							<main
+								className="p-4 my-2 mx-0 grow"
+								// className="overflow-auto"
+							>
 								<Routes>
 									{!Auth.loggedIn() ? (
 										<Route path="/" element={<LandingPage />} />

@@ -16,7 +16,7 @@ function HeroBanner() {
 						</span>{' '}
 					</h1>
 					<br />
-					<p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+					<p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
 						Add Capstone Fitness to your workout routine and see the results for
 						yourself! This daily workout tracker will help you maintain your
 						physical health by adding workouts to your calendar and tracking
