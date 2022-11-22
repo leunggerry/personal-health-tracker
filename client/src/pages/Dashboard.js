@@ -7,16 +7,16 @@ import Auth from '../utils/auth';
 
 const Dashboard = () => {
 	return Auth.loggedIn() ? (
-		<section className="flex flex-col flex-wrap gap-4 md:justify-center lg:flex lg:flex-row bg-blue-500 p-2">
+		<section className="flex flex-col flex-wrap gap-4 md:justify-center lg:flex lg:flex-row p-2">
 			{/* FavoriteWorkouts */}
-			<div className="2xl:basis-1/3 bg-red-400">
+			<div className="2xl:basis-1/3 shadow-md">
 				<FavoriteWorkouts />
 			</div>
 			{/* WorkoutStats */}
-			<div className="lg:basis-3/5 bg-red-400">
+			<div className="lg:basis-3/5 shadow-inner">
 				<WorkoutStats />
 			</div>
-			{/* Workout Summary */}
+			{/* Session Summary */}
 			<div className="basis-full bg-gray-200-100-400">
 				<h4 className="text-2xl font-bold dark:text-white">Session Summary</h4>
 				<h5 className="text-xl font-bold dark:text-white">Monday</h5>
@@ -70,7 +70,7 @@ const Dashboard = () => {
 					</div>
 				</div>
 			</div>
-			<div className="basis-full overflow-x-auto bg-red-400">
+			<div className="basis-full overflow-x-auto">
 				{/* Workout Summary */}
 				<div className="workout-logs-header">
 					<strong>Workout Logs</strong>

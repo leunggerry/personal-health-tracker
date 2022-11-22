@@ -6,7 +6,7 @@ import { REMOVE_SCHEDULE_WORKOUT } from '../../utils/mutations';
 import { useMutation, useQuery } from '@apollo/client';
 import { getDay } from '../../utils/helpers';
 
-function StripedColumnsExample() {
+function WorkoutTable() {
 	// Get User Data
 	const { data } = useQuery(QUERY_ME);
 
@@ -86,24 +86,8 @@ function StripedColumnsExample() {
 						);
 					})}
 			</Table.Body>
-			{/* <Table.Body className="divide-y">
-				<Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-					<Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-						Sit Ups
-					</Table.Cell>
-					<Table.Cell>5 Sets - 20 Laps/Reps</Table.Cell>
-					<Table.Cell>
-						<a
-							href="/tables"
-							className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-						>
-							Remove Workout
-						</a>
-					</Table.Cell>
-				</Table.Row>
-			</Table.Body> */}
 		</Table>
 	);
 }
 
-export default StripedColumnsExample;
+export default WorkoutTable;
