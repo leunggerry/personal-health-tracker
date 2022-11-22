@@ -2,6 +2,9 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
+	// Use the class to manually change darkMode
+	darkMode: 'class',
+	// darkMode: 'media',
 	content: [
 		'./src/**/*.{js,jsx,ts,tsx}',
 		'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',

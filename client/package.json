@@ -28,6 +28,7 @@
 		"react-fontawesome": "^1.7.1",
 		"react-router-dom": "^6.2.1",
 		"react-scripts": "5.0.1",
+		"react-toggle-dark-mode": "^1.1.1",
 		"styled-components": "^5.3.6"
 	},
 	"scripts": {

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Navbar, Button } from 'flowbite-react';
+import { Navbar } from 'flowbite-react';
 import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
+import DarkModeButton from '../DarkModeButton';
 
 function Navigation() {
 	function showNavigation() {
@@ -27,7 +28,7 @@ function Navigation() {
 					<Navbar.Toggle />
 					<Navbar.Collapse
 						// TODO: add a blurred backdrop and remove bg color
-						className="MENU z-[10] backdrop-filter backdrop-blur-sm"
+						className="MENU dark:text-white"
 						// className="MENU flex z-[10] pt-3 bg-gray-300 md:bg-white"
 					>
 						<Link to="/dashboard">Dashboard</Link>
@@ -36,6 +37,7 @@ function Navigation() {
 						<a href="/" onClick={() => Auth.logout()} className="pl-0 py-0">
 							Logout
 						</a>
+						<DarkModeButton />
 					</Navbar.Collapse>
 				</Navbar>
 			);
@@ -56,10 +58,11 @@ function Navigation() {
 					</Navbar.Brand>
 
 					<Navbar.Toggle />
-					<Navbar.Collapse className="MENU z-[10] relative">
+					<Navbar.Collapse className="MENU dark:text-white">
 						{/* TODO: add gap between buttons */}
 						<Link to="/signup">Signup</Link>
 						<Link to="/login">Login</Link>
+						<DarkModeButton />
 					</Navbar.Collapse>
 				</Navbar>
 			);

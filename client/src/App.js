@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
 	ApolloClient,
@@ -57,8 +57,8 @@ function App() {
 					</div>
 				) : (
 					<StoreProvider>
-						<section className="flex flex-col h-screen gap-4 pt-16">
-							<header className="shadow-md px-2 h-16 fixed top-0 left-0 right-0 dark:bg-gray-900 dark:border-gray-700 z-[10]">
+						<section className="flex flex-col h-screen gap-4 pt-16 dark:bg-gray-800">
+							<header className="shadow-md px-2 h-16 fixed top-0 left-0 right-0 dark:bg-gray-800 dark:border-gray-700 z-[10]">
 								<Navigation />
 							</header>
 

@@ -82,7 +82,10 @@ const FavoriteWorkouts = () => {
 					<Sidebar.ItemGroup>
 						{userData.favWorkouts.map((workout) => {
 							return (
-								<div key={workout._id} className="flex flex-row items-center">
+								<div
+									key={workout._id}
+									className="flex flex-row items-center dark:text-white"
+								>
 									<p className="px-3 flex-1 whitespace-nowrap">
 										{workout.workoutName}
 									</p>
