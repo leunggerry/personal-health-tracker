@@ -7,9 +7,9 @@ import Auth from '../utils/auth';
 
 const Dashboard = () => {
 	return Auth.loggedIn() ? (
-		<section className="flex flex-col flex-wrap gap-4 md:justify-center lg:flex lg:flex-row p-2 dark:bg-gray-800">
+		<section className="flex flex-col flex-wrap gap-4 md:justify-center lg:flex lg:flex-row p-2 dark:bg-gray-900">
 			{/* FavoriteWorkouts */}
-			<div className="2xl:basis-1/3 shadow-md">
+			<div className="2xl:basis-1/3">
 				<FavoriteWorkouts />
 			</div>
 			{/* WorkoutStats */}
@@ -17,13 +17,13 @@ const Dashboard = () => {
 				<WorkoutStats />
 			</div>
 			{/* Session Summary */}
-			<div className="basis-full bg-gray-200-100-400">
+			<div className="basis-full bg-gray-200-100-400 dark:text-white">
 				{/* <div className="basis-full bg-gray-200-100-400"> */}
 				<h4 className="text-2xl font-bold">Session Summary</h4>
 				<h5 className="text-xl font-bold">Monday</h5>
 				<div className="workout-session">
 					<span>Session 1</span>
-					<div className="md:flex md:flex-col lg:flex-row gap-4">
+					<div className="grid w-full sm:flex sm:flex-col sm:justify-center md:flex md:flex-col-2 gap-4 md:grid-cols-4 lg:flex-row">
 						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1 inline-flex text-gray-600 sm:text-base">
 							<img
 								className="object-none object-center w-16"
@@ -71,7 +71,7 @@ const Dashboard = () => {
 					</div>
 				</div>
 			</div>
-			<div className="basis-full overflow-x-auto">
+			<div className="basis-full overflow-x-auto dark:text-white">
 				{/* Workout Summary */}
 				<div className="workout-logs-header">
 					<strong>Workout Logs</strong>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'flowbite-react';
-import placeHolderImage from '../../assets/images/kelly-sikkema-bE6k8SQT2FQ-unsplash.jpg';
+import placeHolderImage from '../../assets/images/capstoneDashboard.png';
 import Fonts from '../../assets/Fonts';
 
 function HeroBanner() {

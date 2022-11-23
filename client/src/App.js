@@ -57,22 +57,17 @@ function App() {
 					</div>
 				) : (
 					<StoreProvider>
-						<section className="flex flex-col h-screen gap-4 pt-16 dark:bg-gray-800">
+						<section className="flex flex-col h-screen pt-16 dark:bg-gray-900">
 							<header className="shadow-md px-2 h-16 fixed top-0 left-0 right-0 dark:bg-gray-800 dark:border-gray-700 z-[10]">
 								<Navigation />
 							</header>
 
 							<main
-								className="p-4 my-2 mx-0 grow"
+								className="mt-2 mx-0 gap-4 grow"
 								// className="overflow-auto"
 							>
 								<Routes>
-									{!Auth.loggedIn() ? (
-										<Route path="/" element={<LandingPage />} />
-									) : (
-										// TODO: This routes to the no match page. Will look into fixing it or remove it.
-										<Route path="/dashboard" element={<Dashboard />} />
-									)}
+									<Route path="/" element={<LandingPage />} />
 									<Route path="/login" element={<Login />} />
 									<Route path="/signup" element={<Signup />} />
 									<Route path="/profile" element={<Profile />} />

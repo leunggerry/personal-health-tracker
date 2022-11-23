@@ -2,3 +2,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Loading spinner */
+.loader-container {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	background: rgba(0, 0, 0, 0.834);
+	z-index: 1;
+}
+
+.spinner {
+	width: 64px;
+	height: 64px;
+	border: 8px solid;
+	border-color: #3d5af1 transparent #3d5af1 transparent;
+	border-radius: 50%;
+	animation: spin-anim 1.2s linear infinite;
+}
+
+@keyframes spin-anim {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* Profile styles */
+.profile-container {
+	margin-bottom: 40px;
+	/* color: white; */
+}
+
+.profile-info-section {
+	border: 2px solid lightgray;
+	display: flex;
+	justify-content: center;
+}
+
+.info-title {
+	font-weight: 600;
+	font-size: 22px;
+	/* color: white; */
+}
