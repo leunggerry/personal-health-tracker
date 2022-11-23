@@ -11,10 +11,18 @@ const FooterComponent = () => {
 					<div>
 						<Footer.Title title="Contact Us" />
 						<Footer.LinkGroup col={true}>
-							<Footer.Link href="#">Joseph Senyonga</Footer.Link>
-							<Footer.Link href="#">Abdalla Hamdy</Footer.Link>
-							<Footer.Link href="#">Gerry Leung</Footer.Link>
-							<Footer.Link href="#">Ibrahim Imran</Footer.Link>
+							<Footer.Link href="https://github.com/joesen-dev">
+								Joseph Senyonga
+							</Footer.Link>
+							<Footer.Link href="https://github.com/abdallahamdy">
+								Abdalla Hamdy
+							</Footer.Link>
+							<Footer.Link href="https://github.com/leunggerry">
+								Gerry Leung
+							</Footer.Link>
+							<Footer.Link href="https://github.com/bebo96">
+								Ibrahim Imran
+							</Footer.Link>
 						</Footer.LinkGroup>
 					</div>
 					<div>
