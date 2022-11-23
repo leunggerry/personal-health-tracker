@@ -13,18 +13,20 @@ function Navigation() {
 					rounded={true}
 					// className="border-gray-200 rounded bg-gray-50 dark:bg-gray-800 dark:border-gray-700"
 				>
-					<Navbar.Brand href="/dashboard">
-						<img
-							alt="Capstone logo"
-							src="/Capstone-logo60.png"
-							width="30"
-							height="30"
-							className="mr-3"
-						/>
-						<span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-							Capstone
-						</span>
-					</Navbar.Brand>
+					<Link to="/dashboard">
+						<div className="container flex flex-wrap items-center justify-between mx-auto">
+							<img
+								alt="Capstone logo"
+								src="/Capstone-logo60.png"
+								width="30"
+								height="30"
+								className="mr-3"
+							/>
+							<span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+								Capstone
+							</span>
+						</div>
+					</Link>
 					<Navbar.Toggle />
 					<Navbar.Collapse
 						// TODO: add a blurred backdrop and remove bg color
@@ -44,19 +46,20 @@ function Navigation() {
 		} else {
 			return (
 				<Navbar fluid={true} rounded={true}>
-					<Navbar.Brand href="/">
-						<img
-							alt="Capstone logo"
-							src="/Capstone-logo60.png"
-							width="30"
-							height="30"
-							className="mr-3"
-						/>
-						<span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-							Capstone
-						</span>
-					</Navbar.Brand>
-
+					<Link to="/">
+						<div className="container flex flex-wrap items-center justify-between mx-auto">
+							<img
+								alt="Capstone logo"
+								src="/Capstone-logo60.png"
+								width="30"
+								height="30"
+								className="mr-3"
+							/>
+							<span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+								Capstone
+							</span>
+						</div>
+					</Link>
 					<Navbar.Toggle />
 					<Navbar.Collapse className="MENU dark:text-white">
 						{/* TODO: add gap between buttons */}
@@ -68,6 +71,7 @@ function Navigation() {
 			);
 		}
 	}
+
 	return (
 		<>
 			{showNavigation()}

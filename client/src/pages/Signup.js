@@ -40,7 +40,7 @@ function Signup(props) {
 	};
 
 	return (
-		<section class="flex justify-center items-center h-screen">
+		<section className="flex justify-center items-center h-screen">
 			<form
 				className="flex flex-col gap-4 rounded-lg bg-slate-300 pt-16 px-8 pb-11 xs:pt-8 xs:w-72 sm:w-80 2xl:w-96"
 				onSubmit={handleFormSubmit}

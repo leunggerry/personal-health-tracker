@@ -3,6 +3,7 @@ import Auth from '../utils/auth';
 import { Carousel } from 'flowbite-react';
 
 import HeroBanner from '../components/HeroBanner';
+import WelcomePage from '../components/WelcomeUser';
 
 // import images
 import carousel1 from '../assets/images/solen-feyissa-7M-bcTN7w9c-unsplash.jpg';
@@ -51,7 +52,7 @@ const LandingPage = () => {
 			</>
 		);
 	} else {
-		return null;
+		return <WelcomePage />;
 	}
 };
 
