@@ -31,7 +31,7 @@ const FooterComponent = () => {
 							</Footer.Link>
 						</Footer.LinkGroup>
 					</div>
-					<div>
+					{/* <div>
 						<Footer.Title title="download" />
 						<Footer.LinkGroup col={true}>
 							<Footer.Link href="#">iOS</Footer.Link>
@@ -39,7 +39,7 @@ const FooterComponent = () => {
 							<Footer.Link href="#">Windows</Footer.Link>
 							<Footer.Link href="#">MacOS</Footer.Link>
 						</Footer.LinkGroup>
-					</div>
+					</div> */}
 				</div>
 				<div className="w-full bg-gray-700 py-6 px-4 sm:flex sm:items-center sm:justify-between">
 					<Footer.Copyright href="#" by="Capstone" year={2022} />
