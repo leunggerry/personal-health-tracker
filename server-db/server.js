@@ -28,9 +28,10 @@ app.use(express.urlencoded({ extended: false }));
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, '../client/build')));
 }
-app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
+isProduction &&
+	app.get('/', (req, res) => {
+		res.sendFile(path.join(__dirname, '../client/build/index.html'));
+	});
 // Create a new instance of the ApolloSerer with the GraphQL Schema
 const startApolloServer = async (typeDefs, resolvers) => {
 	await server.start();
