@@ -50,3 +50,13 @@
 	font-size: 22px;
 	/* color: white; */
 }
+
+.login-signup {
+	/* background: linear-gradient(to right, #058396, #054d96, #1c9e34, #50c878); */
+	background: linear-gradient(
+		90deg,
+		rgba(0, 151, 255, 1) 2%,
+		rgba(12, 185, 93, 1) 55%,
+		rgba(13, 36, 0, 1) 100%
+	);
+}

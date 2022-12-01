@@ -58,12 +58,12 @@ function App() {
 				) : (
 					<StoreProvider>
 						<section className="flex flex-col h-screen pt-16 dark:bg-gray-900">
-							<header className="shadow-md px-2 h-16 fixed top-0 left-0 right-0 dark:bg-gray-800 dark:border-gray-700 z-[10]">
+							<header className="shadow-md px-2 fixed top-0 left-0 right-0 dark:bg-gray-800 dark:border-gray-700">
 								<Navigation />
 							</header>
 
 							<main
-								className="mt-2 mx-0 gap-4 grow"
+								className="mt-2 mx-0 gap-4 px-8 grow"
 								// className="overflow-auto"
 							>
 								<Routes>

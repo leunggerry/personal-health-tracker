@@ -7,7 +7,7 @@ const FooterComponent = () => {
 	return (
 		<Footer bgDark={false}>
 			<div className="w-full">
-				<div className="grid w-full shadow-2xl sm:flex sm:justify-center md:flex grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4">
+				<div className="grid w-full shadow-2xl border-t-2 border-slate-200 dark:border-none rounded sm:flex sm:justify-center md:flex grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4">
 					<div>
 						<Footer.Title title="Contact Us" />
 						<Footer.LinkGroup col={true}>

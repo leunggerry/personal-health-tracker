@@ -15,7 +15,11 @@ const LandingPage = () => {
 		return (
 			<>
 				<HeroBanner />
-				<section className="container mx-auto py-8">
+				<section className="container mx-auto py-8 ">
+					<h2 className="section-title">
+						The body achieves what the mind believes
+					</h2>
+
 					{/* <Container>
 					<Row>
 						<Col>
@@ -24,12 +28,38 @@ const LandingPage = () => {
 					</Row>
 				</Container> */}
 					<div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
-						<Carousel className="object-cover object-center h-auto">
-							<img src={carousel1} alt="First slide" />
-							<img src={carousel2} alt="Second slide" />
-							<img src={carousel3} alt="Third slide" />
+						<Carousel className="object-center h-auto">
+							<img
+								src={carousel1}
+								alt="First slide"
+								className="object-cover w-full h-full"
+							/>
+							<img
+								src={carousel2}
+								alt="Second slide"
+								className="object-cover w-full h-full"
+							/>
+							<img
+								src={carousel3}
+								alt="Third slide"
+								className="object-cover w-full h-full"
+							/>
 						</Carousel>
 					</div>
+
+					<h2>Start Building Habits.</h2>
+					<p>
+						seitan heirloom post-ironic pop-up iPhone mlkshk hella selfies
+						fashion axe occupy readymade put a bird on it messenger bag Wes
+						Anderson Schlitz plaid Bushwick church-key lo-fi skateboard
+						slow-carb hashtag trust fund Williamsburg biodiesel fixie
+						farm-to-table 8-bit banjo XOXO Banksy chillwave bicycle rights retro
+						cliche tattooed bespoke irony mumblecore Shoreditch deep v polaroid
+						McSweeney's bitters cray gentrify tofu Marfa you probably haven't
+						heard of them yr banh mi asymmetrical art party selvage letterpress
+						High Life.
+					</p>
+
 					{/* <Container>
 					<Row>
 						<Col>

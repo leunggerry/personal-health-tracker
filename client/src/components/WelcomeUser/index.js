@@ -10,7 +10,7 @@ export default function WelcomePage() {
 
 	return (
 		// <div className="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
-		<div className="min-w-screen min-h-screen dark:bg-gray-900 flex xs:flex-col sm:flex-row items-center justify-center px-5 py-5">
+		<div className="min-w-screen min-h-screen flex xs:flex-col sm:flex-row items-center justify-center px-5 py-5">
 			<div className="bg-indigo-900 text-white rounded shadow-xl py-5 px-5 lg:w-10/12 xl:w-3/4">
 				<div className="flex flex-wrap lg:flex-row -mx-3 items-center">
 					<div class="w-1/4 px-3 text-center hidden md:block">
