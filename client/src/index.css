@@ -60,3 +60,24 @@
 		rgba(13, 36, 0, 1) 100%
 	);
 }
+
+@media only screen and (max-width: 768px) {
+	/* Nav */
+	Nav ul {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		min-height: 250px;
+	}
+
+	.DarkModeButton {
+		margin-top: 32px;
+		margin-bottom: 32px;
+	}
+
+	.navListItem {
+		border-bottom: solid;
+		padding-bottom: 2px;
+	}
+}

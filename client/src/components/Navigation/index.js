@@ -8,11 +8,7 @@ function Navigation() {
 	function showNavigation() {
 		if (Auth.loggedIn()) {
 			return (
-				<Navbar
-					fluid={true}
-					rounded={true}
-					// className="border-gray-200 rounded bg-gray-50 dark:bg-gray-800 dark:border-gray-700"
-				>
+				<Navbar fluid={true} rounded={true}>
 					<Link to="/dashboard">
 						<div className="container flex flex-wrap items-center justify-between mx-auto">
 							<img
@@ -28,11 +24,7 @@ function Navigation() {
 						</div>
 					</Link>
 					<Navbar.Toggle />
-					<Navbar.Collapse
-						// TODO: add a blurred backdrop and remove bg color
-						className="MENU dark:text-white"
-						// className="MENU flex z-[10] pt-3 bg-gray-300 md:bg-white"
-					>
+					<Navbar.Collapse className="MENU dark:text-white">
 						<Link to="/dashboard">Dashboard</Link>
 						<Link to="/workouts">Workouts</Link>
 						<Link to="/profile">Profile</Link>
@@ -62,10 +54,15 @@ function Navigation() {
 					</Link>
 					<Navbar.Toggle />
 					<Navbar.Collapse className="MENU dark:text-white">
-						{/* TODO: add gap between buttons */}
-						<Link to="/signup">Signup</Link>
-						<Link to="/login">Login</Link>
-						<DarkModeButton />
+						<div className="DarkModeButton">
+							<DarkModeButton />
+						</div>
+						<Link className="navListItem" to="/signup">
+							Signup
+						</Link>
+						<Link className="navListItem" to="/login">
+							Login
+						</Link>
 					</Navbar.Collapse>
 				</Navbar>
 			);
