@@ -57,14 +57,17 @@ function App() {
 					</div>
 				) : (
 					<StoreProvider>
-						<section className="flex flex-col h-screen pt-16 dark:bg-gray-900">
-							<header className="shadow-md px-2 fixed top-0 left-0 right-0 dark:bg-gray-800 dark:border-gray-700">
+						<main
+							className="flex flex-col pt-16 dark:bg-gray-900"
+							// className="flex flex-col h-screen relative pt-16 dark:bg-gray-900"
+						>
+							<header className="shadow-md px-2 fixed top-0 left-0 right-0 dark:bg-gray-800 dark:border-gray-700 z-[10]">
 								<Navigation />
 							</header>
 
-							<main
-								className="mt-2 mx-0 gap-4 px-8 grow"
-								// className="overflow-auto"
+							<section
+								className="mt-2 mx-0 gap-4 px-8 min-h-screen"
+								// className="mt-2 mx-0 gap-4 px-8 flex-grow"
 							>
 								<Routes>
 									<Route path="/" element={<LandingPage />} />
@@ -75,9 +78,9 @@ function App() {
 									<Route path="/workouts" element={<Workouts />} />
 									<Route path="*" element={<NoMatch />} />
 								</Routes>
-							</main>
+							</section>
 							<FooterComponent />
-						</section>
+						</main>
 					</StoreProvider>
 				)}
 			</Router>

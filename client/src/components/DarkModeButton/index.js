@@ -17,9 +17,6 @@ export default function Switcher() {
 		<>
 			<div>
 				<DarkModeSwitch checked={darkSide} onChange={toggleDarkMode} />
-				{/* <h3 className="text-gray-800 dark:text-gray-300 pt-4">
-					{colorTheme === 'light' ? 'Dark mode' : 'light mode'}
-				</h3> */}
 			</div>
 		</>
 	);

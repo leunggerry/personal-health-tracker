@@ -13,8 +13,8 @@ export default function WelcomePage() {
 		<div className="min-w-screen min-h-screen flex xs:flex-col sm:flex-row items-center justify-center px-5 py-5">
 			<div className="bg-indigo-900 text-white rounded shadow-xl py-5 px-5 lg:w-10/12 xl:w-3/4">
 				<div className="flex flex-wrap lg:flex-row -mx-3 items-center">
-					<div class="w-1/4 px-3 text-center hidden md:block">
-						<div class="p-5 xl:px-8 md:py-5">
+					<div className="w-1/4 px-3 text-center hidden md:block">
+						<div className="p-5 xl:px-8 md:py-5">
 							<img src={runningMan} alt=""></img>
 						</div>
 					</div>
@@ -40,12 +40,12 @@ export default function WelcomePage() {
 						<div className="p-5 xl:px-8 md:py-5">
 							<Link
 								to="/dashboard"
-								className="block w-full py-2 px-4 rounded text-indigo-600 bg-gray-200 hover:bg-white hover:text-gray-900 focus:outline-none transition duration-150 ease-in-out mb-3"
+								className="block w-full py-2 px-4 rounded text-indigo-600 bg-gray-200 hover:bg-emerald-600 hover:text-gray-900 focus:outline-none transition duration-150 ease-in-out mb-3"
 							>
 								Get Started
 							</Link>
 							<Link to="/profile">
-								<button className="w-full py-2 px-4 rounded text-indigo-900 bg-indigo-400 hover:bg-gray-900 focus:outline-none transition duration-150 ease-in-out">
+								<button className="w-full py-2 px-4 rounded text-indigo-900 bg-indigo-400 hover:bg-sky-400 focus:outline-none transition duration-150 ease-in-out">
 									Profile
 								</button>
 							</Link>
