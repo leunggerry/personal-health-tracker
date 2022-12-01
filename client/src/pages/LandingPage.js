@@ -16,10 +16,6 @@ const LandingPage = () => {
 			<>
 				<HeroBanner />
 				<section className="container mx-auto py-8 ">
-					<h2 className="section-title">
-						The body achieves what the mind believes
-					</h2>
-
 					{/* <Container>
 					<Row>
 						<Col>
@@ -46,20 +42,6 @@ const LandingPage = () => {
 							/>
 						</Carousel>
 					</div>
-
-					<h2>Start Building Habits.</h2>
-					<p>
-						seitan heirloom post-ironic pop-up iPhone mlkshk hella selfies
-						fashion axe occupy readymade put a bird on it messenger bag Wes
-						Anderson Schlitz plaid Bushwick church-key lo-fi skateboard
-						slow-carb hashtag trust fund Williamsburg biodiesel fixie
-						farm-to-table 8-bit banjo XOXO Banksy chillwave bicycle rights retro
-						cliche tattooed bespoke irony mumblecore Shoreditch deep v polaroid
-						McSweeney's bitters cray gentrify tofu Marfa you probably haven't
-						heard of them yr banh mi asymmetrical art party selvage letterpress
-						High Life.
-					</p>
-
 					{/* <Container>
 					<Row>
 						<Col>
