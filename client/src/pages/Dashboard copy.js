@@ -9,9 +9,9 @@ const Dashboard = () => {
 	return Auth.loggedIn() ? (
 		<section className="flex flex-col flex-wrap gap-4 md:justify-center lg:flex lg:flex-row p-2 dark:bg-gray-900">
 			{/* FavoriteWorkouts */}
-			<aside className="2xl:basis-1/5">
+			<div className="2xl:basis-1/3">
 				<FavoriteWorkouts />
-			</aside>
+			</div>
 			{/* WorkoutStats */}
 			<div className="lg:basis-3/5 shadow-inner">
 				<WorkoutStats />
