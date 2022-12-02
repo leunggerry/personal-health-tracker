@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Button } from 'flowbite-react';
+import { Card, Button, Tooltip } from 'flowbite-react';
 
 import Auth from '../utils/auth';
 import { useMutation, useQuery } from '@apollo/client';
@@ -17,7 +17,7 @@ const Workouts = () => {
 	// useQuery to get all workouts
 	const { loading, data } = useQuery(QUERY_ALL_WORKOUTS);
 	const dbWorkouts = data?.workouts || {};
-	console.log('DB Workouts: ', dbWorkouts.workouts);
+	console.log('DB Workouts: ', dbWorkouts);
 
 	// state to hold workout data
 	const [loadedWorkouts, setloadedWorkouts] = useState([]);
@@ -62,9 +62,24 @@ const Workouts = () => {
 							<h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
 								{workoutItem.workoutName}
 							</h5>
-							<p className="font-normal text-gray-700 dark:text-gray-400">
-								{workoutItem.workoutDescription}
-							</p>
+							<details className="shadow-inner bg-gray-50 dark:bg-gray-600 rounded group mb-4">
+								<summary className="list-none flex flex-wrap items-center cursor-pointer focus-visible:outline-none focus-visible:ring focus-visible:ring-red-400 rounded group-open:rounded-b-none group-open:z-[1] bg-gray-200 text-sm hover:bg-indigo-700 hover:text-gray-200">
+									<h3 className="flex flex-1 p-4 font-semibold">Description</h3>
+									<div className="flex w-10 items-center justify-center">
+										<div className="border-8 border-transparent border-l-gray-600 dark:border-l-gray-900 ml-2 group-open:rotate-90 transition-transform origin-left"></div>
+									</div>
+								</summary>
+								<div
+									className="p-4 text-gray-700 dark:text-gray-900"
+									id="scroll-container"
+								>
+									<div id="scroll-text" className="font-medium">
+										<p className="font-normal text-gray-700 dark:text-gray-400">
+											{workoutItem.workoutDescription}
+										</p>
+									</div>
+								</div>
+							</details>
 							<Button
 								className="btn-block btn-blue"
 								onClick={() => handleAddWorkoutToFav(workoutItem._id)}

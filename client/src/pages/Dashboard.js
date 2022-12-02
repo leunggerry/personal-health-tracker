@@ -8,30 +8,24 @@ import Auth from '../utils/auth';
 const Dashboard = () => {
 	return Auth.loggedIn() ? (
 		<section className="flex flex-col flex-wrap gap-4 md:justify-center lg:flex lg:flex-row p-2 dark:bg-gray-900">
-			{/* FavoriteWorkouts */}
-			{/* <aside className="2xl:basis-1/5">
-				<FavoriteWorkouts />
-			</aside> */}
-			{/* WorkoutStats */}
+			{/* FavoriteWorkouts & WorkoutStats */}
 			<div className="WorkoutStatsCard lg:basis-3/5 shadow-inner rounded-md">
 				<FavoriteWorkouts />
 				<WorkoutStats />
 			</div>
 			{/* Session Summary */}
 			<div className="basis-full bg-gray-200-100-400 dark:text-white">
-				{/* <div className="basis-full bg-gray-200-100-400"> */}
-				<h4
-					// className="text-2xl font-bold border-b-4 pb-2"
-					className="font-medium leading-tight text-2xl mt-0 mb-2 border-b-4 pb-2"
-				>
+				<h4 className="font-medium leading-tight text-2xl mt-0 mb-2 border-b-4 pb-2">
 					Session Summary
 				</h4>
 				{/* <h5 className="text-xl font-bold">Monday</h5> */}
-				<div className="workout-session">
-					<h6 className="font-medium leading-tight text-base mt-0 mb-2 text-blue-600">
-						Session 1
-					</h6>
-					<div className="grid w-full sm:flex sm:flex-col sm:justify-center md:flex md:flex-col-2 gap-4 md:grid-cols-4 lg:flex-row">
+				<div className="workout-session relative overflow-x-auto shadow-md sm:rounded-lg">
+					<div className="w-full text-left text-gray-500 dark:text-gray-400">
+						<h6 className="font-medium leading-tight text-base mt-0 px-6 py-3 bg-gray-50 uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+							Session 1
+						</h6>
+					</div>
+					<div className="grid w-full sm:flex sm:flex-col sm:justify-center md:flex md:flex-col-2 gap-4 px-6 py-4 md:grid-cols-4 lg:flex-row bg-white dark:border-gray-700 dark:bg-gray-800">
 						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1 inline-flex text-gray-600 sm:text-base">
 							<img
 								className="object-none object-center w-16"
@@ -90,7 +84,6 @@ const Dashboard = () => {
 			</div>
 		</section>
 	) : (
-		// <section className="flex justify-center items-center h-screen">
 		<Jumbotron>
 			<h3 className="text-3xl font-bold dark:text-white">
 				<span role="img" aria-label="shocked">

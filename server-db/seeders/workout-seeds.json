@@ -1,67 +1,67 @@
 [
 	{
-		"workoutName": "Push Ups",
-		"workoutDescription": "Push up",
+		"workoutName": "Push-Ups",
+		"workoutDescription": "Get into a plank position with your arms straight and hands a bit wider than shoulder-width. Lower your torso until your elbows form a 90 degree angle and push back up. Keep your neck neutral.",
 		"setsCount": 5,
 		"repsCount": 20
 	},
 	{
-		"workoutName": "Sit Ups",
-		"workoutDescription": "Sit up",
+		"workoutName": "Crunches",
+		"workoutDescription": "Lie on your back with your knees bent and hands behind your head. Tighten your abs as you lift and lower your shoulders rhythmically. Exhale as you lift and inhale as you lower, maintaining tension in your abs throughout the movement.",
 		"setsCount": 5,
 		"repsCount": 20
 	},
 	{
-		"workoutName": "Bench Press",
-		"workoutDescription": "Bench Press",
+		"workoutName": "Barbell Bench Press",
+		"workoutDescription": "Lay flat on a bench with your feet on the ground. Place your hands on the barbell so that when the bar is at its lowest point your elbows are at 90 degree angles. Lower the barbell slowly and as low as possible. Push the bar back up keeping your back on the bench and feet still. This can also be done with dumbbells.",
 		"setsCount": 5,
 		"repsCount": 20
 	},
 	{
-		"workoutName": "Incline Bench",
-		"workoutDescription": "Use the bar on the incline bench press to lift the bar",
+		"workoutName": "Incline Bench Press",
+		"workoutDescription": "Adjust the bench to a desired angle. Lie back on the bench with your feet on the ground. Place your hands on the barbell slightly wider than shoulder width. Lower the barbell slowly until your elbows are at 90 degree angles. Push the bar back up to a straightened arm position.",
 		"setsCount": 5,
 		"repsCount": 20
 	},
 	{
-		"workoutName": "Decline Bench",
-		"workoutDescription": "Use the bar on the decline bench press to lift the bar",
+		"workoutName": "Dumbbell Bench Press",
+		"workoutDescription": "Start by lying on your back with bent legs and dumbbells in hand. With your arms bent and palms facing your legs, press your arms up to near full extension. Return them slowly, pausing a moment, and then repeat the movement.",
 		"setsCount": 5,
 		"repsCount": 20
 	},
 	{
-		"workoutName": "Chest Fly's",
-		"workoutDescription": "Use the bar on the decline bench press to lift the bar",
+		"workoutName": "Ring Flyes",
+		"workoutDescription": "Start in a push-up position on the rings with your body at or below a 45 degree angle. With a slight bend in your elbows and a tight belly, move your hands directly out to the sides of your body. Once your elbows have become parallel to the shoulders, draw your hands back together.",
 		"setsCount": 5,
 		"repsCount": 20
 	},
 	{
-		"workoutName": "Back Rows",
-		"workoutDescription": "Use the bar on the decline bench press to lift the bar",
+		"workoutName": "Dumbbell Back Row",
+		"workoutDescription": "With knees slightly bent and back straight, lean forward and let dumbbells hang forward, palms inward. Keeping your body still, bend your elbows back close to your body and bring the dumbbells to your lower ribs. Squeeze your shoulder blades together and return your arms to their straightened position keeping your forward bend for the entire set.",
 		"setsCount": 5,
 		"repsCount": 20
 	},
 	{
-		"workoutName": "Pull Ups",
-		"workoutDescription": "Use the bar on the decline bench press to lift the bar",
+		"workoutName": "Pull-Ups",
+		"workoutDescription": "With palms facing away while gripping the bar, pull up until your arms form a 90 degree angle. Lower and repeat.",
 		"setsCount": 5,
 		"repsCount": 20
 	},
 	{
-		"workoutName": "Seated Rows",
-		"workoutDescription": "Use the bar on the decline bench press to lift the bar",
+		"workoutName": "Rowing",
+		"workoutDescription": "Setup on a rowing machine by adjusting the foot straps to ensure that your running shoe heel is resting comfortably against the base of the foot pedal and that the strap is secured.",
 		"setsCount": 5,
 		"repsCount": 20
 	},
 	{
-		"workoutName": "Dips",
-		"workoutDescription": "Use the bar on the decline bench press to lift the bar",
+		"workoutName": "Bench Dips",
+		"workoutDescription": "Place a bench a few feet from a platform or ledge. Sit on the bench and place your heels on the ledge, legs straight. Place your hands right beside your torso on the bench so that your fingertips are hanging over the edge and lift your body up off of the bench. Bend your elbows behind you and lower your body down as far as you are able. Press back up to straight arms and repeat.",
 		"setsCount": 5,
 		"repsCount": 20
 	},
 	{
 		"workoutName": "Squats",
-		"workoutDescription": "Use the bar on the decline bench press to lift the bar",
+		"workoutDescription": "Stand with your feet hip-width apart. Keeping your back straight, push back with your hips like you are sitting in a chair. Try to go to 90 degrees at your knees before returning.",
 		"setsCount": 5,
 		"repsCount": 20
 	}

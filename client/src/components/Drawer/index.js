@@ -83,8 +83,13 @@ export default function Drawer({ isOpen, setIsOpen }) {
 				}
 			>
 				<article className="relative w-screen max-w-lg pb-10 flex flex-col space-y-6 overflow-y-scroll h-full">
-					<div className="container flex flex-wrap items-center justify-between mx-auto">
-						<header className="p-4 font-bold text-lg">Header</header>
+					<div className="md:container md:mx-auto flex flex-wrap items-center justify-between  dark:text-white dark:bg-indigo-700">
+						<h2
+							className="p-4 font-bold xs:text-2xl sm:text-4xl mt-0 mb-6"
+							// className="p-4 font-bold text-lg"
+						>
+							Favorite Workouts
+						</h2>
 						<div
 							className="CROSS-ICON absolute top-0 right-0 px-8 py-4 cursor-pointer"
 							// className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
@@ -109,7 +114,7 @@ export default function Drawer({ isOpen, setIsOpen }) {
 						return (
 							<div
 								key={workout._id}
-								className="flex flex-row items-center dark:text-white"
+								className="flex flex-row items-center dark:text-white xs:pr-5 sm:px-4"
 							>
 								<p className="px-3 flex-1 whitespace-nowrap">
 									{workout.workoutName}
@@ -117,14 +122,14 @@ export default function Drawer({ isOpen, setIsOpen }) {
 								<div class="flex space-x-2 justify-center">
 									<button
 										type="button"
-										class="inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"
+										class="inline-block px-4 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"
 										onClick={() => handleAddWorkoutToSchedule(workout._id)}
 									>
 										Add
 									</button>
 									<button
 										type="button"
-										class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
+										class="inline-block px-4 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
 										onClick={() => handleRemoveFavouriteWorkout(workout._id)}
 									>
 										Remove
