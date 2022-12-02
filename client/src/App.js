@@ -61,12 +61,12 @@ function App() {
 							className="flex flex-col pt-16 dark:bg-gray-900"
 							// className="flex flex-col h-screen relative pt-16 dark:bg-gray-900"
 						>
-							<header className="shadow-md px-2 fixed top-0 left-0 right-0 dark:bg-gray-800 dark:border-gray-700 z-[10]">
+							<header className="shadow-md fixed top-0 left-0 right-0 dark:bg-gray-800 dark:border-gray-700 z-[10]">
 								<Navigation />
 							</header>
 
 							<section
-								className="mt-2 mx-0 gap-4 xs:px-4 md:px-8 min-h-screen"
+								className="mx-0 gap-4 xs:px-1 md:px-8 min-h-screen"
 								// className="mt-2 mx-0 gap-4 px-8 flex-grow"
 							>
 								<Routes>

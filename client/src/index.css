@@ -61,7 +61,7 @@
 	);
 }
 
-.WorkoutStatsCard {
+.sectionBGs {
 	background-color: #8721e1;
 	background-image: linear-gradient(
 		43deg,
@@ -69,6 +69,10 @@
 		#ff457e 46%,
 		#e15a45 100%
 	);
+}
+
+.tableHead {
+	background-color: rgb(229, 231, 235);
 }
 
 @media only screen and (max-width: 768px) {

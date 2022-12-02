@@ -49,8 +49,8 @@ function WorkoutTable() {
 		console.log(todaysWorkouts);
 	}
 	return (
-		<Table>
-			<Table.Head>
+		<Table className="shadow-2xl">
+			<Table.Head className="tableHead">
 				<Table.HeadCell>Exercise Name</Table.HeadCell>
 				<Table.HeadCell>Lifting Logs</Table.HeadCell>
 				<Table.HeadCell>

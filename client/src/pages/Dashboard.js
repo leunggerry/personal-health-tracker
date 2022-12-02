@@ -9,7 +9,7 @@ const Dashboard = () => {
 	return Auth.loggedIn() ? (
 		<section className="flex flex-col flex-wrap gap-4 md:justify-center lg:flex lg:flex-row p-2 dark:bg-gray-900">
 			{/* FavoriteWorkouts & WorkoutStats */}
-			<div className="WorkoutStatsCard lg:basis-3/5 shadow-inner rounded-md">
+			<div className="sectionBGs lg:basis-3/5 shadow-inner rounded-md">
 				<FavoriteWorkouts />
 				<WorkoutStats />
 			</div>
@@ -19,14 +19,14 @@ const Dashboard = () => {
 					Session Summary
 				</h4>
 				{/* <h5 className="text-xl font-bold">Monday</h5> */}
-				<div className="workout-session relative overflow-x-auto shadow-md sm:rounded-lg">
-					<div className="w-full text-left text-gray-500 dark:text-gray-400">
-						<h6 className="font-medium leading-tight text-base mt-0 px-6 py-3 bg-gray-50 uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+				<div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+					<div className="w-full text-left bg-gray-200 text-gray-500 dark:bg-gray-700">
+						<h6 className="font-medium leading-tight text-base mt-0 px-6 py-3 uppercase text-gray-700 dark:text-gray-400">
 							Session 1
 						</h6>
 					</div>
-					<div className="grid w-full sm:flex sm:flex-col sm:justify-center md:flex md:flex-col-2 gap-4 px-6 py-4 md:grid-cols-4 lg:flex-row bg-white dark:border-gray-700 dark:bg-gray-800">
-						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1 inline-flex text-gray-600 sm:text-base">
+					<div className="sectionBGs grid w-full sm:flex sm:flex-col sm:justify-center md:flex md:flex-col-2 gap-4 px-6 py-4 md:grid-cols-4 lg:flex-row dark:border-gray-700 dark:bg-gray-800">
+						<div className="text-center shadow-2xl p-10 rounded-xl my-10 bg-white flex-1 inline-flex text-gray-600 sm:text-base">
 							<img
 								className="object-none object-center w-16"
 								alt=""
@@ -38,7 +38,7 @@ const Dashboard = () => {
 								<span>00:03:35</span>
 							</p>
 						</div>
-						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1 inline-flex text-gray-600 sm:text-base">
+						<div className="text-center shadow-2xl p-10 rounded-xl my-10 bg-white flex-1 inline-flex text-gray-600 sm:text-base">
 							<img
 								className="object-none object-center w-16"
 								alt=""
@@ -50,7 +50,7 @@ const Dashboard = () => {
 								<span>00:03:35</span>
 							</p>
 						</div>
-						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1 inline-flex text-gray-600 sm:text-base">
+						<div className="text-center shadow-2xl p-10 rounded-xl my-10 bg-white flex-1 inline-flex text-gray-600 sm:text-base">
 							<img
 								className="object-none object-center w-16"
 								alt=""
@@ -62,7 +62,7 @@ const Dashboard = () => {
 								<span>00:03:00</span>
 							</p>
 						</div>
-						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1 inline-flex text-gray-600 sm:text-base">
+						<div className="text-center shadow-2xl p-10 rounded-xl my-10 bg-white flex-1 inline-flex text-gray-600 sm:text-base">
 							<img alt="" src="/images/icons/weight.png" />
 							<p>
 								Weight Lifted
