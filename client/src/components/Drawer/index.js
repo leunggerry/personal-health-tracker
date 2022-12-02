@@ -114,20 +114,22 @@ export default function Drawer({ isOpen, setIsOpen }) {
 								<p className="px-3 flex-1 whitespace-nowrap">
 									{workout.workoutName}
 								</p>
-								<Button.Group>
-									<Button
-										className="py-0 px-0 text-xs font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-red-700 dark:hover:bg-red-500 dark:focus:ring-blue-800"
+								<div class="flex space-x-2 justify-center">
+									<button
+										type="button"
+										class="inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"
+										onClick={() => handleAddWorkoutToSchedule(workout._id)}
+									>
+										Add
+									</button>
+									<button
+										type="button"
+										class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
 										onClick={() => handleRemoveFavouriteWorkout(workout._id)}
 									>
 										Remove
-									</Button>
-									<Button
-										className="py-0 px-0 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-										onClick={() => handleAddWorkoutToSchedule(workout._id)}
-									>
-										Schedule
-									</Button>
-								</Button.Group>
+									</button>
+								</div>
 							</div>
 						);
 					})}

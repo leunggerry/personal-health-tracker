@@ -69,7 +69,7 @@ const Workouts = () => {
 								className="btn-block btn-blue"
 								onClick={() => handleAddWorkoutToFav(workoutItem._id)}
 							>
-								+ Add To Favourtie Workout
+								+ Add To Favourties
 							</Button>
 						</Card>
 					</div>

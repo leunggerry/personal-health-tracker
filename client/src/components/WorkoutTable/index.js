@@ -74,13 +74,21 @@ function WorkoutTable() {
 									</div>
 								</Table.Cell>
 								<Table.Cell>
-									<Button
+									<button
+										type="button"
+										size="xs"
+										class="inline-block px-4 py-1.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
+										onClick={() => handleRemoveScheduleWorkout(workout._id)}
+									>
+										Remove
+									</button>
+									{/* <Button
 										size="xs"
 										// colorScheme="red"
 										onClick={() => handleRemoveScheduleWorkout(workout._id)}
 									>
 										Remove Workout
-									</Button>
+									</Button> */}
 								</Table.Cell>
 							</Table.Row>
 						);

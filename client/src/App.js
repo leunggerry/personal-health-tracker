@@ -66,7 +66,7 @@ function App() {
 							</header>
 
 							<section
-								className="mt-2 mx-0 gap-4 xs:px4 md:px-8 min-h-screen"
+								className="mt-2 mx-0 gap-4 xs:px-4 md:px-8 min-h-screen"
 								// className="mt-2 mx-0 gap-4 px-8 flex-grow"
 							>
 								<Routes>
