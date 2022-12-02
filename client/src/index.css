@@ -61,6 +61,16 @@
 	);
 }
 
+.WorkoutStatsCard {
+	background-color: #8721e1;
+	background-image: linear-gradient(
+		43deg,
+		#8721e1 0%,
+		#ff457e 46%,
+		#e15a45 100%
+	);
+}
+
 @media only screen and (max-width: 768px) {
 	/* Nav */
 	Nav ul {
@@ -77,6 +87,10 @@
 	}
 
 	.navListItem {
+		margin-top: 32px;
+		margin-bottom: 32px;
+		padding-top: 8px;
+		padding-bottom: 8px;
 		border-bottom: solid;
 		padding-bottom: 2px;
 	}

@@ -9,20 +9,28 @@ const Dashboard = () => {
 	return Auth.loggedIn() ? (
 		<section className="flex flex-col flex-wrap gap-4 md:justify-center lg:flex lg:flex-row p-2 dark:bg-gray-900">
 			{/* FavoriteWorkouts */}
-			<aside className="2xl:basis-1/5">
+			{/* <aside className="2xl:basis-1/5">
 				<FavoriteWorkouts />
-			</aside>
+			</aside> */}
 			{/* WorkoutStats */}
-			<div className="lg:basis-3/5 shadow-inner">
+			<div className="WorkoutStatsCard lg:basis-3/5 shadow-inner rounded-md">
+				<FavoriteWorkouts />
 				<WorkoutStats />
 			</div>
 			{/* Session Summary */}
 			<div className="basis-full bg-gray-200-100-400 dark:text-white">
 				{/* <div className="basis-full bg-gray-200-100-400"> */}
-				<h4 className="text-2xl font-bold">Session Summary</h4>
-				<h5 className="text-xl font-bold">Monday</h5>
+				<h4
+					// className="text-2xl font-bold border-b-4 pb-2"
+					className="font-medium leading-tight text-2xl mt-0 mb-2 border-b-4 pb-2"
+				>
+					Session Summary
+				</h4>
+				{/* <h5 className="text-xl font-bold">Monday</h5> */}
 				<div className="workout-session">
-					<span>Session 1</span>
+					<h6 className="font-medium leading-tight text-base mt-0 mb-2 text-blue-600">
+						Session 1
+					</h6>
 					<div className="grid w-full sm:flex sm:flex-col sm:justify-center md:flex md:flex-col-2 gap-4 md:grid-cols-4 lg:flex-row">
 						<div className="text-center shadow-2xl p-10 rounded-xl my-10 dark:bg-white flex-1 inline-flex text-gray-600 sm:text-base">
 							<img
@@ -74,7 +82,9 @@ const Dashboard = () => {
 			<div className="basis-full overflow-x-auto dark:text-white">
 				{/* Workout Summary */}
 				<div className="workout-logs-header">
-					<strong>Workout Logs</strong>
+					<h5 className="font-medium leading-tight text-xl mt-0 mb-2 border-b-4 pb-2">
+						Workout Logs
+					</h5>
 					<WorkoutTable />
 				</div>
 			</div>

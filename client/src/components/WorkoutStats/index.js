@@ -69,7 +69,7 @@ const WorkoutStats = () => {
 								</div>
 							</div>
 							{/* Sets and Reps */}
-							<h1 className="text-3xl sm:text-4xl xl:text-4xl font-bold text-gray-700 mt-12 group-hover:text-gray-50">
+							<h1 className="text-3xl xs:text-xl sm:text-4xl xl:text-4xl font-bold text-gray-700 mt-12 group-hover:text-gray-50">
 								1 Set: 4Lap/Rep
 							</h1>
 							{/* Workut Name */}
@@ -126,7 +126,7 @@ const WorkoutStats = () => {
 								</div>
 							</div>
 							{/* Sets and Reps */}
-							<h1 className="text-3xl sm:text-4xl xl:text-4xl font-bold text-gray-700 mt-12 group-hover:text-gray-50">
+							<h1 className="text-3xl xs:text-xl sm:text-4xl xl:text-4xl font-bold text-gray-700 mt-12 group-hover:text-gray-50">
 								5 Set: 10Lap/Rep
 							</h1>
 							{/* Workut Name */}

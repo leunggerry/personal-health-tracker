@@ -25,13 +25,25 @@ function Navigation() {
 					</Link>
 					<Navbar.Toggle />
 					<Navbar.Collapse className="MENU dark:text-white">
-						<Link to="/dashboard">Dashboard</Link>
-						<Link to="/workouts">Workouts</Link>
-						<Link to="/profile">Profile</Link>
-						<a href="/" onClick={() => Auth.logout()} className="pl-0 py-0">
+						<div className="DarkModeButton">
+							<DarkModeButton />
+						</div>
+						<Link className="navListItem" to="/dashboard">
+							Dashboard
+						</Link>
+						<Link className="navListItem" to="/workouts">
+							Workouts
+						</Link>
+						<Link className="navListItem" to="/profile">
+							Profile
+						</Link>
+						<a
+							className="navListItem pl-0 py-0"
+							href="/"
+							onClick={() => Auth.logout()}
+						>
 							Logout
 						</a>
-						<DarkModeButton />
 					</Navbar.Collapse>
 				</Navbar>
 			);
