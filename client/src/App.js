@@ -58,7 +58,7 @@ function App() {
 				) : (
 					<StoreProvider>
 						<main
-							className="flex flex-col pt-16 dark:bg-gray-900"
+							className="flex flex-col pt-16 bg-gray-50 dark:bg-gray-900"
 							// className="flex flex-col h-screen relative pt-16 dark:bg-gray-900"
 						>
 							<header className="shadow-md fixed top-0 left-0 right-0 dark:bg-gray-800 dark:border-gray-700 z-[10]">
