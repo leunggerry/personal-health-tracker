@@ -75,7 +75,9 @@
 	background-color: rgb(229, 231, 235);
 }
 
-@media only screen and (max-width: 768px) {
+/* Adding a dynamic range and capping max-width at 767 
+which is the break point that our hambger menu shows*/
+@media only screen and (min-width: 375px) and (max-width: 767px) {
 	/* Nav */
 	Nav ul {
 		display: flex;
