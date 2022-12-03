@@ -57,7 +57,7 @@ const Workouts = () => {
 		<section className="flex flex-col flex-wrap gap-4 md:justify-center lg:flex lg:flex-row p-2 dark:bg-gray-900">
 			{dbWorkouts.map((workoutItem) => {
 				return (
-					<div className="max-w-sm">
+					<div className="min-w-max">
 						<Card key={workoutItem._id} border="dark">
 							<h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
 								{workoutItem.workoutName}

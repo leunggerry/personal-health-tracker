@@ -41,7 +41,7 @@ function HeroBanner() {
 									<div className="w-6/12 md:w-6/12 p-1">
 										<Link
 											to="/signup"
-											class="inline-flex items-center uppercase justify-center rounded-md shadow-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700"
+											className="inline-flex items-center uppercase justify-center rounded-md shadow-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700"
 										>
 											Get started
 										</Link>

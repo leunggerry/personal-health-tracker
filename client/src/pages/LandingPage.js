@@ -15,7 +15,30 @@ const LandingPage = () => {
 		return (
 			<>
 				<HeroBanner />
-				<section className="container mx-auto py-8 ">
+				<section
+					className="w-screen mt-40 px-4 pb-20 py-10 relative bg-gray-200 dark:bg-slate-600"
+					// className="container mx-auto py-8"
+				>
+					<div
+						className="-mt-20 top-0 bottom-auto left-0 right-0 w-full absolute translate-x-0"
+						style={{ height: 80 }}
+						// style="height: 80px; transform: translateZ(0px);"
+					>
+						<svg
+							className="absolute bottom-0 overflow-hidden"
+							xmlns="http://www.w3.org/2000/svg"
+							preserveAspectRatio="none"
+							version="1.1"
+							viewBox="0 0 2560 100"
+							x="0"
+							y="0"
+						>
+							<polygon
+								className="text-gray-200 fill-current dark:fill-slate-600"
+								points="2560 0 2560 100 0 100"
+							></polygon>
+						</svg>
+					</div>
 					{/* <Container>
 					<Row>
 						<Col>

@@ -66,8 +66,8 @@ function App() {
 							</header>
 
 							<section
-								className="mx-0 gap-4 xs:px-1 md:px-8 min-h-screen"
-								// className="mt-2 mx-0 gap-4 px-8 flex-grow"
+								className="mx-0 gap-4 min-h-screen"
+								// className="mx-0 gap-4 xs:px-1 md:px-8 min-h-screen"
 							>
 								<Routes>
 									<Route path="/" element={<LandingPage />} />

@@ -42,7 +42,7 @@ export default function WelcomePage() {
 								to="/dashboard"
 								className="block w-full py-2 px-4 rounded text-indigo-600 bg-gray-200 hover:bg-emerald-600 hover:text-gray-900 focus:outline-none transition duration-150 ease-in-out mb-3"
 							>
-								Get Started
+								Dashboard
 							</Link>
 							<Link to="/profile">
 								<button className="w-full py-2 px-4 rounded text-indigo-900 bg-indigo-400 hover:bg-sky-400 focus:outline-none transition duration-150 ease-in-out">
