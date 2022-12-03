@@ -24,6 +24,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Serve up static assets
+app.use('/images', express.static(path.join(__dirname, '../client/images')));
+
 // Check if in dev environemnt and provide applications from build directory
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, '../client/build')));
