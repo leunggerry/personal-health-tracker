@@ -1,4 +1,4 @@
-import { Table, Button } from 'flowbite-react';
+import { Table } from 'flowbite-react';
 
 import Auth from '../../utils/auth';
 import { QUERY_ME } from '../../utils/queries';

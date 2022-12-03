@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Button, Tooltip } from 'flowbite-react';
+import { Card, Button } from 'flowbite-react';
 
 import Auth from '../utils/auth';
 import { useMutation, useQuery } from '@apollo/client';
-import { useStoreContext } from '../utils/GlobalState';
-import WorkoutList from '../components/WorkoutList';
+// import { useStoreContext } from '../utils/GlobalState';
+// import WorkoutList from '../components/WorkoutList';
 import { QUERY_ALL_WORKOUTS } from '../utils/queries';
 import { ADD_FAV_WORKOUT } from '../utils/mutations';
 import Jumbotron from '../components/Jumbotron';

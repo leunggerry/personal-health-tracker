@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
 	ApolloClient,
@@ -7,7 +7,6 @@ import {
 	createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import Auth from './utils/auth';
 
 import LandingPage from './pages/LandingPage';
 import NoMatch from './pages/NoMatch';

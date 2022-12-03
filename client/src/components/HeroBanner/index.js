@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card } from 'flowbite-react';
 import stackedDevices from '../../assets/images/stackedDevices.png';
 import { Link } from 'react-router-dom';
 import Fonts from '../../assets/Fonts';
@@ -23,7 +22,7 @@ function HeroBanner() {
 					{/* CTA */}
 					<div className="w-full md:w-6/12 px-4 mr-auto ml-auto">
 						<div className="pt-0 md:pt-32">
-							<h2 className="font-semibold text-4xl text-gray-700 dark:text-white">
+							<h2 className="font-['Open Sans'] italic font-semibold text-4xl text-gray-700 dark:text-white">
 								Make your{' '}
 								<span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
 									health a priority

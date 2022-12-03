@@ -1,5 +1,4 @@
 import React from 'react';
-import { Sidebar, Checkbox, Button } from 'flowbite-react';
 import { useQuery, useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
 import { QUERY_ME } from '../../utils/queries';

@@ -16,7 +16,12 @@ module.exports = {
 		},
 		extend: {
 			fontFamily: {
-				'Open Sans': ['Open Sans', 'sans-serif'],
+				sans: [
+					'Martel Sans',
+					'Merriweather Sans',
+					...defaultTheme.fontFamily.sans,
+				],
+				// sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
 			},
 		},
 	},
