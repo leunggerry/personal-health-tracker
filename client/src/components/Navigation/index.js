@@ -69,9 +69,9 @@ function Navigation() {
 						<div className="DarkModeButton">
 							<DarkModeButton />
 						</div>
-						<Link className="navListItem" to="/signup">
+						{/* <Link className="navListItem" to="/signup">
 							Signup
-						</Link>
+						</Link> */}
 						<Link className="navListItem" to="/login">
 							Login
 						</Link>

@@ -1,7 +1,6 @@
 import React from 'react';
 import stackedDevices from '../../assets/images/stackedDevices.png';
 import { Link } from 'react-router-dom';
-import Fonts from '../../assets/Fonts';
 
 function HeroBanner() {
 	return (
@@ -37,10 +36,10 @@ function HeroBanner() {
 							</p>
 							<div className="mt-12">
 								<div className="flex flex-wrap">
-									<div className="w-6/12 md:w-6/12 p-1">
+									<div className="w-full md:w-6/12 p-1">
 										<Link
 											to="/signup"
-											className="inline-flex items-center uppercase justify-center rounded-md shadow-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700"
+											className="w-full md:w-40 inline-flex items-center uppercase justify-center rounded-md shadow-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700"
 										>
 											Get started
 										</Link>
