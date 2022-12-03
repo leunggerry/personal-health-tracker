@@ -15,10 +15,7 @@ const LandingPage = () => {
 		return (
 			<>
 				<HeroBanner />
-				<section
-					className="w-screen mt-40 px-4 pb-20 py-10 relative bg-gray-200 dark:bg-slate-600"
-					// className="container mx-auto py-8"
-				>
+				<section className="w-screen mt-40 px-4 pb-20 py-10 relative bg-gray-200 dark:bg-slate-600">
 					<div
 						className="-mt-20 top-0 bottom-auto left-0 right-0 w-full absolute translate-x-0"
 						style={{ height: 80 }}
@@ -46,24 +43,26 @@ const LandingPage = () => {
 						</Col>
 					</Row>
 				</Container> */}
-					<div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
-						<Carousel className="object-center h-auto">
-							<img
-								src={carousel1}
-								alt="First slide"
-								className="object-cover w-full h-full"
-							/>
-							<img
-								src={carousel2}
-								alt="Second slide"
-								className="object-cover w-full h-full"
-							/>
-							<img
-								src={carousel3}
-								alt="Third slide"
-								className="object-cover w-full h-full"
-							/>
-						</Carousel>
+					<div className="container mx-auto py-8">
+						<div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
+							<Carousel className="object-center h-auto">
+								<img
+									src={carousel1}
+									alt="First slide"
+									className="object-cover w-full h-full"
+								/>
+								<img
+									src={carousel2}
+									alt="Second slide"
+									className="object-cover w-full h-full"
+								/>
+								<img
+									src={carousel3}
+									alt="Third slide"
+									className="object-cover w-full h-full"
+								/>
+							</Carousel>
+						</div>
 					</div>
 					{/* <Container>
 					<Row>
