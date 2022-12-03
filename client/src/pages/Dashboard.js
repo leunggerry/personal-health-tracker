@@ -67,7 +67,7 @@ const Dashboard = () => {
 							<p>
 								Weight Lifted
 								<br />
-								<span>00:03:00</span>
+								<span>60 lbs</span>
 							</p>
 						</div>
 					</div>
