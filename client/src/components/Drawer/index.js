@@ -118,17 +118,17 @@ export default function Drawer({ isOpen, setIsOpen }) {
 								<p className="px-3 flex-1 whitespace-nowrap">
 									{workout.workoutName}
 								</p>
-								<div class="flex space-x-2 justify-center">
+								<div className="flex space-x-2 justify-center">
 									<button
 										type="button"
-										class="inline-block px-4 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"
+										className="inline-block px-4 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"
 										onClick={() => handleAddWorkoutToSchedule(workout._id)}
 									>
 										Add
 									</button>
 									<button
 										type="button"
-										class="inline-block px-4 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
+										className="inline-block px-4 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
 										onClick={() => handleRemoveFavouriteWorkout(workout._id)}
 									>
 										Remove
