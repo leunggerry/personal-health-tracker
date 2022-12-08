@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Card, Button } from 'flowbite-react';
 
 import Auth from '../utils/auth';
@@ -13,7 +13,6 @@ import { idbPromise } from '../utils/helpers';
 import { saveWorkoutIds, getWorkoutIds } from '../utils/localStorage';
 
 const Workouts = (favoriteWorkout) => {
-	// *-----------------NEW ----------------
 	// Retrieve the current state from the global state object and the dispatch() method will update state
 	const [state, dispatch] = useStoreContext();
 

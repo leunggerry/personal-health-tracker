@@ -1,8 +1,9 @@
-import React from 'react';
-import { useQuery, useMutation, useEffect } from '@apollo/client';
+import React, { useEffect } from 'react';
+import { useQuery, useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
 import { QUERY_ME } from '../../utils/queries';
 import { DELETE_FAV_WORKOUT, SCHEDULE_WORKOUT } from '../../utils/mutations';
+import { ADD_TO_FAVORITES, UPDATE_FAVORITES } from '../../utils/actions';
 import { removeFavWorkoutId } from '../../utils/localStorage';
 import { getDay } from '../../utils/helpers';
 import { useStoreContext } from '../../utils/GlobalState';
@@ -12,13 +13,40 @@ import FavoriteItem from '../FavoriteItem';
 
 export default function Drawer({ isOpen, setIsOpen }) {
 	// *-----------------NEW ----------------
-	// !------------------OLD!-------------------
+	const [state, dispatch] = useStoreContext();
+	const { favoriteWorkouts } = state;
 
 	// Get User Data
-	const { data } = useQuery(QUERY_ME);
-	//console.log(data);
+	const { data, loading } = useQuery(QUERY_ME);
 	const userData = data ? data.me : {};
-	//console.log(userData);
+	console.log('userData: ', userData);
+
+	/**
+	 * @description
+	 * Search the IDB and add any stored favorites to the GlobalState
+	 */
+	useEffect(() => {
+		// If the User has items in their favWorkouts array, add it to 'favorites' IDB
+		if (userData.favWorkouts) {
+			dispatch({
+				type: UPDATE_FAVORITES,
+				favoriteWorkouts: userData.favWorkouts,
+			});
+			userData.favWorkouts.forEach((workout) => {
+				idbPromise('favorites', 'put', workout);
+			});
+		}
+		// Check for workoutData already store in IDB and put it in our GlobalState favoritesWorkouts array
+		else if (!loading) {
+			idbPromise('favorites', 'get').then((workouts) => {
+				dispatch({
+					type: UPDATE_FAVORITES,
+					favoriteWorkouts: workouts,
+				});
+			});
+		}
+	}, [userData, loading, dispatch]);
+	// !------------------OLD!-------------------
 
 	//check if useEffect hook needs to run again
 	const userDataLength = Object.keys(userData).length;
