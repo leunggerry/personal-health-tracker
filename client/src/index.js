@@ -1,22 +1,15 @@
-/**
- * ! description
- * Updgrating from ReactDOM.render to createRoot in React 18
- */
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import 'flowbite';
 import App from './App';
-import ErrorBoundary from './ErrorBoundary';
 import * as serviceWorker from './serviceWorker';
 
-const root = createRoot(document.getElementById('root'));
-root.render(
-	<ErrorBoundary>
-		<React.StrictMode>
-			<App />
-		</React.StrictMode>
-	</ErrorBoundary>
+ReactDOM.render(
+	<React.StrictMode>
+		<App />
+	</React.StrictMode>,
+	document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

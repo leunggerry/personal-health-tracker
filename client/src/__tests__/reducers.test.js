@@ -1,87 +1,140 @@
 import { reducer } from '../utils/reducers';
 import {
-	UPDATE_WORKOUT_LIST,
-	UPDATE_FAVORITES,
-	ADD_TO_FAVORITES,
-	REMOVE_FROM_FAVORITE,
+	UPDATE_PRODUCTS,
+	ADD_TO_CART,
+	UPDATE_CART_QUANTITY,
+	REMOVE_FROM_CART,
+	ADD_MULTIPLE_TO_CART,
+	UPDATE_CATEGORIES,
+	UPDATE_CURRENT_CATEGORY,
+	CLEAR_CART,
+	TOGGLE_CART,
 } from '../utils/actions';
 
-// create a sample of what our global state will look like
 const initialState = {
-	dbWorkouts: [],
-	favoriteWorkouts: [
+	products: [],
+	cart: [
 		{
 			_id: '1',
-			workoutName: 'Push-Ups',
-			workoutDescription:
-				'Get into a plank position with your arms straight and hands a bit wider than shoulder-width. Lower your torso until your elbows form a 90 degree angle and push back up. Keep your neck neutral.',
-			setsCount: 5,
-			repsCount: 20,
+			name: 'Soup',
+			purchaseQuantity: 1,
 		},
 		{
 			_id: '2',
-			workoutName: 'Crunches',
-			workoutDescription:
-				'Lie on your back with your knees bent and hands behind your head. Tighten your abs as you lift and lower your shoulders rhythmically. Exhale as you lift and inhale as you lower, maintaining tension in your abs throughout the movement.',
-			setsCount: 5,
-			repsCount: 20,
+			name: 'Bread',
+			purchaseQuantity: 2,
 		},
 	],
-	daily: [],
+	cartOpen: false,
+	categories: [{ name: 'Food' }],
+	currentCategory: '1',
 };
 
-test('UPDATE_WORKOUT_LIST', () => {
-	// newState object will be the result of what comes from the UPDATE_WORKOUT_LIST reducer
-	// This function accepts the following two parameters:
-	let newState = reducer(
-		initialState, // current state object, so we can make our copy of it for the new state
-		{
-			type: UPDATE_WORKOUT_LIST, // This is the type of action we're performing
-			dbWorkouts: [{}, {}], // the value of the new data we want to use with the action
-		} // The action we're performing to update state, which is broken into the following two parts as an object
-	);
-
-	expect(newState.dbWorkouts.length).toBe(2);
-	expect(initialState.dbWorkouts.length).toBe(0);
-});
-
-test('UPDATE_FAVORITES', () => {
+test('UPDATE_PRODUCTS', () => {
 	let newState = reducer(initialState, {
-		type: UPDATE_FAVORITES,
-		favoriteWorkouts: [{}, {}, {}],
+		type: UPDATE_PRODUCTS,
+		products: [{}, {}],
 	});
 
-	expect(newState.favoriteWorkouts.length).toBe(3);
-	expect(initialState.favoriteWorkouts.length).toBe(2);
+	expect(newState.products.length).toBe(2);
+	expect(initialState.products.length).toBe(0);
 });
 
-test('ADD_TO_FAVORITES', () => {
+test('ADD_TO_CART', () => {
 	let newState = reducer(initialState, {
-		type: ADD_TO_FAVORITES,
-		dbWorkouts: { quantity: 1 },
+		type: ADD_TO_CART,
+		product: { purchaseQuantity: 1 },
 	});
 
-	expect(newState.favoriteWorkouts.length).toBe(3);
-	expect(initialState.favoriteWorkouts.length).toBe(2);
+	expect(newState.cart.length).toBe(3);
+	expect(initialState.cart.length).toBe(2);
 });
 
-test('REMOVE_FROM_FAVORITE', () => {
+test('UPDATE_CART_QUANTITY', () => {
+	let newState = reducer(initialState, {
+		type: UPDATE_CART_QUANTITY,
+		_id: '1',
+		purchaseQuantity: 3,
+	});
+
+	expect(newState.cartOpen).toBe(true);
+	expect(newState.cart[0].purchaseQuantity).toBe(3);
+	expect(newState.cart[1].purchaseQuantity).toBe(2);
+	expect(initialState.cartOpen).toBe(false);
+});
+
+test('REMOVE_FROM_CART', () => {
 	let newState1 = reducer(initialState, {
-		type: REMOVE_FROM_FAVORITE,
+		type: REMOVE_FROM_CART,
 		_id: '1',
 	});
 
-	// the second item should now be the first
-	expect(newState1.favoriteWorkouts.length).toBe(1);
-	expect(newState1.favoriteWorkouts[0]._id).toBe('2');
+	expect(newState1.cartOpen).toBe(true);
+	expect(newState1.cart.length).toBe(1);
+	expect(newState1.cart[0]._id).toBe('2');
 
 	let newState2 = reducer(newState1, {
-		type: REMOVE_FROM_FAVORITE,
+		type: REMOVE_FROM_CART,
 		_id: '2',
 	});
 
-	// favoriteWorkouts is empty
-	expect(newState2.favoriteWorkouts.length).toBe(0);
+	expect(newState2.cartOpen).toBe(false);
+	expect(newState2.cart.length).toBe(0);
 
-	expect(initialState.favoriteWorkouts.length).toBe(2);
+	expect(initialState.cart.length).toBe(2);
+});
+
+test('ADD_MULTIPLE_TO_CART', () => {
+	let newState = reducer(initialState, {
+		type: ADD_MULTIPLE_TO_CART,
+		products: [{}, {}],
+	});
+
+	expect(newState.cart.length).toBe(4);
+	expect(initialState.cart.length).toBe(2);
+});
+
+test('UPDATE_CATEGORIES', () => {
+	let newState = reducer(initialState, {
+		type: UPDATE_CATEGORIES,
+		categories: [{}, {}],
+	});
+
+	expect(newState.categories.length).toBe(2);
+	expect(initialState.categories.length).toBe(1);
+});
+
+test('UPDATE_CURRENT_CATEGORY', () => {
+	let newState = reducer(initialState, {
+		type: UPDATE_CURRENT_CATEGORY,
+		currentCategory: '2',
+	});
+
+	expect(newState.currentCategory).toBe('2');
+	expect(initialState.currentCategory).toBe('1');
+});
+
+test('CLEAR_CART', () => {
+	let newState = reducer(initialState, {
+		type: CLEAR_CART,
+	});
+
+	expect(newState.cartOpen).toBe(false);
+	expect(newState.cart.length).toBe(0);
+	expect(initialState.cart.length).toBe(2);
+});
+
+test('TOGGLE_CART', () => {
+	let newState = reducer(initialState, {
+		type: TOGGLE_CART,
+	});
+
+	expect(newState.cartOpen).toBe(true);
+	expect(initialState.cartOpen).toBe(false);
+
+	let newState2 = reducer(newState, {
+		type: TOGGLE_CART,
+	});
+
+	expect(newState2.cartOpen).toBe(false);
 });

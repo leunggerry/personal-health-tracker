@@ -1,19 +1,12 @@
 import React from 'react';
-import { useQuery, useMutation, useEffect } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
 import { QUERY_ME } from '../../utils/queries';
 import { DELETE_FAV_WORKOUT, SCHEDULE_WORKOUT } from '../../utils/mutations';
 import { removeFavWorkoutId } from '../../utils/localStorage';
 import { getDay } from '../../utils/helpers';
-import { useStoreContext } from '../../utils/GlobalState';
-
-import { idbPromise } from '../../utils/helpers';
-import FavoriteItem from '../FavoriteItem';
 
 export default function Drawer({ isOpen, setIsOpen }) {
-	// *-----------------NEW ----------------
-	// !------------------OLD!-------------------
-
 	// Get User Data
 	const { data } = useQuery(QUERY_ME);
 	//console.log(data);
@@ -84,12 +77,12 @@ export default function Drawer({ isOpen, setIsOpen }) {
 		>
 			<section
 				className={
-					'w-screen max-w-lg right-0 absolute bg-gray-50 h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform dark:bg-gray-800 ' +
+					'w-screen max-w-lg right-0 absolute bg-white h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform dark:bg-gray-800 ' +
 					(isOpen ? ' translate-x-0 ' : ' translate-x-full ')
 				}
 			>
 				<article className="relative w-screen max-w-lg pb-10 flex flex-col space-y-6 overflow-y-scroll h-full">
-					<div className="md:container md:mx-auto flex flex-wrap items-center justify-between bg-[#ff457e] dark:text-white dark:bg-indigo-700">
+					<div className="md:container md:mx-auto flex flex-wrap items-center justify-between  dark:text-white dark:bg-indigo-700">
 						<h2
 							className="p-4 font-bold xs:text-2xl sm:text-4xl mt-0 mb-6"
 							// className="p-4 font-bold text-lg"
