@@ -44,9 +44,9 @@ function WorkoutTable() {
 	// get todays workouts
 	let todaysWorkouts;
 	if (userDataLength > 0) {
-		console.log(userData);
+		// console.log(userData);
 		todaysWorkouts = userData[getDay()];
-		console.log(todaysWorkouts);
+		// console.log(todaysWorkouts);
 	}
 	return (
 		<Table className="shadow-2xl">

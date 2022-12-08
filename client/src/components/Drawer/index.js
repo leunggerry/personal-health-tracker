@@ -3,17 +3,10 @@ import { useQuery, useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
 import { QUERY_ME } from '../../utils/queries';
 import { DELETE_FAV_WORKOUT, SCHEDULE_WORKOUT } from '../../utils/mutations';
-import {
-	ADD_TO_FAVORITES,
-	UPDATE_FAVORITES,
-	REMOVE_FROM_FAVORITE,
-} from '../../utils/actions';
+import { UPDATE_FAVORITES, REMOVE_FROM_FAVORITE } from '../../utils/actions';
 import { removeFavWorkoutId } from '../../utils/localStorage';
-import { getDay } from '../../utils/helpers';
+import { getDay, idbPromise } from '../../utils/helpers';
 import { useStoreContext } from '../../utils/GlobalState';
-
-import { idbPromise } from '../../utils/helpers';
-import FavoriteItem from '../FavoriteItem';
 
 export default function Drawer({ isOpen, setIsOpen }) {
 	const [state, dispatch] = useStoreContext();
@@ -22,7 +15,7 @@ export default function Drawer({ isOpen, setIsOpen }) {
 	// Get User Data
 	const { data, loading } = useQuery(QUERY_ME);
 	const userData = data ? data.me : {};
-	console.log('userData: ', userData);
+	// console.log('userData: ', userData);
 
 	/**
 	 * @description
@@ -130,16 +123,11 @@ export default function Drawer({ isOpen, setIsOpen }) {
 			>
 				<article className="relative w-screen max-w-lg pb-10 flex flex-col space-y-6 overflow-y-scroll h-full">
 					<div className="md:container md:mx-auto flex flex-wrap items-center justify-between bg-[#ff457e] dark:text-white dark:bg-indigo-700">
-						<h2
-							className="p-4 font-bold xs:text-2xl sm:text-4xl mt-0 mb-6"
-							// className="p-4 font-bold text-lg"
-						>
+						<h2 className="p-4 font-bold xs:text-2xl sm:text-4xl mt-0 mb-6">
 							Favorite Workouts
 						</h2>
 						<div
 							className="CROSS-ICON absolute top-0 right-0 px-8 py-4 cursor-pointer"
-							// className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
-							// change isNavOpen state to false to close the menu
 							onClick={() => setIsOpen(false)}
 						>
 							<svg
@@ -180,7 +168,6 @@ export default function Drawer({ isOpen, setIsOpen }) {
 											handleRemoveFavouriteWorkout(workout._id);
 											removeFromFavorites(workout);
 										}}
-										// onClick={() => handleRemoveFavouriteWorkout(workout._id)}
 									>
 										Remove
 									</button>

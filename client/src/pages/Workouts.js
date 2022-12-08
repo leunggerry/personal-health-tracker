@@ -120,55 +120,66 @@ const Workouts = (favoriteWorkout) => {
 		return <h2>LOADING...</h2>;
 	}
 	return Auth.loggedIn() ? (
-		<section className="flex flex-col flex-wrap gap-4 md:justify-center lg:flex lg:flex-row p-2 dark:bg-gray-900">
+		<section>
 			{state.dbWorkouts.length ? (
-				<div className="min-w-max">
+				<div className="flex flex-col flex-wrap gap-4 md:justify-center lg:flex lg:flex-row p-2 dark:bg-gray-900">
 					{filterWorkouts().map((workout) => (
-						<Card key={workout._id} _id={workout._id} border="dark">
-							<h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-								{workout.workoutName}
-							</h5>
-							<details className="shadow-inner bg-gray-50 dark:bg-gray-600 rounded group mb-4">
-								<summary className="list-none flex flex-wrap items-center cursor-pointer focus-visible:outline-none focus-visible:ring focus-visible:ring-red-400 rounded group-open:rounded-b-none group-open:z-[1] bg-gray-200 text-sm hover:bg-indigo-700 hover:text-gray-200">
-									<h3 className="flex flex-1 p-4 font-semibold">Description</h3>
-									<div className="flex w-10 items-center justify-center">
-										<div className="border-8 border-transparent border-l-gray-600 dark:border-l-gray-900 ml-2 group-open:rotate-90 transition-transform origin-left"></div>
+						<div className="min-w-max" key={workout._id}>
+							<Card _id={workout._id} border="dark">
+								<h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+									{workout.workoutName}
+								</h5>
+								<details className="shadow-inner bg-gray-50 dark:bg-gray-600 rounded group mb-4">
+									<summary className="list-none flex flex-wrap items-center cursor-pointer focus-visible:outline-none focus-visible:ring focus-visible:ring-red-400 rounded group-open:rounded-b-none group-open:z-[1] bg-gray-200 text-sm hover:bg-indigo-700 hover:text-gray-200">
+										<h3 className="flex flex-1 p-4 font-semibold">
+											Description
+										</h3>
+										<div className="flex w-10 items-center justify-center">
+											<div className="border-8 border-transparent border-l-gray-600 dark:border-l-gray-900 ml-2 group-open:rotate-90 transition-transform origin-left"></div>
+										</div>
+									</summary>
+									<div
+										className="p-4 text-gray-700 dark:text-gray-900"
+										id="scroll-container"
+									>
+										<div id="scroll-text" className="font-medium">
+											<p className="font-normal text-gray-700 dark:text-gray-400">
+												{workout.workoutDescription}
+											</p>
+										</div>
 									</div>
-								</summary>
-								<div
-									className="p-4 text-gray-700 dark:text-gray-900"
-									id="scroll-container"
-								>
-									<div id="scroll-text" className="font-medium">
-										<p className="font-normal text-gray-700 dark:text-gray-400">
-											{workout.workoutDescription}
-										</p>
-									</div>
-								</div>
-							</details>
+								</details>
 
-							<Button
-								// disabled={favoriteworkoutIds === workout._id}
-								disabled={favoriteworkoutIds?.some(
-									(savedWorkoutId) => savedWorkoutId === workout._id
-								)}
-								className="btn-block btn-blue"
-								onClick={() => {
-									addToFavorites(workout, workout._id);
-								}}
-								// onClick={() => addToFavorites(workout, workout._id)}
-							>
-								{favoriteworkoutIds?.some(
-									(savedWorkoutId) => savedWorkoutId === workout._id
-								)
-									? 'Added to Favorites'
-									: '+ Add To Favourties'}
-							</Button>
-						</Card>
+								<Button
+									// disabled={favoriteworkoutIds === workout._id}
+									disabled={favoriteworkoutIds?.some(
+										(savedWorkoutId) => savedWorkoutId === workout._id
+									)}
+									className="btn-block btn-blue"
+									onClick={() => {
+										addToFavorites(workout, workout._id);
+									}}
+									// onClick={() => addToFavorites(workout, workout._id)}
+								>
+									{favoriteworkoutIds?.some(
+										(savedWorkoutId) => savedWorkoutId === workout._id
+									)
+										? 'Added to Favorites'
+										: '+ Add To Favourties'}
+								</Button>
+							</Card>
+						</div>
 					))}
 				</div>
 			) : (
-				<h3>You haven't added any products yet!</h3>
+				<Jumbotron>
+					<h3 className="text-3xl font-bold dark:text-white">
+						<span role="img" aria-label="shocked">
+							😱
+						</span>
+						Oops, Something went wrong on our end!
+					</h3>
+				</Jumbotron>
 			)}
 		</section>
 	) : (
