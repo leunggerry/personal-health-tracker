@@ -15,7 +15,7 @@ const LandingPage = () => {
 		return (
 			<>
 				<HeroBanner />
-				<section className="w-screen mt-40 px-4 pb-20 py-10 relative bg-gray-200 dark:bg-slate-600">
+				<section className="w-screen mt-52 px-4 pb-20 py-10 relative bg-gray-200 dark:bg-slate-600">
 					<div
 						className="-mt-20 top-0 bottom-auto left-0 right-0 w-full absolute translate-x-0"
 						style={{ height: 80 }}

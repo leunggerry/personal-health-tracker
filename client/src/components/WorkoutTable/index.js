@@ -44,9 +44,9 @@ function WorkoutTable() {
 	// get todays workouts
 	let todaysWorkouts;
 	if (userDataLength > 0) {
-		console.log(userData);
+		// console.log(userData);
 		todaysWorkouts = userData[getDay()];
-		console.log(todaysWorkouts);
+		// console.log(todaysWorkouts);
 	}
 	return (
 		<Table className="shadow-2xl">
@@ -77,7 +77,7 @@ function WorkoutTable() {
 									<button
 										type="button"
 										size="xs"
-										class="inline-block px-4 py-1.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
+										className="inline-block px-4 py-1.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
 										onClick={() => handleRemoveScheduleWorkout(workout._id)}
 									>
 										Remove
