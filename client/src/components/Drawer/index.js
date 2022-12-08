@@ -3,7 +3,11 @@ import { useQuery, useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
 import { QUERY_ME } from '../../utils/queries';
 import { DELETE_FAV_WORKOUT, SCHEDULE_WORKOUT } from '../../utils/mutations';
-import { ADD_TO_FAVORITES, UPDATE_FAVORITES } from '../../utils/actions';
+import {
+	ADD_TO_FAVORITES,
+	UPDATE_FAVORITES,
+	REMOVE_FROM_FAVORITE,
+} from '../../utils/actions';
 import { removeFavWorkoutId } from '../../utils/localStorage';
 import { getDay } from '../../utils/helpers';
 import { useStoreContext } from '../../utils/GlobalState';
@@ -12,7 +16,6 @@ import { idbPromise } from '../../utils/helpers';
 import FavoriteItem from '../FavoriteItem';
 
 export default function Drawer({ isOpen, setIsOpen }) {
-	// *-----------------NEW ----------------
 	const [state, dispatch] = useStoreContext();
 	const { favoriteWorkouts } = state;
 
@@ -45,14 +48,23 @@ export default function Drawer({ isOpen, setIsOpen }) {
 				});
 			});
 		}
-	}, [userData, loading, dispatch]);
-	// !------------------OLD!-------------------
+	}, [userData.favWorkouts, loading, dispatch]);
+
+	// remove workoutout from IDB
+	const removeFromFavorites = (workout) => {
+		dispatch({
+			type: REMOVE_FROM_FAVORITE,
+			_id: workout._id,
+		});
+		idbPromise('favorites', 'delete', { ...workout });
+	};
 
 	//check if useEffect hook needs to run again
 	const userDataLength = Object.keys(userData).length;
 
 	//use mutation to remove workout from favourite
 	const [removeFavWorkout] = useMutation(DELETE_FAV_WORKOUT);
+
 	// remove favourite workout
 	const handleRemoveFavouriteWorkout = async (workoutId) => {
 		const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -164,7 +176,11 @@ export default function Drawer({ isOpen, setIsOpen }) {
 									<button
 										type="button"
 										className="inline-block px-4 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
-										onClick={() => handleRemoveFavouriteWorkout(workout._id)}
+										onClick={() => {
+											handleRemoveFavouriteWorkout(workout._id);
+											removeFromFavorites(workout);
+										}}
+										// onClick={() => handleRemoveFavouriteWorkout(workout._id)}
 									>
 										Remove
 									</button>
