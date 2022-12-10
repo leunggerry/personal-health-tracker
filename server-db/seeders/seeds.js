@@ -1,6 +1,6 @@
 // Data generators
 const { faker } = require('@faker-js/faker');
-const casual = require('casual');
+// const casual = require('casual');
 const bcrypt = require('bcrypt');
 
 const db = require('../config/connection');

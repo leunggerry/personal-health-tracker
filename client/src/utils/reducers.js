@@ -1,85 +1,55 @@
 import { useReducer } from 'react';
 import {
-	UPDATE_PRODUCTS,
-	ADD_TO_CART,
-	UPDATE_CART_QUANTITY,
-	REMOVE_FROM_CART,
-	ADD_MULTIPLE_TO_CART,
-	UPDATE_CATEGORIES,
-	UPDATE_CURRENT_CATEGORY,
-	CLEAR_CART,
-	TOGGLE_CART,
+	UPDATE_WORKOUT_LIST,
+	ADD_TO_FAVORITES,
+	UPDATE_FAVORITES,
+	REMOVE_FROM_FAVORITE,
+	// ADD_TO_DAY,
 } from './actions';
+
+// import { getDay } from './helpers';
 
 export const reducer = (state, action) => {
 	switch (action.type) {
-		case UPDATE_PRODUCTS:
+		// if action type value is the value of `UPDATE_WORKOUT_LIST`, return a new state object with an updated dbWorkouts array
+		case UPDATE_WORKOUT_LIST:
+			// return a new object with a copy of the state
 			return {
 				...state,
-				products: [...action.products],
+				// set the dbWorkouts key to a value of a new array with the action.dbWorkouts value spread across it
+				dbWorkouts: [...action.dbWorkouts],
 			};
 
-		case ADD_TO_CART:
+		case ADD_TO_FAVORITES:
 			return {
 				...state,
-				cartOpen: true,
-				cart: [...state.cart, action.product],
+				favoriteWorkouts: [...state.favoriteWorkouts, action.dbWorkouts],
 			};
 
-		case ADD_MULTIPLE_TO_CART:
+		// if action type value is the value of `UPDATE_FAVORITES`, return a new state object with an updated favorites array
+		case UPDATE_FAVORITES:
 			return {
 				...state,
-				cart: [...state.cart, ...action.products],
+				favoriteWorkouts: action.favoriteWorkouts,
 			};
 
-		case UPDATE_CART_QUANTITY:
-			return {
-				...state,
-				cartOpen: true,
-				cart: state.cart.map((product) => {
-					if (action._id === product._id) {
-						product.purchaseQuantity = action.purchaseQuantity;
-					}
-					return product;
-				}),
-			};
-
-		case REMOVE_FROM_CART:
-			let newState = state.cart.filter((product) => {
-				return product._id !== action._id;
+		case REMOVE_FROM_FAVORITE:
+			let newState = state.favoriteWorkouts.filter((workout) => {
+				return workout._id !== action._id;
 			});
 
 			return {
 				...state,
-				cartOpen: newState.length > 0,
-				cart: newState,
+				favoriteWorkouts: newState,
 			};
 
-		case CLEAR_CART:
-			return {
-				...state,
-				cartOpen: false,
-				cart: [],
-			};
+		// case ADD_TO_DAY:
+		// 	return {
+		// 		...state,
+		// 		daily: [...state.daily, action.favoriteWorkouts],
+		// 	};
 
-		case TOGGLE_CART:
-			return {
-				...state,
-				cartOpen: !state.cartOpen,
-			};
-
-		case UPDATE_CATEGORIES:
-			return {
-				...state,
-				categories: [...action.categories],
-			};
-
-		case UPDATE_CURRENT_CATEGORY:
-			return {
-				...state,
-				currentCategory: action.currentCategory,
-			};
-
+		// if it's none of these actions, do not update state at all and keep things the same!
 		default:
 			return state;
 	}

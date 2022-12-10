@@ -1,17 +1,4 @@
-import {
-	Table,
-	Thead,
-	Tbody,
-	Tfoot,
-	Tr,
-	Th,
-	Td,
-	TableCaption,
-	TableContainer,
-	Button,
-} from '@chakra-ui/react';
-
-import Modal from '../Modal';
+import { Table } from 'flowbite-react';
 
 import Auth from '../../utils/auth';
 import { QUERY_ME } from '../../utils/queries';
@@ -19,7 +6,7 @@ import { REMOVE_SCHEDULE_WORKOUT } from '../../utils/mutations';
 import { useMutation, useQuery } from '@apollo/client';
 import { getDay } from '../../utils/helpers';
 
-function StripedColumnsExample() {
+function WorkoutTable() {
 	// Get User Data
 	const { data } = useQuery(QUERY_ME);
 
@@ -57,51 +44,58 @@ function StripedColumnsExample() {
 	// get todays workouts
 	let todaysWorkouts;
 	if (userDataLength > 0) {
-		console.log(userData);
+		// console.log(userData);
 		todaysWorkouts = userData[getDay()];
-		console.log(todaysWorkouts);
+		// console.log(todaysWorkouts);
 	}
 	return (
-		<TableContainer>
-			<Table variant="simple">
-				<TableCaption>
-					{/* <Button variant="primary">+ Add Workout</Button> */}
-					<Modal />
-				</TableCaption>
-				<Thead>
-					<Tr>
-						<Th>Exercise Name</Th>
-						<Th>Lifting Logs</Th>
-						<Th>Remove Workout</Th>
-					</Tr>
-				</Thead>
-				<Tbody>
-					{todaysWorkouts &&
-						todaysWorkouts.map((workout) => {
-							return (
-								<Tr key={workout._id}>
-									<Td>{workout.workoutName}</Td>
-									<Td>
-										<div>
-											{workout.setsCount} Sets - {workout.repsCount} Laps/Reps
-										</div>
-									</Td>
-									<Td>
-										<Button
-											size="xs"
-											colorScheme="red"
-											onClick={() => handleRemoveScheduleWorkout(workout._id)}
-										>
-											Remove Workout
-										</Button>
-									</Td>
-								</Tr>
-							);
-						})}
-				</Tbody>
-			</Table>
-		</TableContainer>
+		<Table className="shadow-2xl">
+			<Table.Head className="tableHead">
+				<Table.HeadCell>Exercise Name</Table.HeadCell>
+				<Table.HeadCell>Lifting Logs</Table.HeadCell>
+				<Table.HeadCell>
+					<span className="sr-only">Remove Workout</span>
+				</Table.HeadCell>
+			</Table.Head>
+			<Table.Body>
+				{todaysWorkouts &&
+					todaysWorkouts.map((workout) => {
+						return (
+							<Table.Row
+								key={workout._id}
+								className="bg-white dark:border-gray-700 dark:bg-gray-800"
+							>
+								<Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+									{workout.workoutName}
+								</Table.Cell>
+								<Table.Cell>
+									<div>
+										{workout.setsCount} Sets - {workout.repsCount} Laps/Reps
+									</div>
+								</Table.Cell>
+								<Table.Cell>
+									<button
+										type="button"
+										size="xs"
+										className="inline-block px-4 py-1.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
+										onClick={() => handleRemoveScheduleWorkout(workout._id)}
+									>
+										Remove
+									</button>
+									{/* <Button
+										size="xs"
+										// colorScheme="red"
+										onClick={() => handleRemoveScheduleWorkout(workout._id)}
+									>
+										Remove Workout
+									</Button> */}
+								</Table.Cell>
+							</Table.Row>
+						);
+					})}
+			</Table.Body>
+		</Table>
 	);
 }
 
-export default StripedColumnsExample;
+export default WorkoutTable;

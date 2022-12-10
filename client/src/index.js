@@ -1,19 +1,22 @@
-import 'bootstrap/dist/css/bootstrap.css';
+/**
+ * ! description
+ * Updgrating from ReactDOM.render to createRoot in React 18
+ */
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.css';
+import 'flowbite';
 import App from './App';
+import ErrorBoundary from './ErrorBoundary';
 import * as serviceWorker from './serviceWorker';
 
-import { ChakraProvider } from '@chakra-ui/react';
-
-ReactDOM.render(
-	<React.StrictMode>
-		<ChakraProvider>
+const root = createRoot(document.getElementById('root'));
+root.render(
+	<ErrorBoundary>
+		<React.StrictMode>
 			<App />
-		</ChakraProvider>
-	</React.StrictMode>,
-	document.getElementById('root')
+		</React.StrictMode>
+	</ErrorBoundary>
 );
 
 // If you want your app to work offline and load faster, you can change

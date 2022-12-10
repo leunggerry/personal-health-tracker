@@ -1,8 +1,9 @@
 import React from 'react';
 import Auth from '../utils/auth';
-import { Carousel, Container, Row, Col } from 'react-bootstrap';
+import { Carousel } from 'flowbite-react';
 
 import HeroBanner from '../components/HeroBanner';
+import WelcomePage from '../components/WelcomeUser';
 
 // import images
 import carousel1 from '../assets/images/solen-feyissa-7M-bcTN7w9c-unsplash.jpg';
@@ -14,43 +15,56 @@ const LandingPage = () => {
 		return (
 			<>
 				<HeroBanner />
-				{/* <Container>
+				<section className="w-screen mt-52 px-4 pb-20 py-10 relative bg-gray-200 dark:bg-slate-600">
+					<div
+						className="-mt-20 top-0 bottom-auto left-0 right-0 w-full absolute translate-x-0"
+						style={{ height: 80 }}
+						// style="height: 80px; transform: translateZ(0px);"
+					>
+						<svg
+							className="absolute bottom-0 overflow-hidden"
+							xmlns="http://www.w3.org/2000/svg"
+							preserveAspectRatio="none"
+							version="1.1"
+							viewBox="0 0 2560 100"
+							x="0"
+							y="0"
+						>
+							<polygon
+								className="text-gray-200 fill-current dark:fill-slate-600"
+								points="2560 0 2560 100 0 100"
+							></polygon>
+						</svg>
+					</div>
+					{/* <Container>
 					<Row>
 						<Col>
 							<h2 className="section-title">Header text</h2>
 						</Col>
 					</Row>
 				</Container> */}
-				<Container>
-					<Row>
-						<Col>
-							<Carousel className="Carousel-container" variant="dark">
-								<Carousel.Item interval={1000} className="Carousel-item">
-									<img
-										className="d-block w-100"
-										src={carousel1}
-										alt="First slide"
-									/>
-								</Carousel.Item>
-								<Carousel.Item interval={500} className="Carousel-item">
-									<img
-										className="d-block w-100"
-										src={carousel2}
-										alt="Second slide"
-									/>
-								</Carousel.Item>
-								<Carousel.Item className="Carousel-item">
-									<img
-										className="d-block w-100"
-										src={carousel3}
-										alt="Third slide"
-									/>
-								</Carousel.Item>
+					<div className="container mx-auto py-8">
+						<div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
+							<Carousel className="object-center h-auto">
+								<img
+									src={carousel1}
+									alt="First slide"
+									className="object-cover w-full h-full"
+								/>
+								<img
+									src={carousel2}
+									alt="Second slide"
+									className="object-cover w-full h-full"
+								/>
+								<img
+									src={carousel3}
+									alt="Third slide"
+									className="object-cover w-full h-full"
+								/>
 							</Carousel>
-						</Col>
-					</Row>
-				</Container>
-				{/* <Container>
+						</div>
+					</div>
+					{/* <Container>
 					<Row>
 						<Col>
 							<h2>Start Building Habits.</h2>
@@ -68,10 +82,11 @@ const LandingPage = () => {
 						</Col>
 					</Row>
 				</Container> */}
+				</section>
 			</>
 		);
 	} else {
-		return null;
+		return <WelcomePage />;
 	}
 };
 

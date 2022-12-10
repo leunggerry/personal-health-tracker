@@ -25,9 +25,9 @@ This is an application where a user can add workouts and track daily workout ses
 
 ## Screenshots
 
-![Land Page](./readme-screenshots/landing-page.png)
-![Sign in page](./readme-screenshots/login-page.png)
-![User dashboard with favourite and schedule workouts](./readme-screenshots/user-dashboard.png)
+![Landing Page](./readme-screenshots/landingPage.png)
+![Profile Page](./readme-screenshots/profilePage.png)
+![User dashboard with favourite and schedule workouts](./readme-screenshots/workoutsPage.png)
 
 ## Contributors
 

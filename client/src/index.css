@@ -1,33 +1,13 @@
-/* Color Palate */
-:root {
-	--rich-black-fogra-29: #111116ff;
-	--rich-black-fogra-29-copy: rgb(43, 43, 54);
-	--white: #fefefeff;
-	--russet: #754022ff;
-	--gainsboro: #dedbd9ff;
-	--cultured: #f6f5f5ff;
-	--error: rgb(228, 46, 1);
+/* Tailwind Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
-/* Bootstrap overrides */
-.nav-link {
-	padding: 8px 16px;
-}
-
-a {
-	color: inherit;
-	text-decoration: none;
-}
-th {
-	background-color: var(--gainsboro);
-}
-
-@keyframes pan {
-	100% {
-		background-position: 15% 50%;
-	}
-}
-
+/* Loading spinner */
 .loader-container {
 	width: 100%;
 	height: 100vh;
@@ -56,152 +36,11 @@ th {
 		transform: rotate(360deg);
 	}
 }
-/* apply styles to <header> */
-header {
-	padding: 20px 35px;
-	background-color: var(--rich-black-fogra-29);
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
-	background-position: 80%;
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	/* Make the Header "Sticky" */
-	position: -webkit-sticky;
-	position: sticky;
-	top: 0;
-	z-index: 9999;
-}
 
-section {
-	padding: 60px;
-}
-
-.applicationBox {
-	background-color: var(--rich-black-fogra-29-copy);
-}
-
-  .social-container {
-	padding: 25px 50px;
-  }
-  
-  a.social {
-	margin: 0 1rem;
-	transition: transform 250ms;
-	display: inline-block;
-	color: white;
-  }
-  
-  a.social:hover {
-	transform: translateY(-2px);
-	color: gray;
-  }
-
-.main {
-	/* position: relative; */
-	min-height: 200vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-/* HERO STYLE START */
-.hero {
-	background-color: var(--rich-black-fogra-29);
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
-	background-position: 80%;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	align-items: flex-start;
-}
-/* Hero-form Style */
-.hero-cta {
-	width: 35%;
-	margin: 3.5%;
-	color: #fff;
-	font-size: 18px;
-	line-height: 1.2;
-}
-/* Hero-form Style Start */
-.hero-form {
-	padding: 20px;
-	width: 500px;
-	color: #fff;
-	margin: 3.5%;
-	border-radius: 15px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-.section-title {
-	text-align: center;
-	margin: 0 auto 35px auto;
-}
-
-.Carousel-container .Carousel-item img {
-	object-fit: cover;
-	object-position: center;
-	height: 50vh;
-	overflow: hidden;
-}
-
-/* lOGIN CARD */
-.login-card {
-	width: 100%;
-	padding: 70px 30px 44px;
-	border-radius: 24px;
-	background: #ffffff;
-	text-align: center;
-}
-
-.login-card h2 {
-	margin: 0 0 12px;
-	font-size: 36px;
-	font-weight: 600;
-}
-
-.login-card h3 {
-	margin: 0 0 30px;
-	font-weight: 500;
-	font-size: 16px;
-	color: rgba(0, 0, 0, 0.38);
-}
-
-.login-form {
-	width: 100%;
-	margin: 0;
-	display: grid;
-	gap: 16px;
-}
-
-.login-form a {
-	color: #216ce7;
-}
-
-.login-form input,
-.login-form button {
-	width: 100%;
-	height: 56px;
-	padding: 0 16px;
-	border-radius: 8px;
-}
-
-.login-form input {
-	border: 2px solid #ebebeb;
-}
-
-.login-form button {
-	width: 100%;
-	height: 56px;
-	border: 0;
-	background: #216ce7;
-	color: #f9f9f9;
-	font-weight: 600;
-}
-
-.error-text {
-	color: var(--error);
+/* Profile styles */
+.profile-container {
+	margin-bottom: 40px;
+	/* color: white; */
 }
 
 .profile-info-section {
@@ -213,10 +52,56 @@ section {
 .info-title {
 	font-weight: 600;
 	font-size: 22px;
-	color: white;
+	/* color: white; */
 }
 
-.profile-container {
-	margin-bottom: 40px;
-	color: white;
+.login-signup {
+	/* background: linear-gradient(to right, #058396, #054d96, #1c9e34, #50c878); */
+	background: linear-gradient(
+		90deg,
+		rgba(0, 151, 255, 1) 3%,
+		rgba(12, 185, 93, 1) 52%,
+		rgba(70, 175, 10, 1) 100%
+	);
+}
+
+.sectionBGs {
+	background-color: #8721e1;
+	background-image: linear-gradient(
+		43deg,
+		#8721e1 0%,
+		#ff457e 46%,
+		#e15a45 100%
+	);
+}
+
+.tableHead {
+	background-color: rgb(229, 231, 235);
+}
+
+/* Adding a dynamic range and capping max-width at 767 
+which is the break point that our hambger menu shows*/
+@media only screen and (min-width: 375px) and (max-width: 767px) {
+	/* Nav */
+	Nav ul {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		min-height: 250px;
+	}
+
+	.DarkModeButton {
+		margin-top: 32px;
+		margin-bottom: 32px;
+	}
+
+	.navListItem {
+		margin-top: 32px;
+		margin-bottom: 32px;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		border-bottom: solid;
+		padding-bottom: 2px;
+	}
 }

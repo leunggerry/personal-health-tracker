@@ -7,14 +7,13 @@ import {
 	createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { Box } from '@chakra-ui/react';
 
 import LandingPage from './pages/LandingPage';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Navigation from './components/Navigation';
-import Footer from './components/Footer';
+import FooterComponent from './components/Footer';
 import { StoreProvider } from './utils/GlobalState';
 import Profile from './pages/Profile';
 import Workouts from './pages/Workouts';
@@ -57,21 +56,30 @@ function App() {
 					</div>
 				) : (
 					<StoreProvider>
-						<Box className="applicationBox">
-							<Navigation />
-							<Routes>
-								<Route path="/" element={<LandingPage />} />
-								<Route path="/login" element={<Login />} />
-								<Route path="/signup" element={<Signup />} />
-								<Route path="/profile" element={<Profile />} />
-								<Route path="/dashboard" element={<Dashboard />} />
-								{/* REMOVED WORKOUT PAGE ROUTE -- IT'S STILL IN DEVELOPMENT */}
-								<Route path="/workouts" element={<Workouts />} />
-								{/* TODO: Can we take this out. I don't think we are using it */}
-								<Route path="*" element={<NoMatch />} />
-							</Routes>
-							<Footer />
-						</Box>
+						<main
+							className="flex flex-col pt-16 bg-gray-50 dark:bg-gray-900"
+							// className="flex flex-col h-screen relative pt-16 dark:bg-gray-900"
+						>
+							<header className="shadow-md fixed top-0 left-0 right-0 dark:bg-gray-800 dark:border-gray-700 z-[10]">
+								<Navigation />
+							</header>
+
+							<section
+								className="mx-0 gap-4 min-h-screen"
+								// className="mx-0 gap-4 xs:px-1 md:px-8 min-h-screen"
+							>
+								<Routes>
+									<Route path="/" element={<LandingPage />} />
+									<Route path="/login" element={<Login />} />
+									<Route path="/signup" element={<Signup />} />
+									<Route path="/profile" element={<Profile />} />
+									<Route path="/dashboard" element={<Dashboard />} />
+									<Route path="/workouts" element={<Workouts />} />
+									<Route path="*" element={<NoMatch />} />
+								</Routes>
+							</section>
+							<FooterComponent />
+						</main>
 					</StoreProvider>
 				)}
 			</Router>
